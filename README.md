@@ -79,6 +79,30 @@ python -m http.server 8000
 
 AIのディープリサーチでスポットを調査してもらうときは、**`docs/ディープリサーチの依頼フォーマット.md`** に依頼文（コピー用）を用意してあります。その文をそのまま貼り付けて依頼すると、サイトのデータ形式（JSON）で回答を得られます。
 
+## Cloudflare Pages で公開する
+
+このリポジトリは静的サイトのため、[Cloudflare Pages](https://pages.cloudflare.com/) にそのままデプロイできます。
+
+1. [Cloudflare Dashboard](https://dash.cloudflare.com/) にログインし、**Workers & Pages** → **Create** → **Pages** → **Connect to Git** を選ぶ
+2. **GitHub** を選び、`jyooooo0/yamagata-kids-map` リポジトリを接続（権限を許可）
+3. ビルド設定：
+   - **Framework preset**: None
+   - **Build command**: （空のまま）
+   - **Build output directory**: `/`（ルートのまま）
+4. **Save and Deploy** でデプロイ開始
+
+デプロイ後、`https://<プロジェクト名>.pages.dev` でサイトが表示されます。カスタムドメインも設定できます。
+
+### 更新の反映
+
+`main` ブランチに push すると、Cloudflare Pages が自動で再デプロイします。
+
+```bash
+git add .
+git commit -m "メッセージ"
+git push origin main
+```
+
 ## 注意
 
 - 営業時間・設備は変更になることがあります。事前に電話等でご確認ください。
