@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鶴岡市 子ども連れで行けるお店・スポット</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="site-title">
+        <span class="title-icon">👶</span>
+        鶴岡市 子ども連れで行けるお店・スポット
+      </h1>
+      <p class="site-desc">食べ物・遊び・安らぎ・学び・自然まで、子連れにやさしい場所をまとめました。</p>
+      <nav class="header-nav" aria-label="便利リンク">
+        <a href="#map-section" class="header-nav-link">📍 マップで見る</a>
+        <a href="#kosodate-info" class="header-nav-link">📋 子育ての情報</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="categories" aria-label="カテゴリ">
+      <div class="categories-inner" id="categories-container">
+        <button type="button" class="category-btn active" data-category="all" aria-pressed="true">すべて</button>
+        <!-- 残りのボタンは app.js で data.categoryOrder と data.categories から生成 -->
+      </div>
+    </section>
+
+    <section class="places" aria-label="スポット一覧">
+      <div class="places-inner" id="places-container">
+        <!-- カードはJSで挿入 -->
+        <p class="loading" id="loading">読み込み中…</p>
+      </div>
+    </section>
+
+    <section class="map-section" id="map-section" aria-label="マップ">
+      <h2 class="section-title">📍 マップで見る</h2>
+      <p class="section-desc">各スポットをGoogleマップでピン表示して確認できます。</p>
+      <div class="map-embed-wrap" id="map-embed-wrap">
+        <!-- Google My Map の埋め込みURLを設定するとここに表示されます。設定方法はREADMEを参照。 -->
+        <div class="map-placeholder" id="map-placeholder">
+          <p>スポット一覧のピン付きマップは<strong>Google My Map</strong>で作成できます。</p>
+          <p><a href="https://www.google.com/maps/d/u/0/" target="_blank" rel="noopener">Google My Map を開く</a> → 新しい地図を作成 → スポットをピンで追加 → 「共有」→「地図を埋め込む」のURLを取得し、<code>index.html</code> の埋め込み用URLを設定してください。</p>
+          <p>各スポットのカードにある「地図で見る」から、個別の住所をGoogleマップで開けます。</p>
+        </div>
+        <iframe id="map-iframe" class="map-iframe hidden" title="鶴岡市 子連れスポットマップ"></iframe>
+      </div>
+    </section>
+
+    <section class="info-section" id="kosodate-info" aria-label="子育ての情報">
+      <h2 class="section-title">📋 子育ての情報</h2>
+      <p class="section-desc">鶴岡市・山形県の子育て支援情報へのリンクです。</p>
+      <ul class="info-links">
+        <li><a href="https://www.city.tsuruoka.lg.jp/kyoiku/kosodate/kosodate.html" target="_blank" rel="noopener">鶴岡市 子育てガイドブック「おおきくなあれ」</a></li>
+        <li><a href="https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01manma.html" target="_blank" rel="noopener">鶴岡市子育て広場「まんまルーム」</a></li>
+        <li><a href="https://kosodate.pref.yamagata.jp/" target="_blank" rel="noopener">山形県 子育て支援サイト（にんべんネット）</a></li>
+        <li><a href="https://www.pref.yamagata.jp/ou/kosodateshien/052013/sukoyaka.html" target="_blank" rel="noopener">山形県 すこやか子育て支援情報</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>情報は随時更新します。追加・修正のご希望はお問い合わせください。</p>
+    <p class="footer-note">※住所はGoogleマップの情報を参照しています。営業時間・設備は変更になる場合があります。事前にご確認ください。</p>
+  </footer>
+
+  <!-- Google My Map の埋め込みURLを設定すると「マップで見る」に表示されます -->
+  <script>window.MAP_EMBED_URL = '';</script>
+  <!-- app.js が動かない・遅い場合のフォールバック（約8秒後にメッセージ表示） -->
+  <script>
+    (function(){
+      var loadingId = 'loading';
+      setTimeout(function(){
+        var el = document.getElementById(loadingId);
+        if (el && !el.classList.contains('hidden')) {
+          el.classList.add('hidden');
+          var container = document.getElementById('places-container');
+          if (container) {
+            container.innerHTML = '<p class="empty-message">表示に時間がかかっています。<br>ファイルを直接開いている場合は、<strong>F12</strong>でコンソールのエラーを確認するか、ターミナルで <code>npx serve .</code> を実行して表示されるURLで開いてみてください。</p>';
+          }
+        }
+      }, 8000);
+    })();
+  </script>
+  <script src="app.js" onerror="var c=document.getElementById('places-container');var l=document.getElementById('loading');if(l)l.classList.add('hidden');if(c)c.innerHTML='<p class=\'empty-message\'>app.js の読み込みに失敗しました。index.html と同じフォルダに app.js があるか確認し、<strong>npx serve .</strong> でローカルサーバーを起動して開いてみてください。</p>';"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+const fs = require('fs');
+const path = require('path');
+const json = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'places.json'), 'utf8'));
+const oneLine = JSON.stringify(json);
+const appPath = path.join(__dirname, '..', 'app.js');
+let app = fs.readFileSync(appPath, 'utf8');
+const start = '  var PLACES_DATA = ';
+const endMark = '};';
+const i = app.indexOf(start);
+const j = app.lastIndexOf(endMark);
+if (i === -1 || j === -1) throw new Error('PLACES_DATA not found');
+const after = app.slice(j + endMark.length);
+const newLine = after.startsWith('\n') ? '' : '\n';
+app = app.slice(0, i) + start + oneLine + endMark + newLine + after;
+fs.writeFileSync(appPath, app, 'utf8');
+console.log('app.js PLACES_DATA updated with', json.places.length, 'places');
