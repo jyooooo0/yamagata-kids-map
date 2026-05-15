@@ -2,6 +2,9 @@
   "name": "yamagata-kids-map",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "description": "山形県の子育て世帯のための情報プラットフォーム。子連れで行ける場所、おむつ替えスペース、病院、補助制度などを地域でアップデートしていくサービス。",
   "scripts": {
     "dev": "next dev",

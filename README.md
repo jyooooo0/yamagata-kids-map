@@ -160,10 +160,11 @@ yamagata-kids-map/
 1. [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
 2. `jyooooo0/yamagata-kids-map` を選択
 3. ビルド設定（**Static Export**：`next.config.ts` で `output: "export"` を指定済み）：
-   - **Framework preset**: None（または Next.js を選んでもよいが、下記を手動で上書き）
+   - **Framework preset**: **`None` に必ずする**（「Next.js」を選ぶと `@cloudflare/next-on-pages` 系の前提になり、このリポジトリの **`out/` 静的出力と一致せず、デプロイ後に HTTP 404 になることがあります**）
+   - **Root directory**: `/`（空のまま）。モノレポでない限りサブフォルダを指定しない
    - **Build command**: `npm run build`
-   - **Build output directory**: `out`
-   - **Node version**: `20` 以上（環境変数 `NODE_VERSION=20`）
+   - **Build output directory**: **`out`**（先頭スラッシュなし・小文字。`.next` や `.vercel/output/static` にしない）
+   - **Node version**: `20` 以上（環境変数 `NODE_VERSION=20`。リポジトリ直下の `.node-version` にも `20` を記載済み）
    - **メモ**：ビルドがメモリ不足で落ちる場合は Cloudflare の環境変数に  
      `NODE_OPTIONS=--max-old-space-size=8192` を追加（`package.json` の `build` でも同様に指定済み）
 4. **ヒント**：ホーム直下に別の `package-lock.json` があると Next が workspace root を誤検知することがあります。不要なら親フォルダの lockfile を削除するか、`next.config.ts` の `turbopack.root` でプロジェクト直下を明示しています。
@@ -187,6 +188,19 @@ Firebase Console → **Authentication** → **Settings** → **Authorized domain
 ### 更新の反映
 
 `main` ブランチに push すると自動で再デプロイされます。
+
+### デプロイ後に HTTP 404（このサイトが見つかりません）のとき
+
+ほとんどは **ビルド成果物がアップロードされていない** 状態です。次を順に確認してください。
+
+1. Cloudflare Dashboard → 該当プロジェクト → **Deployments** → 最新デプロイを開く → **Build log** が **Success** か
+2. ログ末尾付近に **`Export`** / **`out`** に関する記述があり、`next build` が完走しているか
+3. **Settings** → **Builds & deployments** で  
+   **Build output directory** が **`out`** になっているか（Typo で `dist` / `build` / `.next` になっていないか）
+4. **Framework preset** が誤って **Next.js** のままになっていないか → **`None`** に変更して **Retry deployment**
+5. リポジトリ直下の **`wrangler.toml`** に `pages_build_output_dir = "out"` を記載済みです（Dashboard の Build output と矛盾させないこと）
+
+ビルドが **Failed** のときはログに npm / Node / メモリエラーが出ているので、その文言をコピーして共有してください。
 
 ---
 

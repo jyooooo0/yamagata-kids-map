@@ -1,0 +1,8 @@
+# Cloudflare Pages（Git 連携）向け。
+# Dashboard の Build output directory と一致させること。
+# https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+compatibility_date = "2026-05-01"
+
+# Next.js の output: "export" で生成される静的ファイルの出力先
+pages_build_output_dir = "out"
