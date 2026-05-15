@@ -1,109 +1,209 @@
-# 鶴岡市 子ども連れで行けるお店・スポット
+# やまがた子育てマップ
 
-鶴岡市で子ども連れでも行きやすいお店や施設を、カテゴリ別にまとめたサイトです。
+山形県・庄内エリアの子育て世帯のための情報プラットフォーム。
+子連れで行ける場所、おむつ替えスペース、病院、子どもカット対応の美容室、補助制度を、
+地域でアップデートしていく地図サービス。
 
-## カテゴリ（複数選択可）
+> Phase 1A 開発中。Cloudflare Pages へのデプロイで MVP 公開を目指します。
 
-- **ランチ・ごはん** … 飲食店で食事（小上がり・個室・授乳室・キッズメニュー等）
-- **カフェ・スイーツ** … カフェ、甘味
-- **赤ちゃんの駅** … 授乳・オムツ替えができる拠点
-- **室内で遊ぶ** … 児童館、キッズ施設、プレイルーム
-- **公園・外あそび** … 公園、広場、屋外遊具
-- **水族館・動物** … 加茂水族館など
-- **温泉・宿泊** … 温泉旅館、ホテル
-- **美容室・サロン** … キッズカットなど
-- **図書館・読み聞かせ** … 図書館、おはなし会
-- **ものづくり・体験** … 陶芸、クラフト、工房
-- **博物館・歴史** … 致道博物館など
-- **自然・ハイキング** … 羽黒山、大山、キャンプ場など
+---
 
-1件のスポットに複数カテゴリを付与できます（例：スターバックス＝カフェ＋赤ちゃんの駅）。
+## 機能
 
-## 使い方
+- **スポット一覧**：13カテゴリ × 庄内5市町 × 設備・サービスのタグで絞り込み
+- **スポット詳細**：住所・電話・営業時間・設備タグ、Googleマップ・公式サイト連携
+- **補助制度**：庄内5市町（鶴岡・酒田・三川・庄内・遊佐）の制度リンク集
+- **サービス紹介**：コンセプト、ロードマップ、運営方針
 
-1. `index.html` をブラウザで開くか、ローカルサーバーで表示する
-2. カテゴリボタンで「すべて」「食べ物」「遊び」などを切り替える
-3. 各カードで住所・電話・営業時間と「子連れ向けの設備・情報」を確認する
+### 近日公開（Phase 1B / Phase 2）
 
-### ローカルでプレビュー（任意）
+- ユーザー投稿（スポット追加・口コミ・写真・タグ）
+- メール / Google ログイン（Phase 1B）／ LINE ログイン（Phase 2、Custom Auth で実装）
+- 子どもの誕生日登録 → 月齢別パーソナライズ
+- ルート上のおむつ替えスポット検索
+
+詳細は [docs/ROADMAP.md](docs/ROADMAP.md) を参照。
+
+---
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 16 (App Router)
+- **言語**: TypeScript (strict)
+- **スタイル**: Tailwind CSS v4 + shadcn/ui（手書き配置）
+- **アイコン**: lucide-react
+- **データ／認証**: Firebase
+  - **Firestore**: スポット・口コミ・補助制度・子どもプロフィール
+  - **Firebase Authentication**: メール／Google／（Phase 2 で LINE Custom Auth）
+  - **Firebase Storage**: 投稿写真
+- **ホスティング**: Cloudflare Pages
+- **バージョン管理**: GitHub
+
+詳細は [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)、[docs/DATA_MODEL.md](docs/DATA_MODEL.md) を参照。
+
+---
+
+## 開発を始める
+
+### 必要環境
+
+- Node.js 20+ （推奨: 24 系）
+- npm 10+
+
+### セットアップ
 
 ```bash
-# Python が入っている場合
-cd tsuruoka-kosodate-spots
-python -m http.server 8000
-# ブラウザで http://localhost:8000 を開く
+git clone https://github.com/jyooooo0/yamagata-kids-map.git
+cd yamagata-kids-map
+npm install
 ```
 
-## データの編集
+Windows PowerShell で `npm` がブロックされる場合：
 
-スポットの追加・修正は `data/places.json` を編集します。
-
-- **places** 配列に1件ずつオブジェクトを追加
-- 各カテゴリごとに **details** のキーが異なります（`data/places.json` 内の `categories` を参照）
-- 食べ物の例：`kozakai`（小上がり）, `koshitsu`（個室）, `junyushitsu`（授乳室）, `babyChair`, `kidsMenu`, `omutsu`, `parking`
-
-### 1件の例（食べ物）
-
-```json
-{
-  "id": "my-restaurant",
-  "name": "お店の名前",
-  "category": "food",
-  "address": "鶴岡市〇〇町1-2-3",
-  "phone": "0235-XX-XXXX",
-  "hours": "11:00～20:00",
-  "closed": "水曜日",
-  "description": "子ども連れ歓迎。小上がり席あり。",
-  "details": {
-    "kozakai": true,
-    "koshitsu": false,
-    "junyushitsu": true,
-    "babyChair": true,
-    "kidsMenu": true,
-    "omutsu": true,
-    "parking": "あり（無料）"
-  }
-}
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 ```
 
-## マップでピン表示する（Google My Map）
+### 開発サーバー
 
-1. [Google My Map](https://www.google.com/maps/d/u/0/) で新しい地図を作成する
-2. 各スポットの住所で「場所を追加」し、ピンを打つ
-3. 「共有」→「地図を埋め込む」を選び、表示される **埋め込み用URL**（`https://www.google.com/maps/d/embed?mid=...`）をコピーする
-4. `index.html` を開き、`<script>window.MAP_EMBED_URL = '';</script>` の `''` の中にそのURLを貼り付けて保存する
+```bash
+npm run dev
+```
 
-保存後、ページの「マップで見る」セクションに、ピン付きの地図が表示されます。
+→ http://localhost:3000
 
-## ディープリサーチでリストを作成する場合
+### 型チェック
 
-AIのディープリサーチでスポットを調査してもらうときは、**`docs/ディープリサーチの依頼フォーマット.md`** に依頼文（コピー用）を用意してあります。その文をそのまま貼り付けて依頼すると、サイトのデータ形式（JSON）で回答を得られます。
+```bash
+npm run typecheck
+```
 
-## Cloudflare Pages で公開する
+### ビルド
 
-このリポジトリは静的サイトのため、[Cloudflare Pages](https://pages.cloudflare.com/) にそのままデプロイできます。
+```bash
+npm run build
+```
 
-1. [Cloudflare Dashboard](https://dash.cloudflare.com/) にログインし、**Workers & Pages** → **Create** → **Pages** → **Connect to Git** を選ぶ
-2. **GitHub** を選び、`jyooooo0/yamagata-kids-map` リポジトリを接続（権限を許可）
+---
+
+## 環境変数
+
+Firebase に接続する場合のみ、プロジェクトルートに `.env.local` を作成：
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=xxxxx
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxxxxxxxxxx
+NEXT_PUBLIC_FIREBASE_APP_ID=1:xxxxxxxxxxx:web:xxxxxxxxxxx
+```
+
+Phase 1A では未設定でも動作します（`src/lib/places.ts` が静的データを返すため）。
+`src/lib/firebase.ts` の `isFirebaseConfigured()` で安全にフォールバックします。
+
+### Firebase プロジェクトの作成（Phase 1B〜）
+
+1. [Firebase Console](https://console.firebase.google.com/) で新規プロジェクトを作成
+2. **Build** → **Authentication** → **Sign-in method** で「メール／パスワード」「Google」を有効化
+3. **Build** → **Firestore Database** → ロケーションは `asia-northeast1`（東京）を推奨
+4. **Build** → **Storage** → 同じく `asia-northeast1` で有効化
+5. **Project settings** → **General** → **Your apps** → **Web app** を追加し、`firebaseConfig` を取得
+6. 上記の値を `.env.local` に転記
+
+---
+
+## ディレクトリ構成
+
+```
+yamagata-kids-map/
+├── docs/                       # 設計ドキュメント
+│   ├── ARCHITECTURE.md
+│   ├── DATA_MODEL.md
+│   ├── ROADMAP.md
+│   └── WORK_IN_PROGRESS.md
+├── legacy/                     # 旧静的サイト（参照用）
+│   └── data/places.json        # 旧データソース
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx            # トップ
+│   │   ├── layout.tsx
+│   │   ├── globals.css         # デザイントークン
+│   │   ├── spots/              # スポット一覧・詳細
+│   │   ├── subsidies/          # 補助制度
+│   │   └── about/              # サービス紹介
+│   ├── components/
+│   │   ├── layout/             # SiteHeader / SiteFooter
+│   │   ├── spots/              # SpotCard / CategoryIcon
+│   │   └── ui/                 # shadcn 部品
+│   ├── data/legacy-places.json # 暫定データソース
+│   ├── lib/
+│   │   ├── categories.ts       # マスタ
+│   │   ├── places.ts           # 旧JSON → Spot 変換層
+│   │   ├── firebase.ts         # Firebase クライアント
+│   │   └── utils.ts
+│   └── types/spot.ts
+├── components.json             # shadcn 設定
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
+```
+
+---
+
+## Cloudflare Pages へのデプロイ
+
+### 初回セットアップ
+
+1. [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
+2. `jyooooo0/yamagata-kids-map` を選択
 3. ビルド設定：
-   - **Framework preset**: None
-   - **Build command**: （空のまま）
-   - **Build output directory**: `/`（ルートのまま）
-4. **Save and Deploy** でデプロイ開始
+   - **Framework preset**: Next.js
+   - **Build command**: `npx @cloudflare/next-on-pages@latest`
+   - **Build output directory**: `.vercel/output/static`
+   - **Node version**: `20` 以上
+4. 環境変数（必要に応じて）：
+   - `NEXT_PUBLIC_FIREBASE_API_KEY`
+   - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+   - `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+   - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+   - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+   - `NEXT_PUBLIC_FIREBASE_APP_ID`
+   - `NODE_VERSION=20`
+5. **Save and Deploy**
 
-デプロイ後、`https://<プロジェクト名>.pages.dev` でサイトが表示されます。カスタムドメインも設定できます。
+### Firebase Auth で「承認済みドメイン」に Cloudflare Pages のドメインを追加
+
+Firebase Console → **Authentication** → **Settings** → **Authorized domains** に以下を追加：
+
+- `your-project.pages.dev`（Cloudflare の自動ドメイン）
+- カスタムドメインを設定した場合はそれも追加
 
 ### 更新の反映
 
-`main` ブランチに push すると、Cloudflare Pages が自動で再デプロイします。
+`main` ブランチに push すると自動で再デプロイされます。
 
-```bash
-git add .
-git commit -m "メッセージ"
-git push origin main
-```
+---
 
-## 注意
+## 開発状況メモ
 
-- 営業時間・設備は変更になることがあります。事前に電話等でご確認ください。
-- 掲載情報の追加・修正の希望は、運営者までお問い合わせください。
+進行中の作業の詳細は [docs/WORK_IN_PROGRESS.md](docs/WORK_IN_PROGRESS.md) を参照。
+
+---
+
+## ライセンス・運営方針
+
+- 非営利運営。掲載店舗からの広告料は受け取りません。
+- コードは MIT ライセンスで公開予定。
+- データの利用・改変は自由。ただしクレジット表記をお願いします。
+
+---
+
+## コントリビュート
+
+- バグ報告・機能要望は [GitHub Issues](https://github.com/jyooooo0/yamagata-kids-map/issues) へ
+- スポット情報の追加・修正依頼は、サイト内の修正依頼フォーム（近日公開）から
+
+「庄内の子育てを、みんなであたためる地図。」

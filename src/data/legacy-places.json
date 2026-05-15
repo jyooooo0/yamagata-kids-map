@@ -1,0 +1,1689 @@
+{
+  "categories": {
+    "eat": {
+      "id": "eat",
+      "name": "ランチ・ごはん",
+      "icon": "🍽️",
+      "order": 1,
+      "fields": [
+        {
+          "key": "kozakai",
+          "label": "小上がり",
+          "type": "boolean"
+        },
+        {
+          "key": "koshitsu",
+          "label": "個室",
+          "type": "boolean"
+        },
+        {
+          "key": "junyushitsu",
+          "label": "授乳室",
+          "type": "boolean"
+        },
+        {
+          "key": "babyChair",
+          "label": "ベビーチェア",
+          "type": "boolean"
+        },
+        {
+          "key": "kidsMenu",
+          "label": "キッズメニュー",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え台",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "cafe": {
+      "id": "cafe",
+      "name": "カフェ・スイーツ",
+      "icon": "☕",
+      "order": 2,
+      "fields": [
+        {
+          "key": "kozakai",
+          "label": "小上がり",
+          "type": "boolean"
+        },
+        {
+          "key": "koshitsu",
+          "label": "個室",
+          "type": "boolean"
+        },
+        {
+          "key": "junyushitsu",
+          "label": "授乳室",
+          "type": "boolean"
+        },
+        {
+          "key": "babyChair",
+          "label": "ベビーチェア",
+          "type": "boolean"
+        },
+        {
+          "key": "kidsMenu",
+          "label": "キッズメニュー",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え台",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "babyStation": {
+      "id": "babyStation",
+      "name": "赤ちゃんの駅",
+      "icon": "🍼",
+      "order": 3,
+      "fields": [
+        {
+          "key": "junyushitsu",
+          "label": "授乳室",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "playIndoor": {
+      "id": "playIndoor",
+      "name": "室内で遊ぶ",
+      "icon": "🎪",
+      "order": 4,
+      "fields": [
+        {
+          "key": "indoor",
+          "label": "屋内/屋外",
+          "type": "text"
+        },
+        {
+          "key": "ageRange",
+          "label": "対象年齢",
+          "type": "text"
+        },
+        {
+          "key": "junyushitsu",
+          "label": "授乳室",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え",
+          "type": "boolean"
+        },
+        {
+          "key": "restSpace",
+          "label": "休憩スペース",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "playOutdoor": {
+      "id": "playOutdoor",
+      "name": "公園・外あそび",
+      "icon": "🛝",
+      "order": 5,
+      "fields": [
+        {
+          "key": "stroller",
+          "label": "ベビーカー対応",
+          "type": "boolean"
+        },
+        {
+          "key": "toilet",
+          "label": "トイレ",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "aquarium": {
+      "id": "aquarium",
+      "name": "水族館・動物",
+      "icon": "🐠",
+      "order": 6,
+      "fields": [
+        {
+          "key": "indoor",
+          "label": "屋内/屋外",
+          "type": "text"
+        },
+        {
+          "key": "ageRange",
+          "label": "対象年齢",
+          "type": "text"
+        },
+        {
+          "key": "junyushitsu",
+          "label": "授乳室",
+          "type": "boolean"
+        },
+        {
+          "key": "omutsu",
+          "label": "オムツ替え",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "onsen": {
+      "id": "onsen",
+      "name": "温泉・宿泊",
+      "icon": "♨️",
+      "order": 7,
+      "fields": [
+        {
+          "key": "familyBath",
+          "label": "家族風呂",
+          "type": "boolean"
+        },
+        {
+          "key": "babyAmenity",
+          "label": "ベビー備品",
+          "type": "text"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "beauty": {
+      "id": "beauty",
+      "name": "美容室・サロン",
+      "icon": "✂️",
+      "order": 8,
+      "fields": [
+        {
+          "key": "kidsSpace",
+          "label": "キッズスペース",
+          "type": "boolean"
+        },
+        {
+          "key": "private",
+          "label": "個室・貸切",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "library": {
+      "id": "library",
+      "name": "図書館・読み聞かせ",
+      "icon": "📚",
+      "order": 9,
+      "fields": [
+        {
+          "key": "ageRange",
+          "label": "対象年齢",
+          "type": "text"
+        },
+        {
+          "key": "event",
+          "label": "おはなし会など",
+          "type": "text"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "craft": {
+      "id": "craft",
+      "name": "ものづくり・体験",
+      "icon": "🎨",
+      "order": 10,
+      "fields": [
+        {
+          "key": "ageRange",
+          "label": "対象年齢",
+          "type": "text"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "museum": {
+      "id": "museum",
+      "name": "博物館・歴史",
+      "icon": "🏛️",
+      "order": 11,
+      "fields": [
+        {
+          "key": "ageRange",
+          "label": "対象年齢",
+          "type": "text"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    },
+    "nature": {
+      "id": "nature",
+      "name": "自然・ハイキング",
+      "icon": "🌿",
+      "order": 12,
+      "fields": [
+        {
+          "key": "stroller",
+          "label": "ベビーカー対応",
+          "type": "boolean"
+        },
+        {
+          "key": "toilet",
+          "label": "トイレ",
+          "type": "boolean"
+        },
+        {
+          "key": "parking",
+          "label": "駐車場",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  "categoryOrder": [
+    "eat",
+    "cafe",
+    "babyStation",
+    "playIndoor",
+    "playOutdoor",
+    "aquarium",
+    "onsen",
+    "beauty",
+    "library",
+    "craft",
+    "museum",
+    "nature"
+  ],
+  "places": [
+    {
+      "id": "izukiku",
+      "name": "ニュー割烹食堂 伊豆菊",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "庄内浜の新鮮な魚介を活かした割烹食堂。個室や小上がりが多く、落ち着いた和の空間で食事が楽しめます。子連れ向けには個室のほか授乳室を完備。乳幼児連れでも周りを気にせず、庄内の味をゆっくり味わえます。",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": true,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "k-dining",
+      "name": "K-Dining",
+      "address": "山形県鶴岡市（旧・香林塔どうむ）",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "スタイリッシュな雰囲気のレストラン（旧・香林塔どうむ）。個室でプライベートな時間を過ごせます。子連れにも配慮した空間で、大人も子どももくつろぎながら食事ができます。",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": false,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "kissa-mariina",
+      "name": "喫茶まりーな",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "アットホームな洋食・喫茶店。小上がり席が多く、家族で囲むテーブルでゆっくり過ごせます。子ども連れに人気の席取りやすく、親子でメニューを分けたり取り分けたりしやすい雰囲気です。",
+      "categories": [
+        "eat",
+        "cafe"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "uotei-okazaki",
+      "name": "魚亭 岡ざき",
+      "address": "山形県鶴岡市美咲町2-46",
+      "phone": "0235-25-0086",
+      "hours": "",
+      "closed": "",
+      "description": "庄内浜の海の幸を使った海鮮居酒屋。海鮮丼や刺身・寿司、コース料理が人気。個室・小上がり・授乳室があり、昼はランチ、夜は子連れディナーにも対応。乳幼児連れでも個室で落ち着いて食事できます。",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": true,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "hikawa-cafe",
+      "name": "日和田カフェ 北極光",
+      "address": "山形県鶴岡市日和田町21-37",
+      "phone": "0235-64-1311",
+      "hours": "",
+      "closed": "",
+      "description": "無添加・食育を意識したメニューが特徴のカフェ。山小屋風の店内で、地元の食材を活かしたランチやスイーツが楽しめます。小上がり席があり、子どもと一緒にのんびり食事やおやつタイムが過ごせます。",
+      "categories": [
+        "eat",
+        "cafe"
+      ],
+      "primaryCategory": "cafe",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "chitto-motche",
+      "name": "足湯カフェ Chitto Motche",
+      "address": "山形県鶴岡市湯温海甲170",
+      "phone": "0235-43-4390",
+      "hours": "",
+      "closed": "",
+      "description": "あつみ温泉街にある足湯カフェ。庄内の季節の食材を使ったプレートランチやパスタ・ピザ、地元作家のクラフトを展示するギャラリーを併設。足元からほっとする癒しの空間で、親子でランチやおやつを楽しんだり、足湯でひと息つけます。",
+      "categories": [
+        "cafe"
+      ],
+      "primaryCategory": "cafe",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "yunohama-kitchen",
+      "name": "ゆのはま100年キッチン",
+      "address": "山形県鶴岡市湯野浜1-8-43",
+      "phone": "0235-35-0280",
+      "hours": "",
+      "closed": "",
+      "description": "湯野浜温泉の海を望むレストラン・シェアキッチン。地元・庄内の食材を使ったランチ・カフェ・ディナーが楽しめます。オーシャンビューの席で、子どもと一緒に海を見ながら食事ができる子連れに人気のスポットです。",
+      "categories": [
+        "cafe",
+        "eat"
+      ],
+      "primaryCategory": "cafe",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "kotohiraso",
+      "name": "中華そば処 琴平荘",
+      "address": "山形県鶴岡市三瀬己381-46 旅館琴平荘",
+      "phone": "0235-73-3230",
+      "hours": "",
+      "closed": "冬季限定営業",
+      "description": "旅館・琴平荘で営業する中華そば処。トビウオ（アゴ）出しの自家製スープが特徴で、冬季限定（10月～5月）の営業。広い座敷で落ち着いて味わえ、子連れにも安心。期間・営業時間は要確認。",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "omatsuga",
+      "name": "大松家",
+      "address": "山形県鶴岡市水沢行司免43-13",
+      "phone": "0235-35-4041",
+      "hours": "",
+      "closed": "",
+      "description": "江戸時代の豪農の旧宅を移築した歴史ある手打ちそば店（大松庵）。香り高いそばと、べんけいめしなどの郷土料理が味わえます。座敷でゆっくり食事ができ、子どもと一緒に昔ながらの空間と味を体験できます。",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "sutamina-taru",
+      "name": "すたみな太郎 鶴岡店",
+      "address": "山形県鶴岡市ほなみ町10-18",
+      "phone": "0235-25-5529",
+      "hours": "",
+      "closed": "",
+      "description": "バイキング形式のレストラン。和洋中さまざまな料理を好きなだけ選べるので、子どもの好みや食べる量に合わせやすいです。オムツ替え台・授乳室・ベビーチェア・キッズメニュー完備で、乳幼児連れでも安心して利用できます。",
+      "categories": [
+        "eat",
+        "babyStation"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": true,
+        "babyChair": true,
+        "kidsMenu": true,
+        "omutsu": true,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "pisolino",
+      "name": "ピソリーノ 鶴岡インター店",
+      "address": "山形県鶴岡市美咲町27-32",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "イタリアンビュッフェのピソリーノ鶴岡インター店。ピザやパスタを中心にバイキング形式で楽しめます。赤ちゃんの駅登録で授乳室・オムツ替え・ベビーチェア・キッズメニューがあり、子連れに配慮された設備が整っています。",
+      "categories": [
+        "eat",
+        "babyStation"
+      ],
+      "primaryCategory": "eat",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": true,
+        "babyChair": true,
+        "kidsMenu": true,
+        "omutsu": true,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "starbucks-tsuruoka",
+      "name": "スターバックス 鶴岡店",
+      "address": "山形県鶴岡市上畑町3-30",
+      "phone": "0235-29-9755",
+      "hours": "",
+      "closed": "",
+      "description": "スターバックスコーヒー鶴岡店。ドライブスルーや店内でコーヒーやフードが楽しめます。赤ちゃんの駅登録で授乳・オムツ替えが可能。買い物や移動の合間に、親子でひと息つける駅周辺の拠点です。",
+      "categories": [
+        "cafe",
+        "babyStation"
+      ],
+      "primaryCategory": "cafe",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": true,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": true,
+        "parking": ""
+      },
+      "url": "https://www.starbucks.co.jp/"
+    },
+    {
+      "id": "kids-dome-sorai",
+      "name": "KIDS DOME SORAI（バーンフュージョン ソライ）",
+      "address": "山形県鶴岡市美咲町1-1",
+      "phone": "0235-26-8801",
+      "hours": "",
+      "closed": "",
+      "description": "建築家・坂茂氏設計の全天候型児童施設（バーンフュージョンソライ）。大型アスレチック「アソビバ」と工作・アートの「ツクルバ」、ワークショップが一度の入館で楽しめます。庄内地域在住の1歳～中3は「ソライ子育て応援フリーパス」で利用料無料。授乳室・オムツ替え台あり。予約推奨日は要確認。",
+      "categories": [
+        "playIndoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内",
+        "ageRange": "1歳〜中学生",
+        "junyushitsu": true,
+        "omutsu": true,
+        "restSpace": false,
+        "parking": "あり"
+      },
+      "url": "https://www.sorai.shonai.inc/"
+    },
+    {
+      "id": "hiroppia",
+      "name": "鶴岡市中央児童館（ひろっぴあ）",
+      "address": "山形県鶴岡市馬場町2-1",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市中央児童館（ひろっぴあ）。幼児遊び室・プレイルーム・巨大な屋外遊園があり、0～18歳まで利用可能。行事が多く、弁当持参で一日中過ごせる滞在型施設です。授乳室・おむつ交換台・休憩スペースがあり、無料で利用できます。",
+      "categories": [
+        "playIndoor",
+        "playOutdoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内・屋外",
+        "ageRange": "0〜18歳",
+        "junyushitsu": true,
+        "omutsu": true,
+        "restSpace": true,
+        "parking": "あり"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate02hiroppia.html"
+    },
+    {
+      "id": "manma-room",
+      "name": "子育て広場 まんまルーム",
+      "address": "山形県鶴岡市末広町3-1 マリカ東館3階",
+      "phone": "0235-24-5635",
+      "hours": "9:00～17:00",
+      "closed": "年末年始（12月29日～1月3日）",
+      "description": "子育て広場「まんまルーム」は、子育て中のお父さん・お母さん、孫育ての祖父母が気軽につどい、ゆったりくつろげる自由来館型の施設です。未就学児（主に0～3歳）と保護者が対象。年齢別の遊びスペース、絵本コーナー、ボールプール、滑り台のほか、授乳室・おむつ交換台・親子サロン（飲食可・電子レンジ完備）を完備。絵本の貸出や子育て講座・栄養相談も。鶴岡駅前・マリカ東館3階、駐車場3時間無料。",
+      "categories": [
+        "playIndoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内",
+        "ageRange": "0～3歳中心",
+        "junyushitsu": true,
+        "omutsu": true,
+        "restSpace": true,
+        "parking": "3時間無料（駅から徒歩5分）"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01manma.html"
+    },
+    {
+      "id": "kamo-aquarium",
+      "name": "鶴岡市立加茂水族館",
+      "address": "山形県鶴岡市今泉字大久保657-1",
+      "phone": "0235-33-3036",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立加茂水族館は、クラゲの展示種類数でギネス認定。庄内の海の生きものや「ひれあしの時間」、裏側見学など体験プログラムも豊富です。授乳室・オムツ替え台があり、ベビーカーでも回りやすく、全年齢で楽しめます。※増築・改修に伴う臨時休館あり。開館状況は公式サイトで要確認。",
+      "categories": [
+        "aquarium"
+      ],
+      "primaryCategory": "aquarium",
+      "details": {
+        "indoor": "屋内・屋外",
+        "ageRange": "全年齢",
+        "junyushitsu": true,
+        "omutsu": true,
+        "restSpace": false,
+        "parking": "あり"
+      },
+      "url": "https://kamo-kurage.jp/"
+    },
+    {
+      "id": "oyama-jidoukan",
+      "name": "大山児童館",
+      "address": "山形県鶴岡市大山",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "大山地区の児童館。プレイルームや絵本コーナーがあり、ヨット体験などの行事も。0～18歳が無料で利用できます。子連れで気軽に遊びに行ける地域の拠点です。",
+      "categories": [
+        "playIndoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内",
+        "ageRange": "0〜18歳",
+        "junyushitsu": false,
+        "omutsu": false,
+        "restSpace": false,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "nakayoshi-hiroba",
+      "name": "なかよし広場（にこふる）",
+      "address": "山形県鶴岡市家中新町 子ども家庭支援センター内",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "なかよし広場（にこふる）は、子ども家庭支援センター内の未就学児向け広場。子育て相談窓口と一体で、育児の相談をしながら子どもと遊べます。授乳室・おむつ交換台あり、無料。",
+      "categories": [
+        "playIndoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内",
+        "ageRange": "未就学児",
+        "junyushitsu": true,
+        "omutsu": true,
+        "restSpace": false,
+        "parking": "あり"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/kosodate/kosodate.html"
+    },
+    {
+      "id": "namco-small",
+      "name": "namco S-MALL店",
+      "address": "山形県鶴岡市錦町2-21 S-MALL内",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "S-MALL内のナムコ。ショッピングの合間にゲームやアミューズメントが楽しめる雨の日の遊び場。入場無料エリアもあり、全年齢で利用可能。モール駐車場を利用できます。",
+      "categories": [
+        "playIndoor"
+      ],
+      "primaryCategory": "playIndoor",
+      "details": {
+        "indoor": "屋内",
+        "ageRange": "全年齢",
+        "junyushitsu": false,
+        "omutsu": false,
+        "restSpace": false,
+        "parking": "モール駐車場"
+      },
+      "url": ""
+    },
+    {
+      "id": "tachibanaya",
+      "name": "たちばなや",
+      "address": "山形県鶴岡市湯温海（あつみ温泉）",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "あつみ温泉のウェルカムベビー認定宿。ベビーソープ・ベッド・専用客室のほか、貸切展望露天風呂が1回無料で利用できます。家族での温泉旅行に人気です。",
+      "categories": [
+        "onsen"
+      ],
+      "primaryCategory": "onsen",
+      "details": {
+        "familyBath": true,
+        "babyAmenity": "家族風呂あり",
+        "parking": "あり"
+      },
+      "url": "https://www.tachibanaya.com/"
+    },
+    {
+      "id": "kyukamura-shonai",
+      "name": "休暇村 庄内羽黒",
+      "address": "山形県鶴岡市羽黒町手向字手向7",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "羽黒山麓の休暇村庄内羽黒。大浴場にベビーチェア、ステップやおねしょマット・枕などベビー備品が充実。クラフトコーナーなど子ども向けプログラムもあり、家族で自然と宿泊を楽しめます。",
+      "categories": [
+        "onsen"
+      ],
+      "primaryCategory": "onsen",
+      "details": {
+        "familyBath": true,
+        "babyAmenity": "家族向け",
+        "parking": "あり"
+      },
+      "url": "https://www.qkamura.or.jp/shonai/"
+    },
+    {
+      "id": "suiden-terrace",
+      "name": "スイデンテラス（SHONAI HOTEL SUIDEN TERRASSE）",
+      "address": "山形県鶴岡市北京田字下鳥ノ巣23-1",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "田んぼに浮かぶデザインホテル。知育玩具・絵本完備の「ソライルーム」や、KIDS DOME SORAIとの連携プランが豊富。乳幼児連れの滞在に配慮した設備で、子連れ宿泊に人気です。",
+      "categories": [
+        "onsen"
+      ],
+      "primaryCategory": "onsen",
+      "details": {
+        "familyBath": true,
+        "babyAmenity": "ソライルームあり",
+        "parking": "あり"
+      },
+      "url": "https://www.suiden-terrasse.jp/"
+    },
+    {
+      "id": "yunose-ryokan",
+      "name": "湯の瀬旅館",
+      "address": "山形県鶴岡市戸沢字神子谷103-2",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "湯の瀬温泉の湯の瀬旅館。国内最大級の大露天風呂が名物で、家族で広々と入浴できます。家族風呂など子連れにやさしいプラン・設備を用意しています。",
+      "categories": [
+        "onsen"
+      ],
+      "primaryCategory": "onsen",
+      "details": {
+        "familyBath": true,
+        "babyAmenity": "家族風呂",
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "yunohama-onsen",
+      "name": "湯野浜温泉（各所）",
+      "address": "山形県鶴岡市湯野浜温泉",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "湯野浜温泉は、夏は海水浴、冬は日本海の景色が楽しめる温泉街。各宿で家族風呂やベビー対応を用意している施設が多く、子連れのリフレッシュに最適。施設ごとに駐車・設備は異なります。",
+      "categories": [
+        "onsen"
+      ],
+      "primaryCategory": "onsen",
+      "details": {
+        "familyBath": true,
+        "babyAmenity": "自然",
+        "parking": "各施設による"
+      },
+      "url": ""
+    },
+    {
+      "id": "hair-attache",
+      "name": "Hair Make アタッシュ",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "6ヶ月の乳児から対応する美容室。キッズスペース・個室貸切で、トイレにベビーシート完備。ママ・パパが施術中も子どもが過ごしやすく、家族でサロンに来やすい環境です。",
+      "categories": [
+        "beauty"
+      ],
+      "primaryCategory": "beauty",
+      "details": {
+        "kidsSpace": true,
+        "private": true,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "fam-hair",
+      "name": "fam hair",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "マンツーマン予約制の美容室。キッズスペース・貸切可能で、2歳未満の簡易カットは無料。子連れでも落ち着いて施術を受けられます。",
+      "categories": [
+        "beauty"
+      ],
+      "primaryCategory": "beauty",
+      "details": {
+        "kidsSpace": true,
+        "private": true,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "shobikan",
+      "name": "昭美館",
+      "address": "山形県東田川郡庄内町",
+      "phone": "",
+      "hours": "21時まで営業",
+      "closed": "",
+      "description": "庄内町の美容室。キッズスペースと漫画が充実し、個室もあるため、子ども連れでも髪を切りに来やすいです。21時まで営業。",
+      "categories": [
+        "beauty"
+      ],
+      "primaryCategory": "beauty",
+      "details": {
+        "kidsSpace": true,
+        "private": true,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "hair-sol",
+      "name": "HAIR DESIGN SOL",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "完全予約制の美容室。平日限定のキッズカットメニューがあり、子どもと一緒に通いやすいサロンです。",
+      "categories": [
+        "beauty"
+      ],
+      "primaryCategory": "beauty",
+      "details": {
+        "kidsSpace": true,
+        "private": true,
+        "parking": ""
+      },
+      "url": ""
+    },
+    {
+      "id": "lib-main",
+      "name": "鶴岡市立図書館（本館）",
+      "address": "山形県鶴岡市家中新町14-7",
+      "phone": "0235-25-2525",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立図書館本館。2階に郷土資料館を併設。おはすい・おはどん（週2回）、おはちび（0～2歳・月2回）など乳幼児向けおはなし会や、幼児・小学生向けの読み聞かせ・手遊びを実施。子どもと本やおはなし会に触れられる拠点です。月曜・祝日・年末年始休館。",
+      "categories": [
+        "library"
+      ],
+      "primaryCategory": "library",
+      "details": {
+        "ageRange": "0歳〜",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "",
+        "event": "0歳〜"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+    },
+    {
+      "id": "lib-kushibiki",
+      "name": "鶴岡市立図書館 櫛引分館",
+      "address": "山形県鶴岡市櫛引字鶴岡田1",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立図書館櫛引分館。おはなしひろば（毎月第3土曜）で絵本、紙芝居、人形劇などを実施。幼児から楽しめる読み聞かせの場です。",
+      "categories": [
+        "library"
+      ],
+      "primaryCategory": "library",
+      "details": {
+        "ageRange": "幼児〜",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "",
+        "event": "幼児〜"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+    },
+    {
+      "id": "lib-asahi",
+      "name": "鶴岡市立図書館 朝日分館",
+      "address": "山形県鶴岡市朝日町",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立図書館朝日分館。おはなし会（毎月第2土曜）で地域ボランティアによる読み聞かせ。絵本の世界を親子で楽しめます。",
+      "categories": [
+        "library"
+      ],
+      "primaryCategory": "library",
+      "details": {
+        "ageRange": "幼児〜",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "",
+        "event": "幼児〜"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+    },
+    {
+      "id": "lib-atsumi",
+      "name": "鶴岡市立図書館 温海分館",
+      "address": "山形県鶴岡市温海戊577-1",
+      "phone": "0235-43-4411",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立図書館温海分館。七夕・クリスマスなど季節のイベントに合わせたおはなし会を開催。温海地域の子どもたちの読書の拠点です。",
+      "categories": [
+        "library"
+      ],
+      "primaryCategory": "library",
+      "details": {
+        "ageRange": "幼児〜",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "",
+        "event": "幼児〜"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+    },
+    {
+      "id": "lib-haguro",
+      "name": "鶴岡市立図書館 羽黒分館",
+      "address": "山形県鶴岡市羽黒町手向",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡市立図書館羽黒分館。おはなし会（奇数月の第3土曜）を実施。羽黒地域で絵本や読み聞かせを楽しめる場所です。",
+      "categories": [
+        "library"
+      ],
+      "primaryCategory": "library",
+      "details": {
+        "ageRange": "幼児〜",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "",
+        "event": "幼児〜"
+      },
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+    },
+    {
+      "id": "matsugaoka-you",
+      "name": "松ヶ岡窯",
+      "address": "山形県鶴岡市羽黒町松ヶ岡字松ヶ岡25・28・29",
+      "phone": "0235-62-4824",
+      "hours": "",
+      "closed": "",
+      "description": "松ヶ岡開墾場内の陶芸教室・松ヶ岡窯。手びねり・電動ろくろ・絵付け・タイル体験などが要予約で可能。子どもから大人まで参加でき、親子で陶芸体験ができます。水曜休（祝日は翌平日）、年末年始休業。",
+      "categories": [
+        "craft"
+      ],
+      "primaryCategory": "craft",
+      "details": {
+        "ageRange": "子ども〜大人",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": "https://tsuruoka-matsugaoka.jp/"
+    },
+    {
+      "id": "craft-matsugaoka",
+      "name": "くらふと松ヶ岡「こぅでらいね」",
+      "address": "山形県鶴岡市羽黒町松ヶ岡",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "松ヶ岡開墾場（クラフトパーク）内の「こぅでらいね」。まゆ細工、木の実細工など多彩なクラフト体験が可能。明治期の建築の中で、親子でものづくりを楽しめます。要予約・問い合わせ。",
+      "categories": [
+        "craft"
+      ],
+      "primaryCategory": "craft",
+      "details": {
+        "ageRange": "子ども〜大人",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": "https://tsuruoka-matsugaoka.jp/"
+    },
+    {
+      "id": "goten-mari",
+      "name": "上野御殿まり教室",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡伝統の「御殿まり」作りが体験できる教室。0歳から大人まで参加可能で、親子で伝統工芸に触れられます。",
+      "categories": [
+        "craft"
+      ],
+      "primaryCategory": "craft",
+      "details": {
+        "ageRange": "0歳〜大人",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "yonabe-usagi",
+      "name": "夜なべうさぎ工房",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "陶芸体験の夜なべうさぎ工房。少人数貸切制で、ペット同伴での器作りも可能。子どもから大人まで、のんびり陶芸を楽しめます。",
+      "categories": [
+        "craft"
+      ],
+      "primaryCategory": "craft",
+      "details": {
+        "ageRange": "子ども〜大人",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "chido-museum",
+      "name": "致道博物館",
+      "address": "山形県鶴岡市家中新町10-18",
+      "phone": "0235-22-1199",
+      "hours": "",
+      "closed": "",
+      "description": "致道博物館は、旧庄内藩主酒井家により創設され、鶴岡公園西隣にあります。国指定重要文化財の旧西田川郡役所・旧鶴岡警察署庁舎・旧渋谷家住宅など、江戸・明治期の歴史的建造物を移築展示。子どもから大人まで歴史に触れられ、入館料は一般1,000円・小中生300円。水曜・年末年始休館。",
+      "categories": [
+        "museum"
+      ],
+      "primaryCategory": "museum",
+      "details": {
+        "ageRange": "全年齢",
+        "junyushitsu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": "https://www.chido.jp/"
+    },
+    {
+      "id": "nanbu-koen",
+      "name": "鶴岡南部公園",
+      "address": "山形県鶴岡市ほなみ町",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡南部公園は、大型遊具・多目的コート・噴水広場を備えた広い公園。多目的トイレ内にオムツ替えシート完備。ベビーカーで散策しやすく、休日は家族連れでにぎわいます。",
+      "categories": [
+        "playOutdoor"
+      ],
+      "primaryCategory": "playOutdoor",
+      "details": {
+        "stroller": true,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "複数箇所"
+      },
+      "url": ""
+    },
+    {
+      "id": "oyama-koen",
+      "name": "大山公園",
+      "address": "山形県鶴岡市大山3丁目",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "大山公園は、四季の自然が楽しめる公園。ハイキングコースや広場があり、トイレ・駐車場（6箇所）完備。ベビーカーはコースにより難しい場合あり。桜の名所としても知られます。",
+      "categories": [
+        "playOutdoor",
+        "nature"
+      ],
+      "primaryCategory": "playOutdoor",
+      "details": {
+        "stroller": false,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "6箇所"
+      },
+      "url": ""
+    },
+    {
+      "id": "haguro-yama",
+      "name": "羽黒山（石段詣）",
+      "address": "山形県鶴岡市羽黒町手向",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "出羽三山の一つ、羽黒山。2,446段の石段や国宝・五重塔、杉並木などがあり、子どもと一緒に歴史と自然を感じるハイキングが楽しめます。参道の茶屋で力餅を食べながら休憩も。有料の自動車道あり。",
+      "categories": [
+        "nature"
+      ],
+      "primaryCategory": "nature",
+      "details": {
+        "stroller": false,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "hiroppia-koen",
+      "name": "児童遊園（ひろっぴあ）",
+      "address": "山形県鶴岡市馬場町2-1 中央児童館隣接",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "児童遊園（ひろっぴあ）は約8,859㎡の広さ。ツリーハウスや親水公園があり、中央児童館（ひろっぴあ）と合わせて一日中遊べます。ベビーカーでも回りやすく、トイレ・駐車場あり。",
+      "categories": [
+        "playOutdoor"
+      ],
+      "primaryCategory": "playOutdoor",
+      "details": {
+        "stroller": true,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "atsumi-bara",
+      "name": "あつみ温泉バラ公園",
+      "address": "山形県鶴岡市湯温海甲63",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "あつみ温泉バラ公園は、約90種3,000本のバラが植栽。6月～10月に次々と咲き、バラ園まつりも開催。散策路でベビーカーも利用可能。季節の花を親子で楽しめます。",
+      "categories": [
+        "playOutdoor"
+      ],
+      "primaryCategory": "playOutdoor",
+      "details": {
+        "stroller": true,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "nezugaseki-camp",
+      "name": "鼠ヶ関キャンプ場",
+      "address": "山形県鶴岡市鼠ケ関字興屋地先",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鼠ヶ関キャンプ場は、夕陽が美しい海岸のキャンプ場。浜まで車で乗り入れでき、磯遊びや磯釣りが可能。トイレ・シャワー棟あり。夏季の予約制営業。海辺の自然体験の拠点です。",
+      "categories": [
+        "nature"
+      ],
+      "primaryCategory": "nature",
+      "details": {
+        "stroller": false,
+        "toilet": true,
+        "junyushitsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "esumall",
+      "name": "エスモール（2F）",
+      "address": "山形県鶴岡市錦町2-21 2F",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡駅前・エスモール2F。赤ちゃんの駅登録で授乳室・オムツ替え・調乳用温湯を完備。買い物や移動の合間に、休憩やお世話ができる駅前の拠点です。",
+      "categories": [
+        "babyStation"
+      ],
+      "primaryCategory": "babyStation",
+      "details": {
+        "junyushitsu": true,
+        "omutsu": true,
+        "quiet": "休憩",
+        "parking": "駅周辺"
+      },
+      "url": ""
+    },
+    {
+      "id": "nishimatsuya",
+      "name": "西松屋 鶴岡店",
+      "address": "山形県鶴岡市美咲町3-15",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "西松屋鶴岡店。赤ちゃんの駅で授乳室・オムツ替えを完備。ベビー用品の購入とあわせて、お世話や休憩ができる子連れに便利なスポットです。",
+      "categories": [
+        "babyStation"
+      ],
+      "primaryCategory": "babyStation",
+      "details": {
+        "junyushitsu": true,
+        "omutsu": true,
+        "quiet": "休憩",
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "aeon-mikawa",
+      "name": "イオンモール三川",
+      "address": "山形県東田川郡三川町大字猪子字和田庫128-1",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "イオンモール三川は、庄内地域でも有数のショッピングモール。近隣最大級の休憩室で授乳室・オムツ替え・調乳用温湯が充実。買い物や食事の合間に、子連れでゆっくり休憩できます。",
+      "categories": [
+        "babyStation"
+      ],
+      "primaryCategory": "babyStation",
+      "details": {
+        "junyushitsu": true,
+        "omutsu": true,
+        "quiet": "休憩室充実",
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "bernard-tsuruoka",
+      "name": "ベルナール 鶴岡",
+      "address": "山形県鶴岡市ほなみ町",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "ベルナール鶴岡。赤ちゃんの駅登録で授乳室・オムツ替えあり。鶴岡南部公園近くの拠点として、お出かけの途中の休憩やお世話に利用できます。",
+      "categories": [
+        "babyStation"
+      ],
+      "primaryCategory": "babyStation",
+      "details": {
+        "junyushitsu": true,
+        "omutsu": true,
+        "quiet": "休憩",
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "shonai-airport",
+      "name": "庄内空港（2F）",
+      "address": "山形県鶴岡市浜中字岡曽根根123",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "庄内空港2Fに授乳室・オムツ替えスペースを完備。空路利用時の安心拠点として、出発前や到着後に子ども連れで利用できます。",
+      "categories": [
+        "babyStation"
+      ],
+      "primaryCategory": "babyStation",
+      "details": {
+        "junyushitsu": true,
+        "omutsu": true,
+        "quiet": "休憩",
+        "parking": "あり"
+      },
+      "url": "https://www.shonai-airport.co.jp/"
+    },
+    {
+      "id": "ramen-tobiko",
+      "name": "ラーメン飛粉",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "小上がりや子供用イスを完備したラーメン店。小盛りのお子様ラーメンもあり、家族連れに配慮した清潔な店内で人気。子連れランチにぴったりです。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": true,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "ramen-furin-kazan",
+      "name": "ラーメン風林火山 鶴岡本店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市宝田3-20-16",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "二郎系ラーメンの風林火山鶴岡本店。乳児・未就学児も利用可で、ベビーカーでの入店も可能。お子様メニューがあり、駐車場も完備。子連れでラーメンを楽しめます。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "ramen-mambi",
+      "name": "らーめん満び",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "大盛りが有名な人気ラーメン店。座敷席があり、子供連れにもおすすめとの口コミが多数。家族で取り分けやすく、子連れでも入りやすい雰囲気です。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "wantan-mangetsu",
+      "name": "ワンタンメンの満月 鶴岡店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "ワンタンメンの満月鶴岡店。奥に座敷があり、小さな子どもへの取り分けもしやすいレイアウト。子連れでワンタンや中華を楽しめるお店です。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "kenchan-tsuruoka",
+      "name": "ケンチャンラーメン 鶴岡店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "ケンチャンラーメン鶴岡店。麺200gの「小小」サイズがあり、子どもや少食の方に最適。お子様メニューもあり、子連れでラーメンを味わえます。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "nomikui-hanabi",
+      "name": "のみくい処 ハナビ",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "のみくい処ハナビ。ママ会・女子会に人気で、150分飲み放題プランや園児・幼児のドリンク無料サービスあり。小上がり・個室で、子連れの会合にも使いやすいです。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "irohani-tsuruoka",
+      "name": "いろはにほへと 鶴岡駅前店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市末広町（鶴岡駅前）",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "鶴岡駅前の完全個室居酒屋。歓送迎会に最適な一方、小学生以下限定のキッズセットやベビーカー入店対応あり。子連れの会食や打ち上げにも利用できます。",
+      "details": {
+        "kozakai": false,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "提携あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "washoku-takitaro",
+      "name": "和定食 滝太郎",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "和定食・滝太郎。未就学児向けのお子様セット（800円）を完備。趣ある和空間の個室で、子どもと一緒にゆっくり食事ができます。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "osteria-lupo",
+      "name": "Osteria Lupo（オステリア ルーポ）",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市末広町 マリカ駐車場ビル内",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "マリカ駐車場ビル内の本格イタリアン。子供用イス・オムツ替え台を完備。10名以上で貸切対応可能で、鶴岡駅前で子連れディナーやパーティーに便利です。",
+      "details": {
+        "kozakai": false,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": true,
+        "kidsMenu": false,
+        "omutsu": true,
+        "parking": "ビル駐車場"
+      },
+      "url": ""
+    },
+    {
+      "id": "nozomi-cafe-nanairo",
+      "name": "のぞみカフェnanairo",
+      "categories": [
+        "cafe"
+      ],
+      "primaryCategory": "cafe",
+      "address": "山形県鶴岡市北茅原町5-54",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "まちなかライブラリー併設ののぞみカフェnanairo。お子様メニューや絵本があり、読書をしながら親子でカフェタイムが過ごせます。子連れでほっと一息つけるスポットです。",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": true,
+        "omutsu": false,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "kappa-zushi-tsuruoka",
+      "name": "かっぱ寿司 鶴岡店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "かっぱ寿司鶴岡店。回転寿司チェーンで、オムツ替え台（1台）完備で清潔。ベビーチェア・キッズメニューがあり、平日・休日ともに子連れで利用しやすい定番店です。",
+      "details": {
+        "kozakai": false,
+        "koshitsu": false,
+        "junyushitsu": false,
+        "babyChair": true,
+        "kidsMenu": true,
+        "omutsu": true,
+        "parking": "あり"
+      },
+      "url": "https://www.kappasushi.co.jp/"
+    },
+    {
+      "id": "grand-elsan",
+      "name": "グランドエルサン（Cafe East）",
+      "categories": [
+        "cafe"
+      ],
+      "primaryCategory": "cafe",
+      "address": "山形県鶴岡市東原町17-7",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "グランドエルサン内のCafe East（イースト）。披露宴会場併設の高級感ある空間で、地元食材を活かしたイタリアンやパティスリーが楽しめます。個室・キッズメニュー・授乳室があり、子連れの会食やお祝いにも最適です。",
+      "details": {
+        "kozakai": false,
+        "koshitsu": true,
+        "junyushitsu": true,
+        "babyChair": true,
+        "kidsMenu": true,
+        "omutsu": true,
+        "parking": "あり"
+      },
+      "url": ""
+    },
+    {
+      "id": "yakitori-zubora",
+      "name": "焼鳥づぼら本店",
+      "categories": [
+        "eat"
+      ],
+      "primaryCategory": "eat",
+      "address": "山形県鶴岡市",
+      "phone": "",
+      "hours": "",
+      "closed": "",
+      "description": "焼鳥づぼら本店。宴会料理を注文すると2階の個室（座敷・最大25名）が利用可能。子連れの宴会や家族の集まりに、個室でゆっくり焼き鳥と料理を楽しめます。",
+      "details": {
+        "kozakai": true,
+        "koshitsu": true,
+        "junyushitsu": false,
+        "babyChair": false,
+        "kidsMenu": false,
+        "omutsu": false,
+        "parking": ""
+      },
+      "url": ""
+    }
+  ]
+}
