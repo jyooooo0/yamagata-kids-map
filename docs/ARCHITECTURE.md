@@ -27,7 +27,7 @@
 | データベース | Firestore | スキーマレスでスポット・口コミ・補助制度を柔軟に管理。Edge ランタイム互換のクライアント SDK が利用可能 |
 | 認証 | Firebase Authentication | メール／Google ログインをネイティブサポート。LINE は Phase 2 で Custom Auth により実装 |
 | ストレージ | Firebase Storage | 投稿写真の保存。`firebasestorage.googleapis.com` を `next.config.ts` の remotePatterns に登録済み |
-| ホスティング | Cloudflare Pages | 無料枠が広い、エッジ配信、`@cloudflare/next-on-pages` で Next.js 動作。Firebase クライアント SDK は Edge Runtime と互換性あり |
+| ホスティング | Cloudflare Pages（Static Export） | `next.config.ts` で `output: "export"`。`out/` をそのまま公開。Phase 1A は Workers アダプタ不要 |
 | バージョン管理 | GitHub | リポジトリ：`jyooooo0/yamagata-kids-map` |
 
 ### なぜ Firebase なのか（Supabase ではなく）
@@ -51,7 +51,8 @@ src/
 │   ├── page.tsx               # トップページ
 │   ├── globals.css            # Tailwind v4 デザイントークン
 │   ├── spots/
-│   │   ├── page.tsx           # スポット一覧（カテゴリ・市町フィルタ）
+│   │   ├── layout.tsx         # メタデータ（page が Client のため）
+│   │   ├── page.tsx           # スポット一覧（Client + useSearchParams でフィルタ）
 │   │   └── [slug]/page.tsx    # スポット詳細
 │   ├── subsidies/page.tsx     # 補助制度
 │   └── about/page.tsx         # サービス紹介
@@ -89,12 +90,14 @@ Phase 1B 移行時、`src/lib/places.ts` の関数（`getAllSpots`, `getSpotBySl
 | ページ | 戦略 | 理由 |
 |--------|------|------|
 | `/` | SSG | 静的データなので完全静的化、CDN にキャッシュ |
-| `/spots` | SSR | `searchParams` でフィルタ、URL でシェア可能 |
-| `/spots/[slug]` | SSG (`generateStaticParams`) | 全スポット分を事前生成 |
-| `/subsidies` | SSG | 静的コンテンツ |
-| `/about` | SSG | 静的コンテンツ |
+| `/spots` | Static Export + Client | `useSearchParams` でクエリ反映、共有 URL はそのまま利用可能 |
+| `/spots/[slug]` | SSG (`generateStaticParams`) | Static Export で全スポットを事前生成 |
+| `/subsidies` | Static Export | 静的コンテンツ |
+| `/about` | Static Export | 静的コンテンツ |
 
-Phase 1B 以降の投稿ページ（`/contribute`, `/spots/[slug]/edit` 等）は ISR + クライアント側書き込み（Firestore の `addDoc` / `updateDoc`）で実装する。
+ビルド成果物は `out/`。Cloudflare Pages の **Build output directory** は `out`。
+
+Phase 1B 以降の投稿ページ（`/contribute`, `/spots/[slug]/edit` 等）はクライアントから Firestore へ書き込み（`addDoc` / `updateDoc`）する設計とし、引き続き Static Export と両立させる。
 
 ## デザインシステム
 
@@ -155,7 +158,7 @@ service cloud.firestore {
 
 ## Cloudflare Pages デプロイ方針
 
-Phase 1A 時点では `next build` の出力をそのままデプロイ可能。
-Phase 1B 以降、Firebase 認証や投稿のサーバーアクションを使うため、`@cloudflare/next-on-pages` を導入する。
+Phase 1A は `npm run build` で `out/` を生成し、Cloudflare Pages にそのディレクトリを公開する。
+Phase 1B 以降も投稿・認証はブラウザから Firebase SDK で行うため、原則として Static Export を継続できる。サーバー専用処理が必要になった時点で `@opennextjs/cloudflare` 等への移行を検討する。
 
 詳細手順は README.md を参照。

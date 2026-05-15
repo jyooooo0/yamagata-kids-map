@@ -5,7 +5,7 @@
   "description": "山形県の子育て世帯のための情報プラットフォーム。子連れで行ける場所、おむつ替えスペース、病院、補助制度などを地域でアップデートしていくサービス。",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node --max-old-space-size=8192 ./node_modules/next/dist/bin/next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"

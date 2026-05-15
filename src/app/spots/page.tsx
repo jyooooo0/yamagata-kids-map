@@ -1,5 +1,8 @@
+"use client";
+
+import { Suspense, useMemo } from "react";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
 import { Filter, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,45 +18,58 @@ import {
 import { getAllSpots, getCategoryCounts } from "@/lib/places";
 import type { CategoryId, MunicipalityCode } from "@/types/spot";
 
-export const metadata: Metadata = {
-  title: "スポットを探す",
-  description:
-    "庄内エリアの子連れで行ける場所を、カテゴリ・市町で絞り込んで探せます。",
-};
-
-interface SpotsPageProps {
-  searchParams: Promise<{
-    category?: string;
-    municipality?: string;
-  }>;
+/**
+ * Static Export 対応のため、searchParams を受け取る SSR から
+ * useSearchParams を使うクライアントコンポーネントに変更。
+ * Phase 1A は legacy-places.json を import した純粋関数で動くので
+ * クライアントでも全件レンダリング可能。
+ */
+export default function SpotsPage() {
+  return (
+    <Suspense fallback={<SpotsPageSkeleton />}>
+      <SpotsPageContent />
+    </Suspense>
+  );
 }
 
-export default async function SpotsPage({ searchParams }: SpotsPageProps) {
-  const params = await searchParams;
-  const activeCategory = isValidCategory(params.category)
-    ? (params.category as CategoryId)
+function SpotsPageContent() {
+  const searchParams = useSearchParams();
+  const rawCategory = searchParams.get("category");
+  const rawMunicipality = searchParams.get("municipality");
+
+  const activeCategory = isValidCategory(rawCategory)
+    ? (rawCategory as CategoryId)
     : null;
-  const activeMunicipality = isValidMunicipality(params.municipality)
-    ? (params.municipality as MunicipalityCode)
+  const activeMunicipality = isValidMunicipality(rawMunicipality)
+    ? (rawMunicipality as MunicipalityCode)
     : null;
 
-  const counts = getCategoryCounts();
-  let spots = getAllSpots();
+  const counts = useMemo(() => getCategoryCounts(), []);
+  const allSpots = useMemo(() => getAllSpots(), []);
 
-  if (activeCategory) {
-    spots = spots.filter((s) => s.categories.includes(activeCategory));
-  }
-  if (activeMunicipality) {
-    spots = spots.filter((s) => s.municipality === activeMunicipality);
-  }
+  const spots = useMemo(() => {
+    let list = allSpots;
+    if (activeCategory) {
+      list = list.filter((s) => s.categories.includes(activeCategory));
+    }
+    if (activeMunicipality) {
+      list = list.filter((s) => s.municipality === activeMunicipality);
+    }
+    return list;
+  }, [allSpots, activeCategory, activeMunicipality]);
 
-  const buildHref = (category?: CategoryId | null, municipality?: MunicipalityCode | null) => {
+  const buildHref = (
+    category?: CategoryId | null,
+    municipality?: MunicipalityCode | null,
+  ) => {
     const sp = new URLSearchParams();
     if (category) sp.set("category", category);
     if (municipality) sp.set("municipality", municipality);
     const q = sp.toString();
     return q ? `/spots?${q}` : "/spots";
   };
+
+  const totalSpotCount = Object.values(counts).reduce((a, b) => a + b, 0);
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
@@ -74,9 +90,14 @@ export default async function SpotsPage({ searchParams }: SpotsPageProps) {
         <FilterRow
           label="カテゴリ"
           activeKey={activeCategory ?? "all"}
-          totalCount={Object.values(counts).reduce((a, b) => a + b, 0)}
+          totalCount={totalSpotCount}
           items={[
-            { key: "all", label: "すべて", href: buildHref(null, activeMunicipality), count: undefined },
+            {
+              key: "all",
+              label: "すべて",
+              href: buildHref(null, activeMunicipality),
+              count: undefined,
+            },
             ...CATEGORIES.map((c) => ({
               key: c.id,
               label: c.name,
@@ -91,7 +112,12 @@ export default async function SpotsPage({ searchParams }: SpotsPageProps) {
           label="市町"
           activeKey={activeMunicipality ?? "all"}
           items={[
-            { key: "all", label: "庄内すべて", href: buildHref(activeCategory, null), count: undefined },
+            {
+              key: "all",
+              label: "庄内すべて",
+              href: buildHref(activeCategory, null),
+              count: undefined,
+            },
             ...MUNICIPALITIES.map((m) => ({
               key: m.code,
               label: m.name,
@@ -191,7 +217,9 @@ function FilterRow({
         {items.map((item) => {
           const isActive = activeKey === item.key;
           const count =
-            item.key === "all" && totalCount !== undefined ? totalCount : item.count;
+            item.key === "all" && totalCount !== undefined
+              ? totalCount
+              : item.count;
           return (
             <Link
               key={item.key}
@@ -231,12 +259,32 @@ function FilterRow({
   );
 }
 
-function isValidCategory(value: string | undefined): boolean {
+function SpotsPageSkeleton() {
+  return (
+    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <div className="space-y-3">
+        <div className="h-3 w-16 rounded bg-muted" />
+        <div className="h-9 w-48 rounded bg-muted" />
+        <div className="h-4 w-full max-w-md rounded bg-muted" />
+      </div>
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div
+            key={i}
+            className="h-64 animate-pulse rounded-xl border border-border bg-card"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function isValidCategory(value: string | null): boolean {
   if (!value) return false;
   return CATEGORIES.some((c) => c.id === value);
 }
 
-function isValidMunicipality(value: string | undefined): boolean {
+function isValidMunicipality(value: string | null): boolean {
   if (!value) return false;
   return MUNICIPALITIES.some((m) => m.code === value);
 }

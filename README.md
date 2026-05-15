@@ -159,12 +159,15 @@ yamagata-kids-map/
 
 1. [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
 2. `jyooooo0/yamagata-kids-map` を選択
-3. ビルド設定：
-   - **Framework preset**: Next.js
-   - **Build command**: `npx @cloudflare/next-on-pages@latest`
-   - **Build output directory**: `.vercel/output/static`
-   - **Node version**: `20` 以上
-4. 環境変数（必要に応じて）：
+3. ビルド設定（**Static Export**：`next.config.ts` で `output: "export"` を指定済み）：
+   - **Framework preset**: None（または Next.js を選んでもよいが、下記を手動で上書き）
+   - **Build command**: `npm run build`
+   - **Build output directory**: `out`
+   - **Node version**: `20` 以上（環境変数 `NODE_VERSION=20`）
+   - **メモ**：ビルドがメモリ不足で落ちる場合は Cloudflare の環境変数に  
+     `NODE_OPTIONS=--max-old-space-size=8192` を追加（`package.json` の `build` でも同様に指定済み）
+4. **ヒント**：ホーム直下に別の `package-lock.json` があると Next が workspace root を誤検知することがあります。不要なら親フォルダの lockfile を削除するか、`next.config.ts` の `turbopack.root` でプロジェクト直下を明示しています。
+5. 環境変数（Firebase を接続する Phase 1B 以降で必要）：
    - `NEXT_PUBLIC_FIREBASE_API_KEY`
    - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
    - `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
@@ -172,7 +175,7 @@ yamagata-kids-map/
    - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
    - `NEXT_PUBLIC_FIREBASE_APP_ID`
    - `NODE_VERSION=20`
-5. **Save and Deploy**
+6. **Save and Deploy**
 
 ### Firebase Auth で「承認済みドメイン」に Cloudflare Pages のドメインを追加
 

@@ -1,29 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
 /**
- * フォントは初回コンパイル時の安定性を優先し、Phase 1A では Noto Sans JP のみ使用する。
- * display 用・serif 用の CSS 変数も同じフォントにフォールバックしている（globals.css 側で吸収）。
- * Phase 1B 以降、Zen Kaku Gothic New / Shippori Mincho B1 を必要な場面で追加する。
+ * 日本語フォントは globals.css の @import で Google Fonts から読み込む。
+ * next/font/google はビルド時に fonts.googleapis.com へアクセスするため、
+ * オフライン環境や CI サンドボックスで失敗しうる。
  */
-const notoSansJp = Noto_Sans_JP({
-  variable: "--font-noto-sans-jp",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-  preload: true,
-  fallback: [
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    "Meiryo",
-    "sans-serif",
-  ],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://yamagata-kids-map.pages.dev"),
   title: {
@@ -81,11 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ja"
-      className={`${notoSansJp.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
+    <html lang="ja" className="h-full antialiased" suppressHydrationWarning>
       <body className="min-h-full bg-background text-foreground flex flex-col">
         <SiteHeader />
         <main className="flex-1 flex flex-col">{children}</main>

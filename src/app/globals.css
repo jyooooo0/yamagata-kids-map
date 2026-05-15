@@ -1,3 +1,9 @@
+/*
+ * Google Fonts はビルド時に next/font で取得しない（オフライン CI・サンドボックスでもビルド可能にする）。
+ * CSS の仕様上、外部 @import は他の @import より先に書く必要がある。
+ */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -150,10 +156,10 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-sans: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
   /* Phase 1A では Display / Serif も Noto Sans JP にフォールバック。Phase 1B 以降に Zen Kaku Gothic New / Shippori Mincho B1 を追加する */
-  --font-display: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
+  --font-display: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
   --font-serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
 }
