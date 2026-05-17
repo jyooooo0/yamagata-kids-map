@@ -111,6 +111,11 @@ export interface Spot {
   /** 緯度経度（地図表示用） */
   lat?: number;
   lng?: number;
+  /**
+   * Google マップの地点URL（共有リンク・/maps/place/ 等）。
+   * 公式の正確なピン位置がある場合に JSON から指定する。
+   */
+  mapsUrl?: string;
 
   phone?: string;
   hours?: string;

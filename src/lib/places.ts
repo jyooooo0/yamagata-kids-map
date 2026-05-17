@@ -18,6 +18,11 @@ interface LegacyPlace {
   id: string;
   name: string;
   address?: string;
+  /** 緯度経度（Google マップと合わせた座標を保存する場合） */
+  lat?: number;
+  lng?: number;
+  /** Google マップの地点URL */
+  mapsUrl?: string;
   phone?: string;
   hours?: string;
   closed?: string;
@@ -169,6 +174,9 @@ function legacyPlaceToSpot(place: LegacyPlace): Spot | null {
     primaryCategory: primary,
     municipality: inferMunicipality(place.address),
     address: place.address?.trim() || undefined,
+    lat: typeof place.lat === "number" && Number.isFinite(place.lat) ? place.lat : undefined,
+    lng: typeof place.lng === "number" && Number.isFinite(place.lng) ? place.lng : undefined,
+    mapsUrl: place.mapsUrl?.trim() || undefined,
     phone: place.phone?.trim() || undefined,
     hours: place.hours?.trim() || undefined,
     closed: place.closed?.trim() || undefined,

@@ -25,6 +25,7 @@ import {
   getSpotBySlug,
   getSpotsByCategory,
 } from "@/lib/places";
+import { getGoogleMapsUrl } from "@/lib/maps";
 import type { Tag } from "@/types/spot";
 
 interface PageProps {
@@ -81,9 +82,7 @@ export default async function SpotDetailPage({ params }: PageProps) {
     .filter((s) => s.id !== spot.id)
     .slice(0, 3);
 
-  const mapUrl = spot.address
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.address)}`
-    : null;
+  const mapUrl = getGoogleMapsUrl(spot);
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">

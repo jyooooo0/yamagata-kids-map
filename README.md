@@ -88,6 +88,12 @@ npm run build
 
 ## 環境変数
 
+```env
+NEXT_PUBLIC_GOOGLE_MY_MAP_EMBED_URL=https://www.google.com/maps/d/embed?mid=xxxxxxxx
+```
+
+Google マイマップで「共有」→「地図を埋め込む」の **iframe の src と同じ URL** を指定します。未設定のときはトップページの「マップで見る」にプレースホルダが出ます。
+
 Firebase に接続する場合のみ、プロジェクトルートに `.env.local` を作成：
 
 ```env
@@ -99,8 +105,8 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxxxxxxxxxx
 NEXT_PUBLIC_FIREBASE_APP_ID=1:xxxxxxxxxxx:web:xxxxxxxxxxx
 ```
 
-Phase 1A では未設定でも動作します（`src/lib/places.ts` が静的データを返すため）。
-`src/lib/firebase.ts` の `isFirebaseConfigured()` で安全にフォールバックします。
+Phase 1A では Firebase 未設定でも動作します（`src/lib/places.ts` が静的データを返すため）。
+マイマップの埋め込み URL も任意です。`src/lib/firebase.ts` の `isFirebaseConfigured()` は安全にフォールバックします。
 
 ### Firebase プロジェクトの作成（Phase 1B〜）
 

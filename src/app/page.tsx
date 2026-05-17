@@ -3,7 +3,7 @@ import {
   ArrowRight,
   Baby,
   Cake,
-  HandHeart,
+  Map,
   MapPinned,
   MessageCircleHeart,
   Sparkles,
@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CategoryIcon } from "@/components/spots/category-icon";
+import { GoogleMyMapSection } from "@/components/spots/google-mymap-section";
 import { SpotCard } from "@/components/spots/spot-card";
 import { CATEGORIES } from "@/lib/categories";
 import { getCategoryCounts, getFeaturedSpots } from "@/lib/places";
@@ -27,6 +28,7 @@ export default function HomePage() {
       <Hero totalSpots={totalSpots} />
       <FeatureBand />
       <CategorySection counts={counts} />
+      <GoogleMyMapSection />
       <FeaturedSpotsSection spots={featured} />
       <FutureFeaturesSection />
       <ContributeCTA />
@@ -71,7 +73,7 @@ function Hero({ totalSpots }: { totalSpots: number }) {
         </h1>
 
         <p className="max-w-2xl text-base leading-relaxed text-foreground/75 sm:text-lg">
-          小上がりのあるお店、おむつ替えできる場所、夜間の小児科、子どもカット対応の美容室、お住まいの市町の補助制度。
+          小上がりのあるお店、おむつ替えできる場所、夜間の小児科、子どもカット対応の美容室。
           <br className="hidden md:block" />
           山形・庄内で子育てするときに「ちょっと先に知っておきたかった」を、地域でアップデートしていく場所です。
         </p>
@@ -84,7 +86,7 @@ function Hero({ totalSpots }: { totalSpots: number }) {
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="text-base">
-            <Link href="/subsidies">補助制度を見る</Link>
+            <Link href="/#spots-map">マップで見る</Link>
           </Button>
         </div>
 
@@ -129,9 +131,9 @@ function FeatureBand() {
       desc: "小児科・夜間救急・健診をまとめてチェック",
     },
     {
-      icon: HandHeart,
-      title: "市町の補助制度",
-      desc: "鶴岡・酒田・三川・庄内・遊佐の制度リンク集",
+      icon: Map,
+      title: "マップで一覧",
+      desc: "ピン付きマイマップとスポット一覧を併用して探せる",
     },
   ];
   return (
@@ -267,7 +269,7 @@ function FutureFeaturesSection() {
           icon={Cake}
           phase="Phase 2"
           title="月齢に合わせた情報配信"
-          description="お子さんの誕生日を登録すると、健診・予防接種・離乳食・補助制度などのタイミングをお知らせ。"
+          description="お子さんの誕生日を登録すると、健診・予防接種・離乳食などのタイミングをお知らせ。"
         />
         <ComingSoonCard
           icon={MapPinned}

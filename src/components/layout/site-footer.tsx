@@ -21,7 +21,7 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              庄内エリアの子育て世帯のために、子連れで行ける場所・おむつ替えスペース・病院・補助制度を、親同士でアップデートしていく情報サイト。
+              庄内エリアの子育て世帯のために、子連れで行ける場所・おむつ替えスペース・病院などを、親同士でアップデートしていく情報サイト。
             </p>
           </div>
 
@@ -29,7 +29,7 @@ export function SiteFooter() {
             title="サイトを使う"
             links={[
               { href: "/spots", label: "スポットを探す" },
-              { href: "/subsidies", label: "補助制度を見る" },
+              { href: "/#spots-map", label: "マップで見る" },
               { href: "/about", label: "このサイトについて" },
             ]}
           />

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { href: "/spots", label: "スポットを探す" },
-  { href: "/subsidies", label: "補助制度" },
   { href: "/about", label: "このサイトについて" },
 ];
 
@@ -46,7 +45,7 @@ export function SiteHeader() {
             </Button>
           ))}
           <Button asChild size="sm" className="ml-2">
-            <Link href="/spots">地図で見る</Link>
+            <Link href="/#spots-map">地図で見る</Link>
           </Button>
         </nav>
 
