@@ -40,6 +40,8 @@ const NAV = [
 
 export function MobileBottomNav() {
   const pathname = usePathname();
+  if (pathname === "/") return null;
+
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const [hash, setHash] = useState("");

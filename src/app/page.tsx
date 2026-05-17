@@ -1,17 +1,14 @@
-import { Suspense } from "react";
+import "@/styles/yamagata-zip-scoped.css";
+import "@/styles/yamagata-zip-desktop.css";
 
-import {
-  PrototypeHome,
-  PrototypeHomeFallback,
-} from "@/components/home/prototype-home";
-import { getAllSpots } from "@/lib/places";
+import { YamagataZipHome } from "@/components/home/yamagata-zip-home";
+import { getAllSpots, getFeaturedSpots } from "@/lib/places";
 
 export default function HomePage() {
-  const spots = getAllSpots();
-
   return (
-    <Suspense fallback={<PrototypeHomeFallback />}>
-      <PrototypeHome spots={spots} />
-    </Suspense>
+    <YamagataZipHome
+      spots={getAllSpots()}
+      featured={getFeaturedSpots(12)}
+    />
   );
 }

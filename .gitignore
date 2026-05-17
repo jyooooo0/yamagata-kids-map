@@ -21,6 +21,8 @@
 /build
 
 # misc
+_zip-ref/
+
 .DS_Store
 Thumbs.db
 *.pem

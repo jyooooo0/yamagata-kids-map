@@ -1,7 +1,8 @@
 /*
- * legacy/styles.css（鶴岡市 子ども連れスポット プロトタイプ）の配色・タイポを準拠
+ * 山形子どもマップ.zip（warm）に合わせたサイト全体ベース。
+ * ZIP 詳細レイアウトは yamagata-zip-scoped.css（#yamagata-zip-root 限定）
  */
-@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@400;600;700&family=Yusei+Magic&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -9,67 +10,66 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --legacy-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --legacy-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --legacy-shadow-sm: 0 1px 3px rgb(120 90 40 / 0.08);
+  --legacy-shadow-md:
+    0 1px 2px rgb(120 90 40 / 0.04),
+    0 8px 24px rgb(120 90 40 / 0.06);
 
-  --radius: 0.75rem;
+  --radius: 1.125rem;
 
-  --background: #faf8f5;
-  --foreground: #1a1a1a;
+  --background: #fff4e6;
+  --foreground: #2b2a26;
 
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #2b2a26;
 
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
+  --popover-foreground: #2b2a26;
 
-  --primary: #2d6a4f;
+  --primary: #e76f51;
   --primary-foreground: #ffffff;
 
-  --secondary: #fef3e6;
-  --secondary-foreground: #1a1a1a;
+  --secondary: #fffbf2;
+  --secondary-foreground: #5c5446;
 
-  --muted: #fef3e6;
-  --muted-foreground: #5c5c5c;
+  --muted: #fffbf2;
+  --muted-foreground: #968b79;
 
-  --accent: #d4a373;
-  --accent-foreground: #1a1a1a;
+  --accent: #2a9d8f;
+  --accent-foreground: #ffffff;
 
   --destructive: #b23838;
   --destructive-foreground: #ffffff;
 
-  --border: #e8e4df;
-  --input: #e8e4df;
-  --ring: #2d6a4f;
+  --border: rgb(155 130 90 / 0.18);
+  --input: rgb(155 130 90 / 0.22);
+  --ring: #e76f51;
 
-  --chart-1: #2d6a4f;
-  --chart-2: #40916c;
-  --chart-3: #d4a373;
-  --chart-4: #5c5c5c;
-  --chart-5: #8b7355;
+  --chart-1: #e76f51;
+  --chart-2: #2a9d8f;
+  --chart-3: #f4a261;
+  --chart-4: #5b8def;
+  --chart-5: #94b843;
 
-  --sidebar: #faf8f5;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #2d6a4f;
+  --sidebar: #fffbf2;
+  --sidebar-foreground: #2b2a26;
+  --sidebar-primary: #e76f51;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fef3e6;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e8e4df;
-  --sidebar-ring: #2d6a4f;
+  --sidebar-accent: #fffbdc;
+  --sidebar-accent-foreground: #5c5446;
+  --sidebar-border: rgb(155 130 90 / 0.18);
+  --sidebar-ring: #e76f51;
 
-  --app-shadow: var(--legacy-shadow-sm);
+  --app-shadow: var(--legacy-shadow-md);
 }
 
 .dark {
-  --background: #1a1f1c;
-  --foreground: #faf8f5;
-  --card: #232a26;
-  --card-foreground: #faf8f5;
-  --primary: #40916c;
-  --primary-foreground: #ffffff;
-  --muted: #2d3832;
-  --muted-foreground: #b8c4bc;
-  --border: #3d4a42;
+  --background: #231f1a;
+  --foreground: #fff4e6;
+  --card: #2c2720;
+  --card-foreground: #fff4e6;
+  --primary: #f4a261;
+  --primary-foreground: #231f1a;
 }
 
 @theme inline {
@@ -101,30 +101,16 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 4px);
-  --radius-xl: calc(var(--radius) + 8px);
-
-  --font-sans: "Zen Maru Gothic", "Noto Sans JP", "Hiragino Maru Gothic ProN",
-    "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  --font-display: "Zen Maru Gothic", "Noto Sans JP", system-ui, sans-serif;
-  --font-serif: "Zen Maru Gothic", serif;
+  --font-sans: "Zen Maru Gothic", "Zen Kaku Gothic New",
+    "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-display: "Klee One", "Zen Maru Gothic", system-ui,
+    sans-serif;
+  --font-serif: "Shippori Mincho", serif;
 }
 
 * {
@@ -147,7 +133,7 @@ body {
 }
 
 .app-card-shadow {
-  box-shadow: var(--legacy-shadow-sm);
+  box-shadow: var(--legacy-shadow-md);
 }
 
 .scrollbar-thin-hide {
@@ -173,10 +159,22 @@ body {
 }
 
 .max-w-layout {
-  max-width: 1000px;
+  max-width: 1180px;
 }
 
 .page-shell-x {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .page-shell-x {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .page-shell-x {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }

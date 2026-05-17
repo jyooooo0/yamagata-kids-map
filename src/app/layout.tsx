@@ -54,8 +54,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf8f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1f1c" },
+    { media: "(prefers-color-scheme: light)", color: "#FFF4E6" },
+    { media: "(prefers-color-scheme: dark)", color: "#231f1a" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="h-full antialiased" data-theme="legacy" suppressHydrationWarning>
+    <html lang="ja" className="h-full antialiased" data-theme="warm" suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />
         <main className="flex flex-1 flex-col pb-safe-mobile-nav">{children}</main>
