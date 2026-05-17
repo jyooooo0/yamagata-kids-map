@@ -225,10 +225,10 @@ function FilterRow({
               key={item.key}
               href={item.href}
               className={[
-                "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
+                "inline-flex items-center gap-1.5 rounded-[1rem] px-3.5 py-2 text-xs font-semibold transition-all",
                 isActive
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-card text-foreground/80 hover:border-primary/40 hover:text-foreground",
+                  ? "border-[0.0625rem] border-primary bg-primary text-primary-foreground shadow-md app-card-shadow"
+                  : "border-[0.0625rem] border-border bg-card text-foreground/85 shadow-sm hover:border-primary/30 hover:bg-secondary/65 hover:text-foreground hover:shadow-[var(--app-shadow)]",
               ].join(" ")}
             >
               {item.icon && (

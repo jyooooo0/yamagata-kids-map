@@ -7,6 +7,7 @@
  */
 
 import legacyPlacesRaw from "@/data/legacy-places.json";
+import { resolveMunicipality } from "@/lib/municipality";
 import type {
   CategoryId,
   MunicipalityCode,
@@ -17,6 +18,8 @@ import type {
 interface LegacyPlace {
   id: string;
   name: string;
+  /** tsuruoka / sakata / mikawa / shonai / yuza / other。無ければ住所から推定 */
+  municipality?: string;
   address?: string;
   /** 緯度経度（Google マップと合わせた座標を保存する場合） */
   lat?: number;
@@ -125,19 +128,6 @@ function detailsToTags(details: Record<string, unknown> | undefined): TagId[] {
   return Array.from(tags);
 }
 
-/**
- * 住所文字列から庄内エリアの市町コードを推定。
- * 鶴岡市が圧倒的多数なのでデフォルトは tsuruoka。
- */
-function inferMunicipality(address: string | undefined): MunicipalityCode {
-  if (!address) return "tsuruoka";
-  if (address.includes("酒田市")) return "sakata";
-  if (address.includes("三川町")) return "mikawa";
-  if (address.includes("庄内町")) return "shonai";
-  if (address.includes("遊佐町")) return "yuza";
-  return "tsuruoka";
-}
-
 function makeSlug(id: string): string {
   return id
     .toLowerCase()
@@ -172,7 +162,7 @@ function legacyPlaceToSpot(place: LegacyPlace): Spot | null {
     category: primary,
     categories: Array.from(new Set([primary, ...mappedCategories])),
     primaryCategory: primary,
-    municipality: inferMunicipality(place.address),
+    municipality: resolveMunicipality(place.municipality, place.address),
     address: place.address?.trim() || undefined,
     lat: typeof place.lat === "number" && Number.isFinite(place.lat) ? place.lat : undefined,
     lng: typeof place.lng === "number" && Number.isFinite(place.lng) ? place.lng : undefined,

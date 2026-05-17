@@ -14,7 +14,7 @@ export function GoogleMyMapSection() {
   return (
     <section
       id="spots-map"
-      className="border-y border-border/60 bg-secondary/20"
+      className="border-y border-border/55 bg-muted/45"
       aria-label="スポットマップ"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
@@ -30,7 +30,7 @@ export function GoogleMyMapSection() {
 
         <div className="mt-8">
           {embedUrl ? (
-            <div className="aspect-[16/10] w-full min-h-[280px] overflow-hidden rounded-xl border border-border bg-card shadow-sm sm:aspect-video sm:min-h-[320px]">
+            <div className="aspect-[16/10] w-full min-h-[280px] overflow-hidden rounded-[1.125rem] border border-border bg-card app-card-shadow sm:aspect-video sm:min-h-[320px]">
               <iframe
                 title="庄内エリアの子育てスポット（Google マイマップ）"
                 src={embedUrl}
@@ -41,7 +41,7 @@ export function GoogleMyMapSection() {
               />
             </div>
           ) : (
-            <div className="rounded-xl border border-dashed border-border bg-card/80 p-8 text-center">
+            <div className="rounded-[1.125rem] border border-dashed border-border bg-card/95 p-8 text-center app-card-shadow">
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <MapPin className="h-6 w-6" strokeWidth={2} />
               </div>

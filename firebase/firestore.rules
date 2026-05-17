@@ -1,0 +1,37 @@
+rules_version = '2';
+
+/**
+ * Firebase Console → Firestore でデプロイするルールです。
+ *
+ * npm i -g firebase-tools 済みならプロジェクト直下で:
+ *   firebase login
+ *   firebase use <your-project-id>
+ *   firebase deploy --only firestore:rules
+ *
+ * 【必須】Authentication で「匿名」「メール」（将来）などサインイン方法を有効化してください。
+ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /** Phase 2 以降で本番運用する予定の公開スポット（現状 MVP は静的 JSON） */
+    match /spots/{spotId} {
+      allow read: if resource.data.status == "published";
+      allow write: if false;
+    }
+
+    /** ユーザーからの情報投稿（モデレーション前は pending のみ許可で作成） */
+    match /spotSubmissions/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.submitterUid == request.auth.uid
+        && request.resource.data.status == "pending"
+        && request.resource.data.type in ["spot_new", "spot_correction"]
+        && request.resource.data.payload is map
+        && request.resource.data.payload.size() <= 40;
+      allow read, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

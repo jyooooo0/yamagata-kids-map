@@ -12,7 +12,8 @@
 
 - **スポット一覧**：13カテゴリ × 庄内5市町 × 設備・サービスのタグで絞り込み
 - **スポット詳細**：住所・電話・営業時間・設備タグ、Googleマップ・公式サイト連携
-- **補助制度**：庄内5市町（鶴岡・酒田・三川・庄内・遊佐）の制度リンク集
+- **スポット投稿**：`/contribute` から Firestore **`spotSubmissions`** へ送信（匿名認証＋モデレーション想定。**ルールは `firebase/firestore.rules` をデプロイ必須**）
+- **補助制度**：庄内5市町（鶴岡・酒田・三川・庄内・遊佐）の制度リンク集（任意）
 - **サービス紹介**：コンセプト、ロードマップ、運営方針
 
 ### 近日公開（Phase 1B / Phase 2）
@@ -111,23 +112,29 @@ Phase 1A では Firebase 未設定でも動作します（`src/lib/places.ts` �
 ### Firebase プロジェクトの作成（Phase 1B〜）
 
 1. [Firebase Console](https://console.firebase.google.com/) で新規プロジェクトを作成
-2. **Build** → **Authentication** → **Sign-in method** で「メール／パスワード」「Google」を有効化
+2. **Build** → **Authentication** → **Sign-in method** で「匿名」（投稿用）および必要に応じて「メール／パスワード」「Google」を有効化
 3. **Build** → **Firestore Database** → ロケーションは `asia-northeast1`（東京）を推奨
 4. **Build** → **Storage** → 同じく `asia-northeast1` で有効化
-5. **Project settings** → **General** → **Your apps** → **Web app** を追加し、`firebaseConfig` を取得
-6. 上記の値を `.env.local` に転記
+5. **Project settings** → **General** → **Your apps** → **Web app** を追加し、`firebaseConfig` を取得して `.env.local` に転記
+6. **投稿機能**：`firebase/firestore.rules` をデプロイ（[docs/FIREBASE.md](docs/FIREBASE.md)）。モデレーションの流れや市町別一覧の更新（`npm run docs:spots-municipality`）も同ドキュメント・[docs/SPOTS_BY_MUNICIPALITY.md](docs/SPOTS_BY_MUNICIPALITY.md) を参照
 
----
-
-## ディレクトリ構成
+--- ディレクトリ構成
 
 ```
 yamagata-kids-map/
 ├── docs/                       # 設計ドキュメント
 │   ├── ARCHITECTURE.md
 │   ├── DATA_MODEL.md
+│   ├── FIREBASE.md               # Firebase 運営（ルールデプロイ・投稿キュー）
 │   ├── ROADMAP.md
+│   ├── SPOTS_BY_MUNICIPALITY.md  # legacy-places の市町別一覧（自動生成可）
 │   └── WORK_IN_PROGRESS.md
+├── firebase/
+│   ├── firestore.rules           # （ルート firebase.json と対）
+│   └── firestore.indexes.json
+├── firebase.json                 # Firebase CLI 設定
+├── scripts/
+│   └── gen-spots-municipality-md.mjs
 ├── legacy/                     # 旧静的サイト（参照用）
 │   └── data/places.json        # 旧データソース
 ├── public/
@@ -137,6 +144,7 @@ yamagata-kids-map/
 │   │   ├── layout.tsx
 │   │   ├── globals.css         # デザイントークン
 │   │   ├── spots/              # スポット一覧・詳細
+│   │   ├── contribute/         # スポット投稿（Firestore）
 │   │   ├── subsidies/          # 補助制度
 │   │   └── about/              # サービス紹介
 │   ├── components/
@@ -147,7 +155,8 @@ yamagata-kids-map/
 │   ├── lib/
 │   │   ├── categories.ts       # マスタ
 │   │   ├── places.ts           # 旧JSON → Spot 変換層
-│   │   ├── firebase.ts         # Firebase クライアント
+│   │   ├── firebase.ts          # Firebase クライアント
+│   │   ├── municipality.ts      # 市町コードの推定・解決
 │   │   └── utils.ts
 │   └── types/spot.ts
 ├── components.json             # shadcn 設定

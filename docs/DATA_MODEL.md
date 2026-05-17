@@ -183,11 +183,36 @@ Firebase Auth の uid をドキュメント ID として、追加情報を持つ
 }
 ```
 
+### `spotSubmissions/{submissionId}`（投稿キュー）
+
+匿名／ログインユーザーからの **`/contribute` フォーム**が作成する運営向けキュー。クライアントは **認証済みのみ `create`** 可、一覧の **read は禁止**（Firebase Console で確認）。
+
+実装済みセキュリティルール：`firebase/firestore.rules`。デプロイ手順は [FIREBASE.md](FIREBASE.md)。
+
+```ts
+{
+  type: "spot_new" | "spot_correction",
+  status: "pending",                // クライアント作成時のみ
+  submitterUid: string,           // Firebase Auth uid（匿名可）
+  contactEmail: string | null,
+  payload: {
+    name: string,
+    municipality: string,          // MunicipalityCode 相当
+    address: string | null,
+    officialUrl: string | null,
+    categoryHint: string | null,
+    body: string,
+    correctionTargetSlug?: string | null,
+  },
+  createdAt: Timestamp,
+}
+```
+
 ---
 
 ## Security Rules 方針
 
-ARCHITECTURE.md に基本方針を記載。完全版は Phase 1B 着手時に `firestore.rules` として配置する。
+基本方針は ARCHITECTURE.md。リポジトリ直下の **`firebase/firestore.rules`** を Firebase CLI でデプロイする（詳細は [FIREBASE.md](FIREBASE.md)）。
 
 要点：
 

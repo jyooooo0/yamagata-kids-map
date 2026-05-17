@@ -79,6 +79,8 @@ export const COLLECTIONS = {
   children: "children",
   subsidies: "subsidies",
   tagSuggestions: "tagSuggestions",
+  /** 匿名／ログインユーザーからの追加・修正依頼（運営が Console で承認処理） */
+  spotSubmissions: "spotSubmissions",
 } as const;
 
 export type CollectionName = (typeof COLLECTIONS)[keyof typeof COLLECTIONS];

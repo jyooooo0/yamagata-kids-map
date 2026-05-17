@@ -1,20 +1,21 @@
 import Link from "next/link";
-import { MapPin, Github, Heart } from "lucide-react";
+import { Github, Heart } from "lucide-react";
 
+import { LogoMark } from "@/components/brand/logo-mark";
 import { Separator } from "@/components/ui/separator";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 bg-secondary/40">
+    <footer className="border-t border-border/60 bg-muted/55">
       <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="space-y-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <span
                 aria-hidden
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground"
+                className="flex items-center justify-center rounded-[1.125rem] border border-primary/30 bg-background p-0.5 app-card-shadow"
               >
-                <MapPin className="h-[18px] w-[18px]" strokeWidth={2.4} />
+                <LogoMark />
               </span>
               <span className="font-display text-base font-bold tracking-tight">
                 やまがた子育てマップ
@@ -61,7 +62,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col items-start justify-between gap-3 text-xs text-muted-foreground md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} やまがた子育てマップ. All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
+          <p className="flex flex-wrap items-center gap-1.5">
             Made in
             <span className="font-display font-semibold text-foreground">
               庄内

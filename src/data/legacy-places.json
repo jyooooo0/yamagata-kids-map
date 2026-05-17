@@ -373,7 +373,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "k-dining",
@@ -396,7 +397,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kissa-mariina",
@@ -420,7 +422,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "uotei-okazaki",
@@ -443,7 +446,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "hikawa-cafe",
@@ -467,7 +471,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "chitto-motche",
@@ -490,7 +495,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "yunohama-kitchen",
@@ -514,7 +520,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kotohiraso",
@@ -537,7 +544,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "omatsuga",
@@ -560,7 +568,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "sutamina-taru",
@@ -584,7 +593,8 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "pisolino",
@@ -608,7 +618,8 @@
         "omutsu": true,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "starbucks-tsuruoka",
@@ -632,7 +643,8 @@
         "omutsu": true,
         "parking": ""
       },
-      "url": "https://www.starbucks.co.jp/"
+      "url": "https://www.starbucks.co.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kids-dome-sorai",
@@ -654,7 +666,8 @@
         "restSpace": false,
         "parking": "あり"
       },
-      "url": "https://www.sorai.shonai.inc/"
+      "url": "https://www.sorai.shonai.inc/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "hiroppia",
@@ -677,7 +690,8 @@
         "restSpace": true,
         "parking": "あり"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate02hiroppia.html"
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate02hiroppia.html",
+      "municipality": "tsuruoka"
     },
     {
       "id": "manma-room",
@@ -699,7 +713,8 @@
         "restSpace": true,
         "parking": "3時間無料（駅から徒歩5分）"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01manma.html"
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01manma.html",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kamo-aquarium",
@@ -721,7 +736,8 @@
         "restSpace": false,
         "parking": "あり"
       },
-      "url": "https://kamo-kurage.jp/"
+      "url": "https://kamo-kurage.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "oyama-jidoukan",
@@ -743,7 +759,8 @@
         "restSpace": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nakayoshi-hiroba",
@@ -765,7 +782,8 @@
         "restSpace": false,
         "parking": "あり"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/kosodate/kosodate.html"
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/kosodate/kosodate.html",
+      "municipality": "tsuruoka"
     },
     {
       "id": "namco-small",
@@ -787,7 +805,8 @@
         "restSpace": false,
         "parking": "モール駐車場"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "tachibanaya",
@@ -806,7 +825,8 @@
         "babyAmenity": "家族風呂あり",
         "parking": "あり"
       },
-      "url": "https://www.tachibanaya.com/"
+      "url": "https://www.tachibanaya.com/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kyukamura-shonai",
@@ -825,7 +845,8 @@
         "babyAmenity": "家族向け",
         "parking": "あり"
       },
-      "url": "https://www.qkamura.or.jp/shonai/"
+      "url": "https://www.qkamura.or.jp/shonai/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "suiden-terrace",
@@ -844,7 +865,8 @@
         "babyAmenity": "ソライルームあり",
         "parking": "あり"
       },
-      "url": "https://www.suiden-terrasse.jp/"
+      "url": "https://www.suiden-terrasse.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "yunose-ryokan",
@@ -863,7 +885,8 @@
         "babyAmenity": "家族風呂",
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "yunohama-onsen",
@@ -882,7 +905,8 @@
         "babyAmenity": "自然",
         "parking": "各施設による"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "hair-attache",
@@ -901,7 +925,8 @@
         "private": true,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "fam-hair",
@@ -920,7 +945,8 @@
         "private": true,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "shobikan",
@@ -939,7 +965,8 @@
         "private": true,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "shonai"
     },
     {
       "id": "hair-sol",
@@ -958,7 +985,8 @@
         "private": true,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "lib-main",
@@ -979,7 +1007,8 @@
         "parking": "",
         "event": "0歳〜"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "lib-kushibiki",
@@ -1000,7 +1029,8 @@
         "parking": "",
         "event": "幼児〜"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "lib-asahi",
@@ -1021,7 +1051,8 @@
         "parking": "",
         "event": "幼児〜"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "lib-atsumi",
@@ -1042,7 +1073,8 @@
         "parking": "",
         "event": "幼児〜"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "lib-haguro",
@@ -1063,7 +1095,8 @@
         "parking": "",
         "event": "幼児〜"
       },
-      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/"
+      "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "matsugaoka-you",
@@ -1083,7 +1116,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "https://tsuruoka-matsugaoka.jp/"
+      "url": "https://tsuruoka-matsugaoka.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "craft-matsugaoka",
@@ -1103,7 +1137,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "https://tsuruoka-matsugaoka.jp/"
+      "url": "https://tsuruoka-matsugaoka.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "goten-mari",
@@ -1123,7 +1158,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "yonabe-usagi",
@@ -1143,7 +1179,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "chido-museum",
@@ -1163,7 +1200,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "https://www.chido.jp/"
+      "url": "https://www.chido.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nanbu-koen",
@@ -1183,7 +1221,8 @@
         "junyushitsu": false,
         "parking": "複数箇所"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "oyama-koen",
@@ -1204,7 +1243,8 @@
         "junyushitsu": false,
         "parking": "6箇所"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "haguro-yama",
@@ -1224,7 +1264,8 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "hiroppia-koen",
@@ -1244,7 +1285,8 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "atsumi-bara",
@@ -1264,7 +1306,8 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nezugaseki-camp",
@@ -1284,7 +1327,8 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "esumall",
@@ -1304,7 +1348,8 @@
         "quiet": "休憩",
         "parking": "駅周辺"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nishimatsuya",
@@ -1324,7 +1369,8 @@
         "quiet": "休憩",
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "aeon-mikawa",
@@ -1344,7 +1390,8 @@
         "quiet": "休憩室充実",
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "mikawa"
     },
     {
       "id": "bernard-tsuruoka",
@@ -1364,7 +1411,8 @@
         "quiet": "休憩",
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "shonai-airport",
@@ -1384,7 +1432,8 @@
         "quiet": "休憩",
         "parking": "あり"
       },
-      "url": "https://www.shonai-airport.co.jp/"
+      "url": "https://www.shonai-airport.co.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "ramen-tobiko",
@@ -1407,7 +1456,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "ramen-furin-kazan",
@@ -1430,7 +1480,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "ramen-mambi",
@@ -1453,7 +1504,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "wantan-mangetsu",
@@ -1476,7 +1528,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kenchan-tsuruoka",
@@ -1499,7 +1552,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nomikui-hanabi",
@@ -1522,7 +1576,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "irohani-tsuruoka",
@@ -1545,7 +1600,8 @@
         "omutsu": false,
         "parking": "提携あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "washoku-takitaro",
@@ -1568,7 +1624,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "osteria-lupo",
@@ -1591,7 +1648,8 @@
         "omutsu": true,
         "parking": "ビル駐車場"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "nozomi-cafe-nanairo",
@@ -1614,7 +1672,8 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "kappa-zushi-tsuruoka",
@@ -1637,7 +1696,8 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": "https://www.kappasushi.co.jp/"
+      "url": "https://www.kappasushi.co.jp/",
+      "municipality": "tsuruoka"
     },
     {
       "id": "grand-elsan",
@@ -1660,7 +1720,8 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     },
     {
       "id": "yakitori-zubora",
@@ -1683,7 +1744,8 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": ""
+      "url": "",
+      "municipality": "tsuruoka"
     }
   ]
 }

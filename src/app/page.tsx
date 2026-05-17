@@ -3,13 +3,16 @@ import {
   ArrowRight,
   Baby,
   Cake,
+  ChevronRight,
   Map,
   MapPinned,
   MessageCircleHeart,
+  Search,
   Sparkles,
   Stethoscope,
 } from "lucide-react";
 
+import { HomeGreetingHello } from "@/components/layout/home-greeting";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CategoryIcon } from "@/components/spots/category-icon";
@@ -17,20 +20,75 @@ import { GoogleMyMapSection } from "@/components/spots/google-mymap-section";
 import { SpotCard } from "@/components/spots/spot-card";
 import { CATEGORIES } from "@/lib/categories";
 import { getCategoryCounts, getFeaturedSpots } from "@/lib/places";
+import type { CategoryId } from "@/types/spot";
+
+/** ヒーロー直下のワンタップ検索（カテゴリ ID は既存クエリと整合） */
+const QUICK_CONDITIONS: {
+  id: CategoryId;
+  emoji: string;
+  label: string;
+  sub: string;
+  tint: string;
+}[] = [
+  {
+    id: "food",
+    emoji: "🍜",
+    label: "ごはん",
+    sub: "小上がり・キッズメニュー",
+    tint: "bg-[color-mix(in_srgb,var(--app-soft)_75%,transparent)] border-[rgb(231_130_91/0.22)]",
+  },
+  {
+    id: "cafe",
+    emoji: "☕",
+    label: "カフェ",
+    sub: "甘味・テイクアウト",
+    tint: "bg-secondary/85 border-secondary-foreground/10",
+  },
+  {
+    id: "babystation",
+    emoji: "🍼",
+    label: "赤ちゃんの駅",
+    sub: "授乳・おむつ替え",
+    tint: "bg-[rgb(42_157_143/0.14)] border-[rgb(42_157_143/0.28)]",
+  },
+  {
+    id: "indoor-play",
+    emoji: "🧸",
+    label: "室内で遊ぶ",
+    sub: "児童館・キッズスペース",
+    tint: "bg-muted border-border",
+  },
+  {
+    id: "park",
+    emoji: "🌳",
+    label: "公園",
+    sub: "外あそび・休日おでかけ",
+    tint: "bg-[rgb(148_184_67/0.18)] border-[rgb(120_150_50/0.25)]",
+  },
+  {
+    id: "hospital",
+    emoji: "🩺",
+    label: "病院・健康",
+    sub: "小児科・救急情報",
+    tint: "bg-[rgb(91_139_239/0.16)] border-[rgb(91_139_239/0.26)]",
+  },
+];
 
 export default function HomePage() {
   const counts = getCategoryCounts();
-  const featured = getFeaturedSpots(6);
+  const featured = getFeaturedSpots(10);
   const totalSpots = Object.values(counts).reduce((a, b) => a + b, 0);
 
   return (
     <>
       <Hero totalSpots={totalSpots} />
+      <SearchBarShortcut />
+      <QuickConditionTiles />
       <FeatureBand />
-      <CategorySection counts={counts} />
       <GoogleMyMapSection />
-      <FeaturedSpotsSection spots={featured} />
+      <FeaturedCarousel spots={featured} />
       <FutureFeaturesSection />
+      <CategorySection counts={counts} />
       <ContributeCTA />
     </>
   );
@@ -38,78 +96,174 @@ export default function HomePage() {
 
 function Hero({ totalSpots }: { totalSpots: number }) {
   return (
-    <section className="relative overflow-hidden bg-rice-field">
+    <section className="relative overflow-hidden bg-warm-shell">
       <div
         aria-hidden
-        className="absolute inset-0 bg-washi opacity-60"
+        className="pointer-events-none absolute inset-0 bg-washi-soft opacity-65"
       />
       <div
         aria-hidden
-        className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-28 h-[22rem] w-[22rem] rounded-full bg-primary/12 blur-3xl"
       />
       <div
         aria-hidden
-        className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-accent/15 blur-3xl"
+        className="pointer-events-none absolute -bottom-36 -left-16 h-[20rem] w-[20rem] rounded-full bg-accent/10 blur-3xl"
       />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3.5 py-1.5 text-xs font-medium text-primary backdrop-blur">
-          <Sparkles className="h-3.5 w-3.5" />
-          庄内エリアから先行リリース中
-        </div>
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-28 pt-10 sm:px-6 sm:pb-36 sm:pt-14 lg:px-8">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-3.5 py-1.5 text-xs font-semibold text-foreground/90 backdrop-blur app-card-shadow">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <HomeGreetingHello />
+            {' · '}
+            <span className="font-medium text-muted-foreground">
+              今日はどこへ行く？
+            </span>
+          </div>
 
-        <h1 className="font-display max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          庄内の子育てを、
-          <br className="hidden sm:block" />
-          みんなで
-          <span className="relative inline-block px-1">
-            <span
-              aria-hidden
-              className="absolute inset-x-0 bottom-1.5 h-3 -skew-x-6 rounded-sm bg-primary/30"
-            />
-            <span className="relative text-primary">あたためる</span>
+          <span className="inline-flex items-center gap-1 rounded-full border border-accent/35 bg-accent/12 px-3 py-1.5 text-xs font-semibold text-accent">
+            <MapPinned className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            庄内エリア
           </span>
-          地図。
-        </h1>
 
-        <p className="max-w-2xl text-base leading-relaxed text-foreground/75 sm:text-lg">
-          小上がりのあるお店、おむつ替えできる場所、夜間の小児科、子どもカット対応の美容室。
-          <br className="hidden md:block" />
-          山形・庄内で子育てするときに「ちょっと先に知っておきたかった」を、地域でアップデートしていく場所です。
-        </p>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button asChild size="lg" className="text-base">
-            <Link href="/spots">
-              スポットを探す
-              <ArrowRight />
-            </Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="text-base">
-            <Link href="/#spots-map">マップで見る</Link>
-          </Button>
+          <Badge
+            variant="secondary"
+            className="rounded-full border border-border/70 bg-secondary/95 px-3 py-1 font-semibold"
+          >
+            掲載 {totalSpots} スポット
+          </Badge>
         </div>
 
-        <dl className="mt-6 grid grid-cols-3 gap-6 border-t border-border/60 pt-6 sm:gap-12">
-          <Stat label="掲載スポット" value={`${totalSpots}件`} />
-          <Stat label="対象エリア" value="庄内5市町" />
-          <Stat label="運営" value="非営利" />
-        </dl>
+        <div className="max-w-3xl space-y-4">
+          <h1 className="font-display text-[1.875rem] font-bold leading-[1.28] tracking-tight text-foreground sm:text-[2.5rem] sm:leading-snug lg:text-[3rem]">
+            庄内の子育て、
+            <br className="sm:hidden" />
+            ゆる〜く広げていくマップ。
+          </h1>
+
+          <p className="max-w-[40rem] text-sm leading-relaxed text-foreground/78 sm:text-base">
+            小上がりのあるお店、おむつ替えできる場所、夜間対応の小児科。
+            「知らなかった」を減らすために、親同士で情報を書き足していくサイトです。
+          </p>
+
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+            <Button
+              asChild
+              size="lg"
+              className="h-[3.125rem] rounded-full px-8 text-[0.95rem] shadow-md app-card-shadow"
+            >
+              <Link href="/spots">
+                はじめる
+                <ChevronRight className="opacity-90" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-[3.125rem] rounded-full border-2 bg-card/85 px-7 text-[0.95rem] backdrop-blur"
+            >
+              <Link href="/#spots-map">マップを見る</Link>
+            </Button>
+          </div>
+        </div>
+
+        <MountainSilhouette />
       </div>
     </section>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function MountainSilhouette() {
   return (
-    <div>
-      <dd className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-        {value}
-      </dd>
-      <dt className="mt-1 text-xs font-medium tracking-wider text-muted-foreground">
-        {label}
-      </dt>
+    <div
+      className="pointer-events-none absolute bottom-0 left-0 right-0 h-14 select-none overflow-hidden text-primary/[0.2] sm:h-[4.75rem]"
+      aria-hidden
+    >
+      <svg
+        className="h-full w-full"
+        viewBox="0 0 1200 90"
+        preserveAspectRatio="none"
+        fill="currentColor"
+      >
+        <path d="M0 90 L180 42 L290 74 L438 34 L596 62 L734 26 L892 54 L1036 38 L1200 68 L1200 90 Z" />
+      </svg>
     </div>
+  );
+}
+
+/** ヒーローと重なる検索バー風リンク */
+function SearchBarShortcut() {
+  return (
+    <div className="relative z-10 -mt-14 px-4 sm:-mt-[4.75rem] sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl">
+        <Link
+          href="/spots"
+          className="flex items-center gap-3 rounded-[1.375rem] border border-border/90 bg-card/95 px-5 py-[0.9375rem] text-sm text-muted-foreground shadow-[var(--app-shadow)] backdrop-blur transition-all hover:border-primary/35 hover:bg-card"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted text-primary">
+            <Search className="h-[1.1875rem] w-[1.1875rem]" strokeWidth={2.25} />
+          </span>
+          <span className="truncate text-left leading-snug">
+            ジャンル・タグからスポットをさがす
+          </span>
+          <ChevronRight
+            className="ml-auto h-5 w-5 shrink-0 text-primary opacity-75"
+            aria-hidden
+          />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function QuickConditionTiles() {
+  return (
+    <section className="relative z-[1] mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6 sm:pt-16 lg:px-8">
+      <SectionHeader
+        eyebrow="QUICK"
+        title="いま気になる条件"
+        description="気分に合わせてまずカテゴリで絞り込み。そのあと一覧で細かく探せます。"
+        className="max-w-xl"
+      />
+      <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-3">
+        {QUICK_CONDITIONS.map((q) => (
+          <Link
+            key={q.id}
+            href={`/spots?category=${q.id}`}
+            className={[
+              "group relative flex flex-col gap-3 overflow-hidden rounded-[1.125rem] border px-4 py-4 shadow-sm transition-all",
+              "app-card-shadow hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[var(--app-shadow)]",
+              q.tint,
+            ].join(" ")}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <span className="text-2xl leading-none" aria-hidden>
+                {q.emoji}
+              </span>
+              <span className="rounded-full bg-card/95 px-2 py-1 text-[0.625rem] font-semibold leading-none uppercase tracking-[0.12em] text-muted-foreground">
+                tap
+              </span>
+            </div>
+            <div>
+              <h3 className="font-display text-[0.95rem] font-bold tracking-tight text-foreground">
+                {q.label}
+              </h3>
+              <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                {q.sub}
+              </p>
+            </div>
+            <div className="mt-auto flex items-center gap-2 text-[0.8rem] font-semibold text-primary">
+              <span>さがしてみる</span>
+              <ChevronRight
+                className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -118,40 +272,40 @@ function FeatureBand() {
     {
       icon: MapPinned,
       title: "子連れで行ける場所",
-      desc: "小上がり・キッズメニュー・授乳室のタグで絞り込み",
+      desc: "タグやカテゴリで、家族に合わせて拾い読みできる設計です。",
     },
     {
       icon: Baby,
-      title: "おむつ替えスペース",
-      desc: "目的地までの道中で立ち寄れる場所も探せる",
+      title: "おむつ・授乳情報",
+      desc: "立ち寄りスポットをまとめて確認。外出の不安をひとつ減らすために。",
     },
     {
       icon: Stethoscope,
-      title: "病院・健康",
-      desc: "小児科・夜間救急・健診をまとめてチェック",
+      title: "健康・クリニック",
+      desc: "小児科や夜間情報もカテゴリで整理。応急でも迷わないように。",
     },
     {
       icon: Map,
-      title: "マップで一覧",
-      desc: "ピン付きマイマップとスポット一覧を併用して探せる",
+      title: "マップとリスト",
+      desc: "マイマップのピンと一覧を両方用意。現在地からの検討にも使えます。",
     },
   ];
   return (
-    <section className="border-y border-border/60 bg-background">
-      <div className="mx-auto grid w-full max-w-6xl gap-px overflow-hidden bg-border/60 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="mt-14 border-y border-border/45 bg-muted/55">
+      <div className="mx-auto grid w-full max-w-6xl gap-3 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
         {features.map(({ icon: Icon, title, desc }) => (
           <div
             key={title}
-            className="flex items-start gap-3 bg-background px-5 py-6"
+            className="flex min-h-[5.75rem] items-start gap-3 rounded-[1.125rem] border border-border/60 bg-card/95 px-5 py-[1.125rem] app-card-shadow"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Icon className="h-5 w-5" strokeWidth={1.8} />
             </div>
             <div>
-              <h3 className="font-display text-sm font-bold tracking-tight">
+              <h3 className="font-display text-sm font-bold tracking-tight text-foreground">
                 {title}
               </h3>
-              <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                 {desc}
               </p>
             </div>
@@ -162,84 +316,52 @@ function FeatureBand() {
   );
 }
 
-function CategorySection({
-  counts,
-}: {
-  counts: Record<string, number>;
-}) {
-  return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeader
-        eyebrow="CATEGORIES"
-        title="カテゴリから探す"
-        description="目的に合わせて12+1のカテゴリから。1つのスポットに複数のカテゴリを付けられるので、思わぬ発見もあります。"
-      />
-
-      <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-        {CATEGORIES.map((c) => (
-          <Link
-            key={c.id}
-            href={`/spots?category=${c.id}`}
-            className="group flex flex-col gap-2 rounded-xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <CategoryIcon
-                  category={c.id}
-                  className="h-5 w-5"
-                  strokeWidth={1.8}
-                />
-              </div>
-              <Badge variant="muted" className="font-normal">
-                {counts[c.id] ?? 0}件
-              </Badge>
-            </div>
-            <h3 className="font-display text-sm font-bold leading-tight tracking-tight">
-              {c.name}
-            </h3>
-            <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">
-              {c.description}
-            </p>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FeaturedSpotsSection({
+function FeaturedCarousel({
   spots,
 }: {
   spots: ReturnType<typeof getFeaturedSpots>;
 }) {
   return (
-    <section className="bg-secondary/30">
-      <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between gap-4">
+    <section className="bg-transparent">
+      <div className="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeader
             eyebrow="PICK UP"
-            title="今日見つかったスポット"
-            description="カテゴリを横断して、運営がピックアップした6件。"
-            className="max-w-2xl"
+            title="おすすめスポット"
+            description="一覧からいくつかピックアップ。横スクロールで順番にチェック。"
+            className="max-w-lg"
           />
-          <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="hidden rounded-full sm:inline-flex"
+          >
             <Link href="/spots">
-              すべて見る
+              もっと見る
               <ArrowRight />
             </Link>
           </Button>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {spots.map((spot) => (
-            <SpotCard key={spot.id} spot={spot} />
-          ))}
+        <div className="relative mt-8">
+          <div
+            className="-mx-4 flex snap-x snap-proximity gap-4 overflow-x-auto px-4 pb-3 scrollbar-thin-hide sm:-mx-6 sm:gap-5 sm:px-6 lg:gap-6"
+          >
+            {spots.map((spot) => (
+              <SpotCard
+                key={spot.id}
+                spot={spot}
+                variant="carousel"
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="mt-8 flex justify-center sm:hidden">
-          <Button asChild variant="outline">
+        <div className="mt-6 flex justify-center sm:hidden">
+          <Button asChild variant="outline" className="rounded-full px-8">
             <Link href="/spots">
-              すべて見る
+              もっと見る
               <ArrowRight />
             </Link>
           </Button>
@@ -251,32 +373,34 @@ function FeaturedSpotsSection({
 
 function FutureFeaturesSection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeader
-        eyebrow="COMING SOON"
-        title="これから増えていく機能"
-        description="MVP公開後、地域の声を聞きながら段階的に追加していきます。"
-      />
+    <section className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 sm:px-6 lg:px-8">
+      <div className="rounded-[1.125rem] border border-dashed border-border/85 bg-muted/65 px-5 py-8 sm:p-10">
+        <SectionHeader
+          eyebrow="COMING SOON"
+          title="これからも育てていく機能"
+          description="ご意見を見ながら、少しずつ足していく予定のことです。"
+        />
 
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
-        <ComingSoonCard
-          icon={MessageCircleHeart}
-          phase="Phase 1 後半"
-          title="ユーザー投稿で情報更新"
-          description="ログインして、新しいスポットを追加したり、口コミ・写真・タグの付け直しができるように。"
-        />
-        <ComingSoonCard
-          icon={Cake}
-          phase="Phase 2"
-          title="月齢に合わせた情報配信"
-          description="お子さんの誕生日を登録すると、健診・予防接種・離乳食などのタイミングをお知らせ。"
-        />
-        <ComingSoonCard
-          icon={MapPinned}
-          phase="Phase 3"
-          title="ルート上のおむつ替え検索"
-          description="出発地と目的地を入れると、道中で立ち寄れる赤ちゃんの駅を提案。庄内は車移動が多いから本当に欲しい機能。"
-        />
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <ComingSoonCard
+            icon={MessageCircleHeart}
+            phase="フェーズ 1 後半"
+            title="みんなの投稿・更新"
+            description="ログイン後にスポット追加や情報の修正案を書き込めるように。"
+          />
+          <ComingSoonCard
+            icon={Cake}
+            phase="フェーズ 2"
+            title="月齢に合わせたお知らせ"
+            description="健診・予防接種など、時期ごとのポイントをお届け。"
+          />
+          <ComingSoonCard
+            icon={MapPinned}
+            phase="フェーズ 3"
+            title="ルート途中の休憩スポット"
+            description="出発地〜目的地を入れて道中の赤ちゃんの駅などをひらめく機能。"
+          />
+        </div>
       </div>
     </section>
   );
@@ -294,14 +418,14 @@ function ComingSoonCard({
   description: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-dashed border-border bg-card p-6">
-      <Badge variant="muted" className="font-normal">
+    <div className="relative overflow-hidden rounded-[1rem] border border-border/65 bg-card/95 px-5 py-[1.375rem] app-card-shadow">
+      <Badge variant="muted" className="rounded-full font-medium">
         {phase}
       </Badge>
-      <div className="mt-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent">
-        <Icon className="h-6 w-6" strokeWidth={1.6} />
+      <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/12 text-accent">
+        <Icon className="h-5 w-5" strokeWidth={1.6} />
       </div>
-      <h3 className="font-display mt-4 text-base font-bold tracking-tight">
+      <h3 className="font-display mt-3 text-[0.95rem] font-bold tracking-tight text-foreground">
         {title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -311,49 +435,102 @@ function ComingSoonCard({
   );
 }
 
+function CategorySection({
+  counts,
+}: {
+  counts: Record<string, number>;
+}) {
+  return (
+    <section className="border-t border-border/40 bg-muted/40">
+      <div className="mx-auto w-full max-w-6xl px-4 py-[4.75rem] sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow="CATEGORIES"
+          title="カテゴリから探す"
+          description="12+1 のカテゴリ。複数タグがあるスポットは、ねらってない種類にも出てくるかも。"
+        />
+
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {CATEGORIES.map((c) => (
+            <Link
+              key={c.id}
+              href={`/spots?category=${c.id}`}
+              className="group flex flex-col gap-[0.65rem] rounded-[1.125rem] border border-border bg-card p-5 transition-all app-card-shadow hover:border-primary/38 hover:bg-card hover:shadow-[var(--app-shadow)]"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex h-[2.625rem] w-[2.625rem] shrink-0 items-center justify-center rounded-xl bg-muted text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <CategoryIcon
+                    category={c.id}
+                    className="h-[1.15rem] w-[1.15rem]"
+                    strokeWidth={1.95}
+                  />
+                </div>
+                <Badge
+                  variant="secondary"
+                  className="rounded-full font-normal tabular-nums"
+                >
+                  {counts[c.id] ?? 0}件
+                </Badge>
+              </div>
+              <h3 className="font-display text-sm font-bold leading-snug tracking-tight text-foreground">
+                {c.name}
+              </h3>
+              <p className="text-[0.7rem] leading-relaxed text-muted-foreground line-clamp-3 sm:text-[0.75rem]">
+                {c.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContributeCTA() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden border-t border-border/50 pb-24 md:pb-16">
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary to-primary/85"
+        className="pointer-events-none absolute inset-0 bg-secondary/85"
       />
-      <div aria-hidden className="absolute inset-0 bg-washi opacity-20" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-washi-soft opacity-40 mix-blend-multiply dark:opacity-25"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-[15%] top-14 h-[18rem] w-[18rem] rounded-full bg-primary/12 blur-[3.75rem]"
+      />
 
-      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-start gap-5 px-4 py-16 text-primary-foreground sm:items-center sm:px-6 sm:text-center sm:py-20">
-        <Badge
-          variant="outline"
-          className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground"
-        >
-          このサイトは地域でつくります
-        </Badge>
-        <h2 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-          知っている場所、教えてもらえませんか。
-        </h2>
-        <p className="max-w-2xl text-base leading-relaxed text-primary-foreground/90">
-          「ここは小上がりがあって助かった」「夜間の小児科をやっと見つけた」
-          ──そんな一言が、次に同じ場面で困る誰かを助けます。
-        </p>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="bg-background text-foreground hover:bg-background/90"
-          >
-            <Link href="/contribute">
-              スポットを投稿する
-              <ArrowRight />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            size="lg"
+      <div className="relative mx-auto w-full max-w-3xl px-4 pt-14 sm:px-6 sm:text-center lg:px-8">
+        <div className="rounded-[1.25rem] border border-border bg-card px-6 py-[2.375rem] app-card-shadow sm:px-[2.875rem]">
+          <Badge
             variant="outline"
-            className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            className="rounded-full border-accent/35 bg-accent/10 font-semibold text-accent"
           >
-            <Link href="/about">サイトについて</Link>
-          </Button>
+            ひとことが宝になる
+          </Badge>
+          <h2 className="font-display mt-4 text-2xl font-bold leading-snug tracking-tight text-foreground sm:text-[1.825rem]">
+            気づいたこと、ひとこと書いてみませんか
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-[0.9rem] leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+            「この席は離乳食のこぼしても大丈夫そうだった」など一言があとから来る親のヒントになります。
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Button asChild size="lg" className="h-[3rem] rounded-full px-10">
+              <Link href="/contribute">
+                スポットを投稿
+                <ArrowRight />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-[3rem] rounded-full border-2 bg-background/90 px-8"
+            >
+              <Link href="/about">このサイトについて</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
@@ -376,11 +553,11 @@ function SectionHeader({
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
         {eyebrow}
       </p>
-      <h2 className="font-display mt-2 text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+      <h2 className="font-display mt-2 text-2xl font-bold leading-snug tracking-tight text-foreground sm:text-[1.725rem]">
         {title}
       </h2>
       {description && (
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
           {description}
         </p>
       )}

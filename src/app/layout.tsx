@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+import { Suspense } from "react";
+
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 
 /**
- * 日本語フォントは globals.css の @import で Google Fonts から読み込む。
- * next/font/google はビルド時に fonts.googleapis.com へアクセスするため、
- * オフライン環境や CI サンドボックスで失敗しうる。
+ * 日本語フォントは globals.css の @import で Google Fonts（Klee One / Zen Maru Gothic）を読み込み。
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://yamagata-kids-map.pages.dev"),
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fdf8f0" },
+    { media: "(prefers-color-scheme: light)", color: "#fff4e6" },
     { media: "(prefers-color-scheme: dark)", color: "#1a1410" },
   ],
   width: "device-width",
@@ -66,11 +67,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="h-full antialiased" suppressHydrationWarning>
-      <body className="min-h-full bg-background text-foreground flex flex-col">
+    <html lang="ja" className="h-full antialiased" data-theme="warm" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main className="flex flex-1 flex-col pb-safe-mobile-nav">{children}</main>
         <SiteFooter />
+        <Suspense fallback={null}>
+          <MobileBottomNav />
+        </Suspense>
       </body>
     </html>
   );

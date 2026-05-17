@@ -1,8 +1,7 @@
 /*
- * Google Fonts はビルド時に next/font で取得しない（オフライン CI・サンドボックスでもビルド可能にする）。
- * CSS の仕様上、外部 @import は他の @import より先に書く必要がある。
+ * フォントは Google Fonts から読み込み（提供デザイン「山形子どもマップ.zip」の warm テーマ準拠）
  */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -10,101 +9,105 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  山形・庄内の風景をモチーフにしたデザイントークン。
-  - 稲穂・夕陽: warm terracotta / amber
-  - 月山・羽黒の杉: deep moss
-  - 米どころのクリーム色: warm ivory
-*/
+ * warm テーマ（ZIP styles.css の [data-theme="warm"] と同等）
+ */
 :root {
-  --radius: 0.75rem;
+  --radius: 1.125rem;
 
-  --background: oklch(0.985 0.012 80);
-  --foreground: oklch(0.24 0.02 50);
+  --app-teal: #2a9d8f;
+  --app-accent-2: #f4a261;
+  --app-soft: #ffe3c7;
+  --app-shadow:
+    0 1px 2px rgb(120 90 40 / 0.04),
+    0 8px 24px rgb(120 90 40 / 0.06);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.02 50);
+  --background: #fff4e6;
+  --foreground: #2b2a26;
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.02 50);
+  --card: #ffffff;
+  --card-foreground: #2b2a26;
 
-  --primary: oklch(0.58 0.16 35);
-  --primary-foreground: oklch(0.985 0.012 80);
+  --popover: #ffffff;
+  --popover-foreground: #2b2a26;
 
-  --secondary: oklch(0.94 0.03 75);
-  --secondary-foreground: oklch(0.32 0.04 50);
+  --primary: #e76f51;
+  --primary-foreground: #ffffff;
 
-  --muted: oklch(0.95 0.018 80);
-  --muted-foreground: oklch(0.5 0.025 60);
+  --secondary: #fffbdc;
+  --secondary-foreground: #5c5446;
 
-  --accent: oklch(0.5 0.08 145);
-  --accent-foreground: oklch(0.985 0.012 80);
+  --muted: #fffbf2;
+  --muted-foreground: #968b79;
 
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.985 0.012 80);
+  --accent: #2a9d8f;
+  --accent-foreground: #ffffff;
 
-  --border: oklch(0.9 0.018 70);
-  --input: oklch(0.92 0.015 70);
-  --ring: oklch(0.58 0.16 35);
+  --destructive: #b23838;
+  --destructive-foreground: #ffffff;
 
-  --chart-1: oklch(0.58 0.16 35);
-  --chart-2: oklch(0.5 0.08 145);
-  --chart-3: oklch(0.7 0.13 75);
-  --chart-4: oklch(0.6 0.12 220);
-  --chart-5: oklch(0.55 0.14 300);
+  --border: rgb(155 130 90 / 0.18);
+  --input: rgb(155 130 90 / 0.22);
+  --ring: #e76f51;
 
-  --sidebar: oklch(0.97 0.015 75);
-  --sidebar-foreground: oklch(0.24 0.02 50);
-  --sidebar-primary: oklch(0.58 0.16 35);
-  --sidebar-primary-foreground: oklch(0.985 0.012 80);
-  --sidebar-accent: oklch(0.94 0.03 75);
-  --sidebar-accent-foreground: oklch(0.32 0.04 50);
-  --sidebar-border: oklch(0.9 0.018 70);
-  --sidebar-ring: oklch(0.58 0.16 35);
+  --chart-1: #e76f51;
+  --chart-2: #2a9d8f;
+  --chart-3: #f4a261;
+  --chart-4: #5b8def;
+  --chart-5: #94b843;
+
+  --sidebar: #fffbf2;
+  --sidebar-foreground: #2b2a26;
+  --sidebar-primary: #e76f51;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fffbdc;
+  --sidebar-accent-foreground: #5c5446;
+  --sidebar-border: rgb(155 130 90 / 0.18);
+  --sidebar-ring: #e76f51;
 }
 
 .dark {
-  --background: oklch(0.18 0.012 60);
-  --foreground: oklch(0.95 0.01 80);
+  --background: #231f1a;
+  --foreground: #fff4e6;
 
-  --card: oklch(0.22 0.014 60);
-  --card-foreground: oklch(0.95 0.01 80);
+  --card: #2c2720;
+  --card-foreground: #fff4e6;
 
-  --popover: oklch(0.22 0.014 60);
-  --popover-foreground: oklch(0.95 0.01 80);
+  --popover: #2c2720;
+  --popover-foreground: #fff4e6;
 
-  --primary: oklch(0.72 0.15 40);
-  --primary-foreground: oklch(0.18 0.012 60);
+  --primary: #f4a261;
+  --primary-foreground: #231f1a;
 
-  --secondary: oklch(0.28 0.02 60);
-  --secondary-foreground: oklch(0.92 0.01 80);
+  --secondary: #3a342c;
+  --secondary-foreground: #fffbf2;
 
-  --muted: oklch(0.26 0.018 60);
-  --muted-foreground: oklch(0.7 0.02 75);
+  --muted: #332d26;
+  --muted-foreground: #bfb5a8;
 
-  --accent: oklch(0.6 0.1 145);
-  --accent-foreground: oklch(0.18 0.012 60);
+  --accent: #4ec5b8;
+  --accent-foreground: #231f1a;
 
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.95 0.01 80);
+  --destructive: #e87168;
+  --destructive-foreground: #231f1a;
 
-  --border: oklch(0.32 0.02 60);
-  --input: oklch(0.32 0.02 60);
-  --ring: oklch(0.72 0.15 40);
+  --border: rgb(255 251 242 / 0.12);
+  --input: rgb(255 251 242 / 0.15);
+  --ring: #f4a261;
 
-  --chart-1: oklch(0.72 0.15 40);
-  --chart-2: oklch(0.6 0.1 145);
-  --chart-3: oklch(0.75 0.12 75);
-  --chart-4: oklch(0.65 0.12 220);
-  --chart-5: oklch(0.6 0.14 300);
+  --chart-1: #f4a261;
+  --chart-2: #4ec5b8;
+  --chart-3: #e76f51;
+  --chart-4: #7eb6ff;
+  --chart-5: #aacf7a;
 
-  --sidebar: oklch(0.22 0.014 60);
-  --sidebar-foreground: oklch(0.95 0.01 80);
-  --sidebar-primary: oklch(0.72 0.15 40);
-  --sidebar-primary-foreground: oklch(0.18 0.012 60);
-  --sidebar-accent: oklch(0.28 0.02 60);
-  --sidebar-accent-foreground: oklch(0.92 0.01 80);
-  --sidebar-border: oklch(0.32 0.02 60);
-  --sidebar-ring: oklch(0.72 0.15 40);
+  --sidebar: #2c2720;
+  --sidebar-foreground: #fff4e6;
+  --sidebar-primary: #f4a261;
+  --sidebar-primary-foreground: #231f1a;
+  --sidebar-accent: #332d26;
+  --sidebar-accent-foreground: #fffbf2;
+  --sidebar-border: rgb(255 251 242 / 0.12);
+  --sidebar-ring: #f4a261;
 }
 
 @theme inline {
@@ -151,17 +154,16 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
-  /* Phase 1A では Display / Serif も Noto Sans JP にフォールバック。Phase 1B 以降に Zen Kaku Gothic New / Shippori Mincho B1 を追加する */
-  --font-display: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
-  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans: "Zen Maru Gothic", "Hiragino Maru Gothic ProN",
+    "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-display: "Klee One", "Zen Maru Gothic", system-ui,
+    sans-serif;
+  --font-serif: "Zen Maru Gothic", serif;
 }
 
 * {
@@ -169,6 +171,7 @@
 }
 
 html {
+  text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -179,22 +182,50 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   font-feature-settings: "palt" 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
-/* 山形の和紙テクスチャ風の背景パターン（薄く重ねる） */
-.bg-washi {
-  background-image:
-    radial-gradient(circle at 1px 1px, oklch(0.85 0.02 60 / 0.35) 1px, transparent 0);
-  background-size: 18px 18px;
-}
-
-/* 稲穂のような薄いグラデーション帯 */
-.bg-rice-field {
-  background-image: linear-gradient(
-    180deg,
-    oklch(0.985 0.012 80) 0%,
-    oklch(0.96 0.04 85) 60%,
-    oklch(0.93 0.06 90) 100%
+.bg-warm-shell {
+  background: linear-gradient(
+    165deg,
+    #ffe9cc 0%,
+    #fff4e6 42%,
+    #f5e6cf 100%
   );
+}
+
+.bg-washi-soft {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(139 118 82 / 0.12) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+}
+
+.app-card-shadow {
+  box-shadow: var(--app-shadow);
+}
+
+.scrollbar-thin-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-thin-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.pb-safe-mobile-nav {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .pb-safe-mobile-nav {
+    padding-bottom: 0;
+  }
+}
+
+/* 固定フッターナビ内部のホームインジケータ分 */
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
