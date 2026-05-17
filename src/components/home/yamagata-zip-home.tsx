@@ -207,16 +207,34 @@ function MountainBackdrop() {
   );
 }
 
-function DesktopMetaAside() {
+function ZipWideSiteHeader() {
   return (
-    <aside className="zip-desktop-meta max-md:hidden">
-      <div className="zip-dm-mark">
+    <header className="zip-wide-site-header" aria-label="サイト">
+      <div className="zip-wide-brand">
         <ZipLogo />
         <div>
-          <div className="zip-dm-title">やまがた子育てマップ</div>
-          <div className="zip-dm-tag">庄内エリアの子育て家族のための情報サイト</div>
+          <div className="zip-wide-brand-title">やまがた子育てマップ</div>
+          <div className="zip-wide-brand-tag">庄内エリアの子育て家族のための情報サイト</div>
         </div>
       </div>
+      <nav className="zip-wide-nav" aria-label="主要ページ">
+        <Link href="/spots/" className="zip-wide-nav-link">
+          スポット一覧
+        </Link>
+        <Link href="/subsidies/" className="zip-wide-nav-link">
+          支援制度
+        </Link>
+        <Link href="/contribute/" className="zip-wide-nav-link">
+          情報を投稿
+        </Link>
+      </nav>
+    </header>
+  );
+}
+
+function DesktopMetaAside({ className }: { className?: string }) {
+  return (
+    <aside className={cn("zip-desktop-meta", className)}>
       <div className="zip-dm-features">
         <div className="zip-dm-feat">
           <span>🗺</span>
@@ -242,7 +260,7 @@ function DesktopMetaAside() {
       <div className="zip-dm-note">
         サイト内データは親御さんの投稿・一覧から反映しています。
         <br />
-        下タブ／フレーム内でスポットをさがしてください。
+        下のタブでスポットをさがしてください。
       </div>
     </aside>
   );
@@ -775,14 +793,15 @@ export function YamagataZipHome({
             </div>
           </div>
 
-          <div className="map-wrap">
+          <div className="explore-main">
+            <div className="map-wrap">
             <div className="h-full min-h-[280px] w-full bg-[#eae3d2] [&_iframe]:min-h-[240px]">
               <GoogleMyMapIframe className="h-full rounded-none border-0 shadow-none" minHeight="min-h-[280px]" />
             </div>
             <button type="button" className="map-locate pointer-events-none" aria-hidden />
-          </div>
+            </div>
 
-          <div className={cn("bottom-sheet", sheetExpanded ? "expanded" : "")}>
+            <div className={cn("bottom-sheet", sheetExpanded ? "expanded" : "")}>
             <button
               type="button"
               className="sheet-grab w-full border-0 bg-transparent"
@@ -860,6 +879,7 @@ export function YamagataZipHome({
                 </p>
               )}
             </div>
+            </div>
           </div>
         </div>
       );
@@ -914,7 +934,14 @@ export function YamagataZipHome({
   }
 
   const appInner = (
-    <div id="yamagata-zip-root" className="flex min-h-0 min-w-0 flex-1 flex-col">
+    <div
+      id="yamagata-zip-root"
+      data-wide-layout={wide ? "true" : "false"}
+      className={cn(
+        "flex min-h-0 min-w-0 flex-1 flex-col",
+        !wide && "min-h-[100dvh] min-h-[100svh]",
+      )}
+    >
       <div className="app min-h-0 flex-1" data-theme="warm">
         {screen}
         <nav className="tab-bar" aria-label="メイン">
@@ -938,16 +965,17 @@ export function YamagataZipHome({
 
   return wide ? (
     <div id="yamagata-zip-desktop">
-      <div className="zip-desktop-bg zip-desktop-shell">
+      <div className="zip-desktop-bg zip-desktop-shell zip-shell-wide">
         <MountainBackdrop />
-        <div className="zip-phone-stage">
-          <div className="zip-phone-frame flex flex-col">{appInner}</div>
+        <ZipWideSiteHeader />
+        <div className="zip-wide-body">
+          <div className="zip-wide-main">{appInner}</div>
           <DesktopMetaAside />
         </div>
       </div>
     </div>
   ) : (
-    <div id="yamagata-zip-desktop" className="zip-mobile-full">
+    <div id="yamagata-zip-desktop" className="zip-mobile-shell">
       {appInner}
     </div>
   );

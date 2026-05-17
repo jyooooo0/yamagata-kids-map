@@ -1,0 +1,95 @@
+/* 980px 以上で #yamagata-zip-root に data-wide-layout="true" が付与されたときの全画面展開 */
+
+@media (min-width: 980px) {
+  #yamagata-zip-root[data-wide-layout="true"] .quick-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .greet-title {
+    font-size: clamp(2rem, 3.2vw, 2.85rem);
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .card-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .spot-card {
+    width: auto;
+    flex-shrink: 1;
+  }
+
+  /* ホームは縦スクロール、下部タブはルート下端に張り付く */
+  #yamagata-zip-root[data-wide-layout="true"] .screen.home {
+    overflow-y: auto;
+    padding-right: clamp(8px, 1.5vw, 16px);
+  }
+
+  /* さがす：マップとリストを横並び */
+  #yamagata-zip-root[data-wide-layout="true"] .screen.explore {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0 !important;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .explore-main {
+    flex-direction: row;
+    align-items: stretch;
+    gap: clamp(14px, 2vw, 22px);
+    flex: 1;
+    min-height: min(520px, 56vh);
+    padding: 0 clamp(14px, 2vw, 22px) 14px !important;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .map-wrap {
+    flex: 1 1 52%;
+    min-height: min(440px, 56vh);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .bottom-sheet {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    flex: 0 0 min(400px, 36vw);
+    max-height: none !important;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .bottom-sheet.expanded {
+    flex: 0 0 min(580px, 64vh);
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .sheet-grab {
+    display: none;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .sheet-list {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  #yamagata-zip-root[data-wide-layout="true"] .tab-bar {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
