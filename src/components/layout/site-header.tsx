@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/55 bg-card/65 backdrop-blur-xl supports-[backdrop-filter]:bg-card/50">
-      <div className="mx-auto flex h-[4.125rem] w-full max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
+      <div className="page-shell-x mx-auto flex h-[4.125rem] w-full max-w-layout items-center justify-between gap-4 sm:h-16">
         <Link
           href="/"
           className="group flex min-w-0 items-center gap-3 text-foreground transition-opacity hover:opacity-95"

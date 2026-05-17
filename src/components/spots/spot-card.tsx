@@ -25,12 +25,15 @@ interface SpotCardProps {
   showDetailLink?: boolean;
   /** トップページの横スクロール一覧向けレイアウト */
   variant?: "default" | "carousel";
+  /** true のとき横スクロール用の固定幅ではなくコンテナいっぱい（並列サイドペインなど） */
+  carouselFullWidth?: boolean;
 }
 
 export function SpotCard({
   spot,
   showDetailLink = true,
   variant = "default",
+  carouselFullWidth = false,
 }: SpotCardProps) {
   const primaryCategory = CATEGORY_MAP[spot.category];
   const otherCategories = spot.categories
@@ -52,7 +55,9 @@ export function SpotCard({
         variant === "carousel" &&
           "max-w-none shrink-0 snap-start hover:shadow-xl",
         variant === "carousel" &&
+          !carouselFullWidth &&
           "w-[min(20rem,calc(100vw-4.75rem))] md:w-[19.25rem]",
+        variant === "carousel" && carouselFullWidth && "w-full max-w-none",
         variant === "carousel" &&
           "rounded-[1.125rem] border-[0.0625rem] app-card-shadow",
       )}

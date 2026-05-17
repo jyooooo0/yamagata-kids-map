@@ -1,12 +1,12 @@
+import { cn } from "@/lib/utils";
+
 /**
  * 提供デザイン（山形子どもマップ.zip）のブランド記号を Web 向けに再現。
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      className={className}
-      width="44"
-      height="44"
+      className={cn("h-11 w-11 shrink-0", className)}
       viewBox="0 0 44 44"
       aria-hidden
     >

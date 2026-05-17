@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 bg-muted/55">
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="page-shell-x mx-auto w-full max-w-layout py-12">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
