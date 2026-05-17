@@ -202,6 +202,8 @@ Firebase Console → **Authentication** → **Settings** → **Authorized domain
 
 ビルドが **Failed** のときはログに npm / Node / メモリエラーが出ているので、その文言をコピーして共有してください。
 
+**補足**：リポジトリには GitHub Actions（`.github/workflows/ci.yml`）があり、`main` へ push すると **`out/index.html` が生成できるか**を検証します。**CI が成功しているのに `pages.dev` だけ 404** のときは、Cloudflare 側の **Build output directory / Framework preset** の不一致が原因です。
+
 ---
 
 ## 開発状況メモ

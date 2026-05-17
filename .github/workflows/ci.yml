@@ -1,0 +1,40 @@
+# PR / main へ push のたびに next build が成功し、Static Export の成果物が出ることを保証する。
+# Cloudflare Pages で HTTP 404 になる場合は、ほぼ「Pages 側の Build output directory が out 以外」か
+# 「Framework preset が Next.js のまま」などの設定ミス。CI が通っていればリポジトリのビルド自体は正常。
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Production build (Static Export)
+        run: npm run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+
+      - name: Verify export output
+        run: |
+          test -f out/index.html || (echo "missing out/index.html" && exit 1)
+          test -d out/_next || (echo "missing out/_next" && exit 1)
+          test -f out/about/index.html || (echo "missing out/about/index.html" && exit 1)
+          echo "Static export OK: out/ looks valid."
