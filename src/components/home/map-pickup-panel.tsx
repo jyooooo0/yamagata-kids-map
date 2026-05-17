@@ -12,19 +12,19 @@ export function MapPickupPanel({ picks }: { picks: Spot[] }) {
     <section
       id="spots-map"
       aria-label="地図でみる場所もおすすめスポット"
-      className="scroll-mt-[calc(4.125rem+12px)] border-y border-border/50 bg-secondary/65"
+      className="scroll-mt-[calc(4.125rem+12px)] border-t border-border/40 bg-secondary/40"
     >
       <div className="page-shell-x mx-auto w-full max-w-layout py-11 sm:py-14 xl:py-16">
         <header className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="font-display text-sm font-semibold tracking-[0.06em] text-primary">
-              まずは地図のうえで
+              📍 マップで見る
             </p>
             <h2 className="font-display mt-1 text-2xl font-bold leading-snug tracking-tight text-foreground sm:text-[1.775rem]">
-              ゆる〜っと伸びているピンのラインをたどってみよう
+              各スポットを地図のピンで確認できます
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-              リストでこまかくさがしたいときはいつでも。ここでは「ながめてから決める」をおたすけします。
+              ざっくり場所を把握してから、一覧で条件を足しても大丈夫です。
             </p>
           </div>
           <Button asChild variant="outline" size="sm" className="hidden shrink-0 rounded-full sm:inline-flex">

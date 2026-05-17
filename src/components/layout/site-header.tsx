@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
 import { LogoMark } from "@/components/brand/logo-mark";
@@ -6,10 +9,16 @@ import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { href: "/spots", label: "スポットを探す" },
+  { href: "/#kosodate-info", label: "子育ての情報" },
   { href: "/about", label: "このサイトについて" },
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/55 bg-card/65 backdrop-blur-xl supports-[backdrop-filter]:bg-card/50">
       <div className="page-shell-x mx-auto flex h-[4.125rem] w-full max-w-layout items-center justify-between gap-4 sm:h-16">

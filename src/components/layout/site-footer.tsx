@@ -1,12 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Github, Heart } from "lucide-react";
 
 import { LogoMark } from "@/components/brand/logo-mark";
 import { Separator } from "@/components/ui/separator";
 
 export function SiteFooter() {
-  return (
-    <footer className="border-t border-border/60 bg-muted/55">
+  const pathname = usePathname();
+  if (pathname === "/") {
+    return null;
+  }
+
+  return (    <footer className="border-t border-border/60 bg-muted/55">
       <div className="page-shell-x mx-auto w-full max-w-layout py-12">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="space-y-3">

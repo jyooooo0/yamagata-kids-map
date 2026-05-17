@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 
 /**
- * 日本語フォントは globals.css の @import で Google Fonts（Klee One / Zen Maru Gothic）を読み込み。
+ * 日本語フォントは globals.css の @import（Zen Maru Gothic / Noto Sans JP、legacy 準拠）。
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://yamagata-kids-map.pages.dev"),
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff4e6" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1410" },
+    { media: "(prefers-color-scheme: light)", color: "#faf8f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1f1c" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="h-full antialiased" data-theme="warm" suppressHydrationWarning>
+    <html lang="ja" className="h-full antialiased" data-theme="legacy" suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />
         <main className="flex flex-1 flex-col pb-safe-mobile-nav">{children}</main>

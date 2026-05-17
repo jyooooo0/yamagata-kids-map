@@ -13,15 +13,52 @@ export function GoogleMyMapIframe({
   embedUrl,
   className,
   minHeight,
+  variant = "default",
 }: {
   embedUrl?: string;
   className?: string;
   minHeight?: string;
+  /** legacy/index.html のプレースホルダ文言 */
+  variant?: "default" | "legacy";
 }) {
   const url = embedUrl ?? getEmbedUrl();
   const min = minHeight ?? "min-h-[260px]";
 
   if (!url) {
+    if (variant === "legacy") {
+      return (
+        <div
+          className={cn(
+            "map-placeholder-legacy border border-dashed border-border bg-card p-6 text-left text-sm leading-relaxed text-muted-foreground",
+            className,
+          )}
+        >
+          <p className="mb-3 mt-0">
+            スポット一覧のピン付きマップは<strong className="text-foreground">Google My Map</strong>
+            で作成できます。
+          </p>
+          <p className="mb-3 mt-0">
+            <a
+              href="https://www.google.com/maps/d/u/0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary underline-offset-2 hover:underline"
+            >
+              Google My Map を開く
+            </a>{" "}
+            → 新しい地図を作成 → スポットをピンで追加 → 「共有」→「地図を埋め込む」のURLを取得し、環境変数{" "}
+            <code className="rounded bg-muted px-1 py-0.5 font-mono text-[0.85em] text-foreground">
+              NEXT_PUBLIC_GOOGLE_MY_MAP_EMBED_URL
+            </code>{" "}
+            に設定してください。
+          </p>
+          <p className="mb-0 mt-0">
+            各スポットのカードにある「地図で見る」から、個別の住所をGoogleマップで開けます。
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div
         className={cn(
@@ -56,7 +93,7 @@ export function GoogleMyMapIframe({
   return (
     <div
       className={cn(
-        "aspect-[16/10] w-full overflow-hidden rounded-[1.125rem] border border-border bg-card app-card-shadow sm:aspect-video sm:min-h-[320px]",
+        "aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-[#e8e4df] app-card-shadow sm:aspect-video sm:min-h-[320px]",
         min,
         className,
       )}
