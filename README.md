@@ -193,12 +193,17 @@ Firebase Console → **Authentication** → **Settings** → **Authorized domain
 
 ほとんどは **ビルド成果物がアップロードされていない** 状態です。次を順に確認してください。
 
-1. Cloudflare Dashboard → 該当プロジェクト → **Deployments** → 最新デプロイを開く → **Build log** が **Success** か
+0. **GitHub 連携のリポジトリ URL を確認する**（よくある原因）  
+   正しくは **`github.com/jyooooo0/yamagata-kids-map`**（ユーザー名の **o は 5 個**）です。  
+   `jyoooooo0`（o が 6 個）など **別アカウント／別リポジトリ** に繋がっていると、意図したコードがデプロイされず 404 や古い内容になります。  
+   Cloudflare → プロジェクト **設定** → **ビルド** にある接続先を GitHub 上の URL と照合してください。
+
+1. Cloudflare Dashboard → 該当プロジェクト → **Deployments** → **最新**を開く → ステータスが **Success** か（**Failed** のときはルート URL が更新されず、404 が続くことがあります）→ **Build log** 全文の**エラー行**を確認する
 2. ログ末尾付近に **`Export`** / **`out`** に関する記述があり、`next build` が完走しているか
 3. **Settings** → **Builds & deployments** で  
    **Build output directory** が **`out`** になっているか（Typo で `dist` / `build` / `.next` になっていないか）
 4. **Framework preset** が誤って **Next.js** のままになっていないか → **`None`** に変更して **Retry deployment**
-5. リポジトリ直下の **`wrangler.toml`** に `pages_build_output_dir = "out"` を記載済みです（Dashboard の Build output と矛盾させないこと）
+5. リポジトリ直下の **`wrangler.toml`** に `name` / `pages_build_output_dir = "out"` を記載済みです（Dashboard の Build output と矛盾させないこと）
 
 ビルドが **Failed** のときはログに npm / Node / メモリエラーが出ているので、その文言をコピーして共有してください。
 
