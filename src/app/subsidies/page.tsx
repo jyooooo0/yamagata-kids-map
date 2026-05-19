@@ -48,7 +48,7 @@ interface MunicipalityLink {
   note?: string;
 }
 
-const MUNICIPALITY_LINKS: Record<MunicipalityCode, MunicipalityLink[]> = {
+const MUNICIPALITY_LINKS: Partial<Record<MunicipalityCode, MunicipalityLink[]>> = {
   tsuruoka: [
     {
       category: "general",
@@ -133,7 +133,7 @@ export default function SubsidiesPage() {
       </div>
 
       <div className="mt-10 space-y-12">
-        {MUNICIPALITIES.map((m) => {
+        {MUNICIPALITIES.filter((m) => m.area === "shonai" || m.code === "other").map((m) => {
           const links = MUNICIPALITY_LINKS[m.code] ?? [];
           return (
             <section key={m.code} className="space-y-5">

@@ -227,6 +227,22 @@ function ZipWideSiteHeader() {
         <Link href="/contribute/" className="zip-wide-nav-link">
           情報を投稿
         </Link>
+        <Link
+          href="https://kosodate.pref.yamagata.jp/odekake"
+          className="zip-wide-nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          県・おでかけ検索
+        </Link>
+        <Link
+          href="https://yamagatakanko.com/theme/kids/"
+          className="zip-wide-nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          県観光・こども
+        </Link>
       </nav>
     </header>
   );
@@ -363,6 +379,14 @@ function categoryLabel(cat: CategoryId) {
 
 function SupportScreenEmbedded({ onClose }: { onClose: () => void }) {
   const linksOut = [
+    {
+      title: "やまがたわくわく体験ガイド（おでかけ・県公式）",
+      href: "https://kosodate.pref.yamagata.jp/odekake",
+    },
+    {
+      title: "子供が喜ぶ！遊び場＆イベント｜やまがたへの旅（観光・公式）",
+      href: "https://yamagatakanko.com/theme/kids/",
+    },
     {
       title: "山形県 にんべんネット（子育て支援）",
       href: "https://kosodate.pref.yamagata.jp/",
@@ -751,6 +775,36 @@ export function YamagataZipHome({
                 </div>
                 <ChevR />
               </Link>
+              <a
+                href="https://kosodate.pref.yamagata.jp/odekake"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="info-card"
+              >
+                <div className="ic-emoji">🗺️</div>
+                <div>
+                  <div className="ic-title">県公式｜わくわく体験ガイド</div>
+                  <div className="ic-sub">
+                    地図・体験種別から施設や公園を検索（山形県子育て応援サイト）
+                  </div>
+                </div>
+                <ChevR />
+              </a>
+              <a
+                href="https://yamagatakanko.com/theme/kids/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="info-card"
+              >
+                <div className="ic-emoji">🎒</div>
+                <div>
+                  <div className="ic-title">観光公式｜子どもにおすすめ</div>
+                  <div className="ic-sub">
+                    県公式観光サイトのこども向け一覧（遊び場・イベント等）
+                  </div>
+                </div>
+                <ChevR />
+              </a>
             </div>
           </section>
 

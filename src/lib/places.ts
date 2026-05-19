@@ -7,7 +7,12 @@
  */
 
 import legacyPlacesRaw from "@/data/legacy-places.json";
-import { resolveMunicipality } from "@/lib/municipality";
+import officialSeedsRaw from "@/data/official-kanko-kids-seeds.json";
+import {
+  getAreaForMunicipality,
+  resolveMunicipality,
+} from "@/lib/municipality";
+import type { YamagataAreaId } from "@/lib/yamagata-municipalities";
 import type {
   CategoryId,
   MunicipalityCode,
@@ -42,6 +47,17 @@ interface LegacyData {
 }
 
 const legacyData = legacyPlacesRaw as unknown as LegacyData;
+const officialData = officialSeedsRaw as unknown as LegacyData;
+
+function normalizeSpotUrl(url: string | undefined): string | null {
+  if (!url?.trim()) return null;
+  try {
+    const parsed = new URL(url.trim());
+    return `${parsed.origin}${parsed.pathname.replace(/\/$/, "")}`;
+  } catch {
+    return url.trim().toLowerCase();
+  }
+}
 
 const CATEGORY_REMAP: Record<string, CategoryId> = {
   eat: "food",
@@ -162,7 +178,12 @@ function legacyPlaceToSpot(place: LegacyPlace): Spot | null {
     category: primary,
     categories: Array.from(new Set([primary, ...mappedCategories])),
     primaryCategory: primary,
-    municipality: resolveMunicipality(place.municipality, place.address),
+    municipality: resolveMunicipality(
+      place.municipality,
+      place.address,
+      place.name,
+      place.description,
+    ),
     address: place.address?.trim() || undefined,
     lat: typeof place.lat === "number" && Number.isFinite(place.lat) ? place.lat : undefined,
     lng: typeof place.lng === "number" && Number.isFinite(place.lng) ? place.lng : undefined,
@@ -179,12 +200,29 @@ function legacyPlaceToSpot(place: LegacyPlace): Spot | null {
 
 let cachedSpots: Spot[] | null = null;
 
-/** すべてのスポット（既存JSONから変換） */
+/** すべてのスポット（庄内 legacy + 県公式観光 seeds、URL 重複は legacy 優先） */
 export function getAllSpots(): Spot[] {
   if (cachedSpots) return cachedSpots;
-  cachedSpots = legacyData.places
+
+  const legacySpots = legacyData.places
     .map(legacyPlaceToSpot)
     .filter((s): s is Spot => s !== null);
+
+  const legacyUrls = new Set(
+    legacySpots
+      .map((s) => normalizeSpotUrl(s.url))
+      .filter((u): u is string => u !== null),
+  );
+
+  const officialSpots = officialData.places
+    .map(legacyPlaceToSpot)
+    .filter((s): s is Spot => s !== null)
+    .filter((s) => {
+      const url = normalizeSpotUrl(s.url);
+      return url === null || !legacyUrls.has(url);
+    });
+
+  cachedSpots = [...legacySpots, ...officialSpots];
   return cachedSpots;
 }
 
@@ -198,6 +236,24 @@ export function getSpotsByCategory(category: CategoryId): Spot[] {
 
 export function getSpotsByMunicipality(code: MunicipalityCode): Spot[] {
   return getAllSpots().filter((s) => s.municipality === code);
+}
+
+export function getSpotsByArea(area: YamagataAreaId): Spot[] {
+  return getAllSpots().filter((s) => getAreaForMunicipality(s.municipality) === area);
+}
+
+export function getAreaCounts(): Record<YamagataAreaId, number> {
+  const counts: Record<YamagataAreaId, number> = {
+    shonai: 0,
+    murayama: 0,
+    mogami: 0,
+    okitama: 0,
+  };
+  for (const spot of getAllSpots()) {
+    const area = getAreaForMunicipality(spot.municipality);
+    counts[area] += 1;
+  }
+  return counts;
 }
 
 export function getSpotsByTag(tag: TagId): Spot[] {

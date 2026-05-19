@@ -12,7 +12,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "docs:spots-municipality": "node scripts/gen-spots-municipality-md.mjs"
+    "docs:spots-municipality": "node scripts/gen-spots-municipality-md.mjs",
+    "ingest:kanko": "node scripts/ingest-kanko-kids.mjs --write"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",

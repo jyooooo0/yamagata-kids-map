@@ -7,14 +7,43 @@
  * 日付フィールドは Firestore Timestamp → ISO 文字列 への変換層を介する想定。
  */
 
-/** 庄内エリアの市町コード。県全域に拡大する際は他エリアを追加する */
+/** 山形県内の市町村コード（庄内5 + 村山14 + 最上8 + 置賜8 + 未特定） */
 export type MunicipalityCode =
   | "tsuruoka"
   | "sakata"
   | "mikawa"
   | "shonai"
   | "yuza"
-  /** 県内の他市町村は後で追加 */
+  | "yamagata"
+  | "kaminoyama"
+  | "tendo"
+  | "sagae"
+  | "higashine"
+  | "murayama-shi"
+  | "obanazawa"
+  | "kahoku"
+  | "nishikawa"
+  | "asahi"
+  | "oe"
+  | "nakayama"
+  | "yamanobe"
+  | "oishida"
+  | "shinjo"
+  | "mogami"
+  | "tozawa"
+  | "kaneyama"
+  | "sakegawa"
+  | "funagata"
+  | "okura"
+  | "mamurogawa"
+  | "yonezawa"
+  | "nagai"
+  | "nanyo"
+  | "takahata"
+  | "kawanishi"
+  | "oguni"
+  | "shirataka"
+  | "iide"
   | "other";
 
 export interface Municipality {

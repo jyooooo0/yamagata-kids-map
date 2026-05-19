@@ -15,7 +15,7 @@ export function SiteFooter() {
 
   return (    <footer className="border-t border-border/60 bg-muted/55">
       <div className="page-shell-x mx-auto w-full max-w-layout py-12">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-[1.35fr_repeat(4,minmax(0,1fr))]">
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
               <span
@@ -48,6 +48,22 @@ export function SiteFooter() {
               { href: "/contribute", label: "スポットを投稿" },
               { href: "/contact", label: "情報の修正依頼" },
               { href: "/feedback", label: "ご意見・ご感想" },
+            ]}
+          />
+
+          <FooterColumn
+            title="公式サイトでさらに探す"
+            links={[
+              {
+                href: "https://kosodate.pref.yamagata.jp/odekake",
+                label: "やまがたわくわく体験ガイド（県）",
+                external: true,
+              },
+              {
+                href: "https://yamagatakanko.com/theme/kids/",
+                label: "子どもにおすすめ（県観光）",
+                external: true,
+              },
             ]}
           />
 

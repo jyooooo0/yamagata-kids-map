@@ -1,3 +1,8 @@
+import {
+  MUNICIPALITY_MAP,
+  YAMAGATA_AREA_LABELS,
+  YAMAGATA_MUNICIPALITIES,
+} from "@/lib/yamagata-municipalities";
 import type {
   Category,
   CategoryId,
@@ -109,19 +114,9 @@ export function getCategory(id: CategoryId | string): Category | undefined {
   return CATEGORY_MAP[id as CategoryId];
 }
 
-export const MUNICIPALITIES: Municipality[] = [
-  { code: "tsuruoka", name: "鶴岡市", kana: "つるおかし", area: "shonai" },
-  { code: "sakata", name: "酒田市", kana: "さかたし", area: "shonai" },
-  { code: "mikawa", name: "三川町", kana: "みかわまち", area: "shonai" },
-  { code: "shonai", name: "庄内町", kana: "しょうないまち", area: "shonai" },
-  { code: "yuza", name: "遊佐町", kana: "ゆざまち", area: "shonai" },
-];
+export const MUNICIPALITIES: Municipality[] = YAMAGATA_MUNICIPALITIES;
 
-export const MUNICIPALITY_MAP: Record<MunicipalityCode, Municipality> =
-  Object.fromEntries(MUNICIPALITIES.map((m) => [m.code, m])) as Record<
-    MunicipalityCode,
-    Municipality
-  >;
+export { MUNICIPALITY_MAP, YAMAGATA_AREA_LABELS };
 
 export const TAGS: Tag[] = [
   // facility（設備）
