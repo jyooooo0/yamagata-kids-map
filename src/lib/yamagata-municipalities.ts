@@ -15,7 +15,22 @@ export interface YamagataMunicipalityDef extends Municipality {
 export const YAMAGATA_MUNICIPALITIES: YamagataMunicipalityDef[] = [
   // 庄内
   { code: "tsuruoka", name: "鶴岡市", kana: "つるおかし", area: "shonai", matchers: ["鶴岡市", "つるおか市"] },
-  { code: "sakata", name: "酒田市", kana: "さかたし", area: "shonai", matchers: ["酒田市"] },
+  {
+    code: "sakata",
+    name: "酒田市",
+    kana: "さかたし",
+    area: "shonai",
+    matchers: [
+      "酒田市",
+      "酒田港",
+      "酒田駅",
+      "酒田海洋",
+      "酒田の花火",
+      "最上川河口",
+      "飛島",
+      "とびしま",
+    ],
+  },
   { code: "mikawa", name: "三川町", kana: "みかわまち", area: "shonai", matchers: ["三川町", "東田川郡三川"] },
   { code: "shonai", name: "庄内町", kana: "しょうないまち", area: "shonai", matchers: ["庄内町", "東田川郡庄内"] },
   { code: "yuza", name: "遊佐町", kana: "ゆざまち", area: "shonai", matchers: ["遊佐町"] },

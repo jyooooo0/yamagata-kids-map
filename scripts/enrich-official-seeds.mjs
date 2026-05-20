@@ -12,7 +12,19 @@ const SEEDS = path.join(ROOT, "src/data/official-kanko-kids-seeds.json");
 
 const MUNICIPALITIES = [
   { code: "tsuruoka", matchers: ["鶴岡市"] },
-  { code: "sakata", matchers: ["酒田市"] },
+  {
+    code: "sakata",
+    matchers: [
+      "酒田市",
+      "酒田港",
+      "酒田駅",
+      "酒田海洋",
+      "酒田の花火",
+      "最上川河口",
+      "飛島",
+      "とびしま",
+    ],
+  },
   { code: "mikawa", matchers: ["三川町", "東田川郡三川"] },
   { code: "shonai", matchers: ["庄内町", "東田川郡庄内"] },
   { code: "yuza", matchers: ["遊佐町"] },

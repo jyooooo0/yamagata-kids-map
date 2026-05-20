@@ -354,12 +354,12 @@
   "places": [
     {
       "id": "izukiku",
-      "name": "ニュー割烹食堂 伊豆菊",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "name": "割烹食堂 伊豆菊・寿し処武蔵",
+      "address": "山形県酒田市中町2-1-20",
+      "phone": "0234-22-3216",
       "hours": "",
       "closed": "",
-      "description": "庄内浜の新鮮な魚介を活かした割烹食堂。個室や小上がりが多く、落ち着いた和の空間で食事が楽しめます。子連れ向けには個室のほか授乳室を完備。乳幼児連れでも周りを気にせず、庄内の味をゆっくり味わえます。",
+      "description": "酒田市の老舗割烹。個室や小上がりが多く、落ち着いた和の空間で食事が楽しめます。子連れ向けには個室のほか授乳室を完備。庄内浜の魚介をゆっくり味わえます（旧データの「鶴岡市」表記を修正）。",
       "categories": [
         "eat"
       ],
@@ -373,17 +373,18 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.izugiku-musashi.com/",
+      "municipality": "sakata",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%89%B2%E7%80%95%E9%A3%9F%E5%A0%82+%E4%BC%8A%E8%B1%86%E8%8F%8A+%E9%85%92%E7%94%B0%E5%B8%82"
     },
     {
       "id": "k-dining",
-      "name": "K-Dining",
-      "address": "山形県鶴岡市（旧・香林塔どうむ）",
-      "phone": "",
+      "name": "K-Dining（香林塔）",
+      "address": "山形県東田川郡庄内町余目字上朝丸78-2",
+      "phone": "0234-42-2253",
       "hours": "",
       "closed": "",
-      "description": "スタイリッシュな雰囲気のレストラン（旧・香林塔どうむ）。個室でプライベートな時間を過ごせます。子連れにも配慮した空間で、大人も子どももくつろぎながら食事ができます。",
+      "description": "庄内町余目のログハウス風レストラン（旧・香林塔どうむ）。庄内豚など地元食材の洋食。個室で子連れにも配慮（旧データの「鶴岡市」表記を修正）。",
       "categories": [
         "eat"
       ],
@@ -397,14 +398,15 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://k-dining.net/karinto/",
+      "municipality": "shonai",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=K-Dining+%E9%A6%99%E6%9E%97%E5%A1%94+%E5%BA%84%E5%86%85%E7%94%BA"
     },
     {
       "id": "kissa-mariina",
       "name": "喫茶まりーな",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市のぞみ町1-8",
+      "phone": "0235-24-5802",
       "hours": "",
       "closed": "",
       "description": "アットホームな洋食・喫茶店。小上がり席が多く、家族で囲むテーブルでゆっくり過ごせます。子ども連れに人気の席取りやすく、親子でメニューを分けたり取り分けたりしやすい雰囲気です。",
@@ -423,7 +425,8 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%96%91%E8%8C%B6%E3%81%BE%E3%82%8A%E3%83%BC%E3%81%AA+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "uotei-okazaki",
@@ -811,7 +814,7 @@
     {
       "id": "tachibanaya",
       "name": "たちばなや",
-      "address": "山形県鶴岡市湯温海（あつみ温泉）",
+      "address": "山形県鶴岡市湯温海字湯田77",
       "phone": "",
       "hours": "",
       "closed": "",
@@ -826,7 +829,8 @@
         "parking": "あり"
       },
       "url": "https://www.tachibanaya.com/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%9F%E3%81%A1%E3%81%B0%E3%81%AA%E3%82%84+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "kyukamura-shonai",
@@ -911,8 +915,8 @@
     {
       "id": "hair-attache",
       "name": "Hair Make アタッシュ",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市のぞみ町8-34",
+      "phone": "0235-64-1755",
       "hours": "",
       "closed": "",
       "description": "6ヶ月の乳児から対応する美容室。キッズスペース・個室貸切で、トイレにベビーシート完備。ママ・パパが施術中も子どもが過ごしやすく、家族でサロンに来やすい環境です。",
@@ -926,13 +930,14 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hair+Make+%E3%82%A2%E3%82%BF%E3%83%83%E3%82%B7%E3%83%A5+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "fam-hair",
       "name": "fam hair",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市文園町5-30",
+      "phone": "0235-23-3404",
       "hours": "",
       "closed": "",
       "description": "マンツーマン予約制の美容室。キッズスペース・貸切可能で、2歳未満の簡易カットは無料。子連れでも落ち着いて施術を受けられます。",
@@ -945,8 +950,9 @@
         "private": true,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.famhair2021.com/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=fam+hair+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "shobikan",
@@ -971,8 +977,8 @@
     {
       "id": "hair-sol",
       "name": "HAIR DESIGN SOL",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市羽黒町赤川熊坂112-4",
+      "phone": "0235-62-4356",
       "hours": "",
       "closed": "",
       "description": "完全予約制の美容室。平日限定のキッズカットメニューがあり、子どもと一緒に通いやすいサロンです。",
@@ -985,8 +991,9 @@
         "private": true,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.hair-design-sol.com/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=HAIR+DESIGN+SOL+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "lib-main",
@@ -1143,8 +1150,8 @@
     {
       "id": "goten-mari",
       "name": "上野御殿まり教室",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市本町1-5-36",
+      "phone": "0235-22-8140",
       "hours": "",
       "closed": "",
       "description": "鶴岡伝統の「御殿まり」作りが体験できる教室。0歳から大人まで参加可能で、親子で伝統工芸に触れられます。",
@@ -1159,12 +1166,13 @@
         "parking": "あり"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E5%BE%A1%E6%AE%BF%E3%81%BE%E3%82%8A%E6%95%99%E5%AE%A4"
     },
     {
       "id": "yonabe-usagi",
       "name": "夜なべうさぎ工房",
-      "address": "山形県鶴岡市",
+      "address": "山形県鶴岡市大半田字北田",
       "phone": "",
       "hours": "",
       "closed": "",
@@ -1180,7 +1188,8 @@
         "parking": "あり"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%A4%9C%E3%81%AA%E3%81%B9%E3%81%86%E3%81%95%E3%81%8E%E5%B7%A5%E6%88%BF"
     },
     {
       "id": "chido-museum",
@@ -1333,7 +1342,7 @@
     {
       "id": "esumall",
       "name": "エスモール（2F）",
-      "address": "山形県鶴岡市錦町2-21 2F",
+      "address": "山形県鶴岡市錦町2-21 エスモール2F",
       "phone": "",
       "hours": "",
       "closed": "",
@@ -1349,7 +1358,8 @@
         "parking": "駅周辺"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "nishimatsuya",
@@ -1437,16 +1447,16 @@
     },
     {
       "id": "ramen-tobiko",
-      "name": "ラーメン飛粉",
+      "name": "飛来ラーメン 酒田店",
       "categories": [
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県酒田市広栄町2-111-10",
+      "phone": "0234-28-8076",
       "hours": "",
       "closed": "",
-      "description": "小上がりや子供用イスを完備したラーメン店。小盛りのお子様ラーメンもあり、家族連れに配慮した清潔な店内で人気。子連れランチにぴったりです。",
+      "description": "酒田市の人気ラーメン店。小上がりや子供用イス、お子様ラーメンあり。旧掲載名「ラーメン飛粉」・鶴岡市表記を、Googleマップ・公式情報に合わせて修正しました。",
       "details": {
         "kozakai": true,
         "koshitsu": false,
@@ -1457,7 +1467,8 @@
         "parking": "あり"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "sakata",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9D%A5%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%85%92%E7%94%B0"
     },
     {
       "id": "ramen-furin-kazan",
@@ -1490,8 +1501,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市日出1-22-8",
+      "phone": "0235-25-5338",
       "hours": "",
       "closed": "",
       "description": "大盛りが有名な人気ラーメン店。座敷席があり、子供連れにもおすすめとの口コミが多数。家族で取り分けやすく、子連れでも入りやすい雰囲気です。",
@@ -1504,21 +1515,22 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://ramen-manbi.com/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%89%E3%80%9C%E3%82%81%E3%82%93%E6%BA%80%E3%81%B3+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "wantan-mangetsu",
-      "name": "ワンタンメンの満月 鶴岡店",
+      "name": "ワンタンメンの満月 酒田本店",
       "categories": [
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県酒田市東中ノ口町2-1",
+      "phone": "0234-22-0280",
       "hours": "",
       "closed": "",
-      "description": "ワンタンメンの満月鶴岡店。奥に座敷があり、小さな子どもへの取り分けもしやすいレイアウト。子連れでワンタンや中華を楽しめるお店です。",
+      "description": "酒田本店。鶴岡の庄内観光物産館内店舗は閉店済みのため、酒田本店情報に更新しました（旧「鶴岡店」表記を修正）。",
       "details": {
         "kozakai": true,
         "koshitsu": false,
@@ -1528,8 +1540,9 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "http://sakata-mangetsu.com/",
+      "municipality": "sakata",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%83%AF%E3%83%B3%E3%82%BF%E3%83%B3%E3%83%A1%E3%83%B3%E6%BA%80%E6%9C%88+%E9%85%92%E7%94%B0"
     },
     {
       "id": "kenchan-tsuruoka",
@@ -1538,8 +1551,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市大宝寺字中野116-33",
+      "phone": "0235-25-6616",
       "hours": "",
       "closed": "",
       "description": "ケンチャンラーメン鶴岡店。麺200gの「小小」サイズがあり、子どもや少食の方に最適。お子様メニューもあり、子連れでラーメンを味わえます。",
@@ -1553,7 +1566,8 @@
         "parking": "あり"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B1%E3%83%B3%E3%81%A1%E3%82%83%E3%82%93%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "nomikui-hanabi",
@@ -1562,8 +1576,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市東原町17-17",
+      "phone": "0235-26-8893",
       "hours": "",
       "closed": "",
       "description": "のみくい処ハナビ。ママ会・女子会に人気で、150分飲み放題プランや園児・幼児のドリンク無料サービスあり。小上がり・個室で、子連れの会合にも使いやすいです。",
@@ -1576,8 +1590,9 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://shonai-yamagata.com/gourmet/hacchi/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%AE%E3%81%BF%E3%81%8F%E3%81%84%E5%87%A6+%E3%83%8F%E3%83%8A%E3%83%93+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "irohani-tsuruoka",
@@ -1610,8 +1625,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市錦町8-30",
+      "phone": "0235-24-8780",
       "hours": "",
       "closed": "",
       "description": "和定食・滝太郎。未就学児向けのお子様セット（800円）を完備。趣ある和空間の個室で、子どもと一緒にゆっくり食事ができます。",
@@ -1624,8 +1639,9 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://takitaro.co.jp/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E6%BB%9E%E5%A4%AA%E9%83%8E+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "osteria-lupo",
@@ -1682,8 +1698,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市東新斎町1-3",
+      "phone": "0235-29-1051",
       "hours": "",
       "closed": "",
       "description": "かっぱ寿司鶴岡店。回転寿司チェーンで、オムツ替え台（1台）完備で清潔。ベビーチェア・キッズメニューがあり、平日・休日ともに子連れで利用しやすい定番店です。",
@@ -1696,8 +1712,9 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": "https://www.kappasushi.co.jp/",
-      "municipality": "tsuruoka"
+      "url": "https://www.kappasushi.jp/shop/0574",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8+%E9%B6%B4%E5%B2%A1%E5%BA%97"
     },
     {
       "id": "grand-elsan",
@@ -1707,7 +1724,7 @@
       ],
       "primaryCategory": "cafe",
       "address": "山形県鶴岡市東原町17-7",
-      "phone": "",
+      "phone": "0235-24-4639",
       "hours": "",
       "closed": "",
       "description": "グランドエルサン内のCafe East（イースト）。披露宴会場併設の高級感ある空間で、地元食材を活かしたイタリアンやパティスリーが楽しめます。個室・キッズメニュー・授乳室があり、子連れの会食やお祝いにも最適です。",
@@ -1720,8 +1737,9 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.cafe-east.net/",
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%B3+%E9%B6%B4%E5%B2%A1"
     },
     {
       "id": "yakitori-zubora",
@@ -1730,8 +1748,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市",
-      "phone": "",
+      "address": "山形県鶴岡市神明町12-41",
+      "phone": "0235-23-6349",
       "hours": "",
       "closed": "",
       "description": "焼鳥づぼら本店。宴会料理を注文すると2階の個室（座敷・最大25名）が利用可能。子連れの宴会や家族の集まりに、個室でゆっくり焼き鳥と料理を楽しめます。",
@@ -1745,7 +1763,8 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E9%B3%A5%E3%81%A5%E3%81%BC%E3%82%89+%E9%B6%B4%E5%B2%A1"
     }
   ]
 }
