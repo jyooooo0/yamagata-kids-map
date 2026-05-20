@@ -2,48 +2,28 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { Baby, Home, MapPin, PenLine, Search } from "lucide-react";
+import { usePathname } from "next/navigation";
+import {
+  HandHeart,
+  Home,
+  MapPin,
+  PenLine,
+  Search,
+} from "lucide-react";
 
-const NAV = [
-  { href: "/", label: "ホーム", Icon: Home, active: "home" as const },
-  {
-    href: "/spots",
-    label: "さがす",
-    Icon: Search,
-    active: "spots" as const,
-  },
-  {
-    href: "/#spots-map",
-    label: "マップ",
-    Icon: MapPin,
-    active: "map" as const,
-  },
-  {
-    href: "/spots?category=babystation",
-    label: "ベビー",
-    Icon: Baby,
-    active: "baby" as const,
-  },
-  {
-    href: "/contribute",
-    label: "投稿",
-    Icon: PenLine,
-    active: "contribute" as const,
-  },
-] satisfies {
-  href: string;
-  label: string;
-  Icon: typeof Home;
-  active: "home" | "spots" | "map" | "baby" | "contribute";
-}[];
+import { MOBILE_BOTTOM_NAV, type MobileNavKey } from "@/lib/site-nav";
+import { cn } from "@/lib/utils";
+
+const ICONS = {
+  home: Home,
+  spots: Search,
+  subsidies: HandHeart,
+  map: MapPin,
+  contribute: PenLine,
+} as const;
 
 export function MobileBottomNav() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
-
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category");
   const [hash, setHash] = useState("");
 
   useEffect(() => {
@@ -53,52 +33,57 @@ export function MobileBottomNav() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  function current():
-    | "home"
-    | "spots"
-    | "map"
-    | "baby"
-    | "contribute"
-    | null {
+  function current(): MobileNavKey | null {
     if (pathname === "/") {
       if (hash === "#spots-map") return "map";
       return "home";
     }
     if (pathname.startsWith("/contribute")) return "contribute";
-    if (pathname.startsWith("/spots")) {
-      if (category === "babystation") return "baby";
-      return "spots";
-    }
+    if (pathname.startsWith("/subsidies")) return "subsidies";
+    if (pathname.startsWith("/spots")) return "spots";
     return null;
   }
 
   const cur = current();
 
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <nav
-      className="pb-safe fixed inset-x-0 bottom-0 z-50 grid grid-cols-5 border-t border-border/80 bg-card/95 py-2 shadow-[0_-1px_0_var(--border)] backdrop-blur-md md:hidden"
+      className="pb-safe fixed inset-x-0 bottom-0 z-50 border-t border-border/80 bg-card/95 shadow-[0_-4px_24px_rgb(120_90_40/0.08)] backdrop-blur-md md:hidden"
       aria-label="メインナビゲーション（モバイル）"
     >
-      {NAV.map(({ href, label, Icon, active: key }) => {
-        const isOn = cur === key;
-        return (
-          <Link
-            key={key}
-            href={href}
-            className={`flex flex-col items-center gap-0.5 px-1 py-1 text-[10px] font-medium transition-colors ${
-              isOn ? "text-primary" : "text-muted-foreground"
-            }`}
-          >
-            <span
-              className={`transition-transform ${isOn ? "scale-[1.08]" : ""}`}
-              aria-hidden
+      <div className="grid grid-cols-5 px-1 pt-1.5">
+        {MOBILE_BOTTOM_NAV.map(({ href, label, key }) => {
+          const Icon = ICONS[key];
+          const isOn = cur === key;
+          return (
+            <Link
+              key={key}
+              href={href}
+              className={cn(
+                "flex min-h-[3.25rem] flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 text-[10px] font-semibold transition-colors",
+                isOn
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
             >
-              <Icon className="h-[22px] w-[22px]" strokeWidth={1.75} />
-            </span>
-            <span>{label}</span>
-          </Link>
-        );
-      })}
+              <span
+                className={cn(
+                  "flex h-8 w-8 items-center justify-center rounded-xl transition-all",
+                  isOn && "bg-primary/12 scale-105",
+                )}
+                aria-hidden
+              >
+                <Icon className="h-[1.35rem] w-[1.35rem]" strokeWidth={1.85} />
+              </span>
+              <span>{label}</span>
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 }

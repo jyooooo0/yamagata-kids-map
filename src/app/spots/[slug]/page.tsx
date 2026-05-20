@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft,
   Clock,
   ExternalLink,
   MapPin,
@@ -10,6 +9,7 @@ import {
   CalendarX,
 } from "lucide-react";
 
+import { BackLink, PageShell } from "@/components/layout/page-shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CategoryIcon } from "@/components/spots/category-icon";
@@ -85,14 +85,8 @@ export default async function SpotDetailPage({ params }: PageProps) {
   const mapUrl = getGoogleMapsUrl(spot);
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-      <Link
-        href="/spots"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        スポット一覧に戻る
-      </Link>
+    <PageShell width="md">
+      <BackLink href="/spots">スポット一覧に戻る</BackLink>
 
       <header className="mt-6 space-y-4">
         <div className="flex flex-wrap items-center gap-2">
@@ -107,9 +101,7 @@ export default async function SpotDetailPage({ params }: PageProps) {
           )}
         </div>
 
-        <h1 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-          {spot.name}
-        </h1>
+        <h1 className="page-title">{spot.name}</h1>
 
         {spot.description && (
           <p className="max-w-3xl text-base leading-relaxed text-foreground/85">
@@ -167,10 +159,10 @@ export default async function SpotDetailPage({ params }: PageProps) {
               <p className="text-sm leading-relaxed text-muted-foreground">
                 掲載情報に誤りがある／タグを追加したい場合は、近日公開の投稿機能からお知らせください。それまでは
                 <Link
-                  href="/contact"
+                  href="/contribute"
                   className="ml-1 font-medium text-primary hover:underline"
                 >
-                  修正依頼フォーム
+                  投稿フォーム
                 </Link>
                 からも受け付けています。
               </p>
@@ -178,8 +170,8 @@ export default async function SpotDetailPage({ params }: PageProps) {
           </div>
         </section>
 
-        <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-xl border border-border bg-card p-5">
+        <aside className="space-y-4 lg:sticky lg:top-[5.5rem] lg:self-start">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <CategoryIcon
@@ -230,7 +222,7 @@ export default async function SpotDetailPage({ params }: PageProps) {
           </div>
         </section>
       )}
-    </div>
+    </PageShell>
   );
 }
 
@@ -242,7 +234,7 @@ function InfoBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-border bg-card p-5">
+    <section className="rounded-2xl border border-border bg-card p-5 shadow-sm">
       <h2 className="font-display mb-3 text-sm font-bold tracking-tight">
         {title}
       </h2>

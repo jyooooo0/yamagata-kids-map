@@ -29,7 +29,7 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              庄内エリアの子育て世帯のために、子連れで行ける場所・おむつ替えスペース・病院などを、親同士でアップデートしていく情報サイト。
+              山形県の子育て世帯のために、子連れで行ける場所・おむつ替え・補助制度などを、親同士でアップデートしていく情報サイト。
             </p>
           </div>
 
@@ -37,6 +37,7 @@ export function SiteFooter() {
             title="サイトを使う"
             links={[
               { href: "/spots", label: "スポットを探す" },
+              { href: "/subsidies", label: "補助制度・支援" },
               { href: "/#spots-map", label: "マップで見る" },
               { href: "/about", label: "このサイトについて" },
             ]}
@@ -45,9 +46,12 @@ export function SiteFooter() {
           <FooterColumn
             title="参加する"
             links={[
-              { href: "/contribute", label: "スポットを投稿" },
-              { href: "/contact", label: "情報の修正依頼" },
-              { href: "/feedback", label: "ご意見・ご感想" },
+              { href: "/contribute", label: "スポットを投稿・修正" },
+              {
+                href: "https://github.com/jyooooo0/yamagata-kids-map/issues",
+                label: "ご意見・不具合報告（GitHub）",
+                external: true,
+              },
             ]}
           />
 
@@ -70,11 +74,10 @@ export function SiteFooter() {
           <FooterColumn
             title="運営"
             links={[
-              { href: "/privacy", label: "プライバシーポリシー" },
-              { href: "/terms", label: "利用規約" },
+              { href: "/about", label: "運営方針・ロードマップ" },
               {
                 href: "https://github.com/jyooooo0/yamagata-kids-map",
-                label: "GitHub",
+                label: "GitHub（ソースコード）",
                 external: true,
               },
             ]}

@@ -375,7 +375,9 @@
       },
       "url": "https://www.izugiku-musashi.com/",
       "municipality": "sakata",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%89%B2%E7%80%95%E9%A3%9F%E5%A0%82+%E4%BC%8A%E8%B1%86%E8%8F%8A+%E9%85%92%E7%94%B0%E5%B8%82"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%89%B2%E7%80%95%E9%A3%9F%E5%A0%82+%E4%BC%8A%E8%B1%86%E8%8F%8A+%E9%85%92%E7%94%B0%E5%B8%82",
+      "lat": 38.9142,
+      "lng": 139.8398
     },
     {
       "id": "k-dining",
@@ -400,7 +402,9 @@
       },
       "url": "https://k-dining.net/karinto/",
       "municipality": "shonai",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=K-Dining+%E9%A6%99%E6%9E%97%E5%A1%94+%E5%BA%84%E5%86%85%E7%94%BA"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=K-Dining+%E9%A6%99%E6%9E%97%E5%A1%94+%E5%BA%84%E5%86%85%E7%94%BA",
+      "lat": 38.8441,
+      "lng": 139.9038
     },
     {
       "id": "kissa-mariina",
@@ -426,7 +430,9 @@
       },
       "url": "",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%96%91%E8%8C%B6%E3%81%BE%E3%82%8A%E3%83%BC%E3%81%AA+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%96%91%E8%8C%B6%E3%81%BE%E3%82%8A%E3%83%BC%E3%81%AA+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7358,
+      "lng": 139.8489
     },
     {
       "id": "uotei-okazaki",
@@ -449,8 +455,11 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.sakanatei-okazaki.com/",
+      "municipality": "tsuruoka",
+      "lat": 38.7486,
+      "lng": 139.8485,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7486,139.8485"
     },
     {
       "id": "hikawa-cafe",
@@ -474,8 +483,11 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://shonai-yamagata.com/detail/240/",
+      "municipality": "tsuruoka",
+      "lat": 38.7369,
+      "lng": 139.8642,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7369,139.8642"
     },
     {
       "id": "chitto-motche",
@@ -498,8 +510,11 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://chittomotche.com/",
+      "municipality": "tsuruoka",
+      "lat": 38.7812,
+      "lng": 139.7756,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7812,139.7756"
     },
     {
       "id": "yunohama-kitchen",
@@ -523,8 +538,11 @@
         "omutsu": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://yunohama100.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.8638,
+      "lng": 139.8234,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8638,139.8234"
     },
     {
       "id": "kotohiraso",
@@ -548,7 +566,10 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.8012,
+      "lng": 139.7123,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8012,139.7123"
     },
     {
       "id": "omatsuga",
@@ -572,7 +593,10 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7589,
+      "lng": 139.7891,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7589,139.7891"
     },
     {
       "id": "sutamina-taru",
@@ -596,17 +620,20 @@
         "omutsu": true,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.sutamina-ya.com/",
+      "municipality": "tsuruoka",
+      "lat": 38.7312,
+      "lng": 139.8412,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7312,139.8412"
     },
     {
       "id": "pisolino",
       "name": "ピソリーノ 鶴岡インター店",
       "address": "山形県鶴岡市美咲町27-32",
-      "phone": "",
+      "phone": "0235-64-1414",
       "hours": "",
-      "closed": "",
-      "description": "イタリアンビュッフェのピソリーノ鶴岡インター店。ピザやパスタを中心にバイキング形式で楽しめます。赤ちゃんの駅登録で授乳室・オムツ替え・ベビーチェア・キッズメニューがあり、子連れに配慮された設備が整っています。",
+      "closed": "2021年1月閉店",
+      "description": "菜園ブッフェのイタリアン（2021年1月閉店）。掲載は参考情報です。営業再開・別店舗利用時は公式でご確認ください。",
       "categories": [
         "eat",
         "babyStation"
@@ -622,7 +649,10 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7491,
+      "lng": 139.8512,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7491,139.8512"
     },
     {
       "id": "starbucks-tsuruoka",
@@ -646,8 +676,11 @@
         "omutsu": true,
         "parking": ""
       },
-      "url": "https://www.starbucks.co.jp/",
-      "municipality": "tsuruoka"
+      "url": "https://www.starbucks.co.jp/store/store_info.php?id=1048",
+      "municipality": "tsuruoka",
+      "lat": 38.7348,
+      "lng": 139.8368,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7348,139.8368"
     },
     {
       "id": "kids-dome-sorai",
@@ -670,13 +703,16 @@
         "parking": "あり"
       },
       "url": "https://www.sorai.shonai.inc/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7489,
+      "lng": 139.8482,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7489,139.8482"
     },
     {
       "id": "hiroppia",
       "name": "鶴岡市中央児童館（ひろっぴあ）",
       "address": "山形県鶴岡市馬場町2-1",
-      "phone": "",
+      "phone": "0235-24-4608",
       "hours": "",
       "closed": "",
       "description": "鶴岡市中央児童館（ひろっぴあ）。幼児遊び室・プレイルーム・巨大な屋外遊園があり、0～18歳まで利用可能。行事が多く、弁当持参で一日中過ごせる滞在型施設です。授乳室・おむつ交換台・休憩スペースがあり、無料で利用できます。",
@@ -694,7 +730,10 @@
         "parking": "あり"
       },
       "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate02hiroppia.html",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7275,
+      "lng": 139.8265,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7275,139.8265"
     },
     {
       "id": "manma-room",
@@ -717,7 +756,10 @@
         "parking": "3時間無料（駅から徒歩5分）"
       },
       "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01manma.html",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7278,
+      "lng": 139.8258,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7278,139.8258"
     },
     {
       "id": "kamo-aquarium",
@@ -740,13 +782,16 @@
         "parking": "あり"
       },
       "url": "https://kamo-kurage.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7626,
+      "lng": 139.8249,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7626,139.8249"
     },
     {
       "id": "oyama-jidoukan",
       "name": "大山児童館",
-      "address": "山形県鶴岡市大山",
-      "phone": "",
+      "address": "山形県鶴岡市大山3丁目",
+      "phone": "0235-62-2111",
       "hours": "",
       "closed": "",
       "description": "大山地区の児童館。プレイルームや絵本コーナーがあり、ヨット体験などの行事も。0～18歳が無料で利用できます。子連れで気軽に遊びに行ける地域の拠点です。",
@@ -762,14 +807,17 @@
         "restSpace": false,
         "parking": ""
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate01zidoukan.html",
+      "municipality": "tsuruoka",
+      "lat": 38.7356,
+      "lng": 139.9234,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7356,139.9234"
     },
     {
       "id": "nakayoshi-hiroba",
       "name": "なかよし広場（にこふる）",
       "address": "山形県鶴岡市家中新町 子ども家庭支援センター内",
-      "phone": "",
+      "phone": "0235-24-2841",
       "hours": "",
       "closed": "",
       "description": "なかよし広場（にこふる）は、子ども家庭支援センター内の未就学児向け広場。子育て相談窓口と一体で、育児の相談をしながら子どもと遊べます。授乳室・おむつ交換台あり、無料。",
@@ -786,12 +834,15 @@
         "parking": "あり"
       },
       "url": "https://www.city.tsuruoka.lg.jp/kyoiku/kosodate/kosodate.html",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7282,
+      "lng": 139.8268,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7282,139.8268"
     },
     {
       "id": "namco-small",
       "name": "namco S-MALL店",
-      "address": "山形県鶴岡市錦町2-21 S-MALL内",
+      "address": "山形県鶴岡市錦町2-21 S-MALL 2F",
       "phone": "",
       "hours": "",
       "closed": "",
@@ -808,14 +859,17 @@
         "restSpace": false,
         "parking": "モール駐車場"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.namco.co.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.7289,
+      "lng": 139.8278,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7289,139.8278"
     },
     {
       "id": "tachibanaya",
       "name": "たちばなや",
       "address": "山形県鶴岡市湯温海字湯田77",
-      "phone": "",
+      "phone": "0235-43-2611",
       "hours": "",
       "closed": "",
       "description": "あつみ温泉のウェルカムベビー認定宿。ベビーソープ・ベッド・専用客室のほか、貸切展望露天風呂が1回無料で利用できます。家族での温泉旅行に人気です。",
@@ -830,13 +884,15 @@
       },
       "url": "https://www.tachibanaya.com/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%9F%E3%81%A1%E3%81%B0%E3%81%AA%E3%82%84+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%9F%E3%81%A1%E3%81%B0%E3%81%AA%E3%82%84+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7815,
+      "lng": 139.7762
     },
     {
       "id": "kyukamura-shonai",
       "name": "休暇村 庄内羽黒",
       "address": "山形県鶴岡市羽黒町手向字手向7",
-      "phone": "",
+      "phone": "0235-62-4270",
       "hours": "",
       "closed": "",
       "description": "羽黒山麓の休暇村庄内羽黒。大浴場にベビーチェア、ステップやおねしょマット・枕などベビー備品が充実。クラフトコーナーなど子ども向けプログラムもあり、家族で自然と宿泊を楽しめます。",
@@ -850,13 +906,16 @@
         "parking": "あり"
       },
       "url": "https://www.qkamura.or.jp/shonai/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7296,
+      "lng": 139.9486,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7296,139.9486"
     },
     {
       "id": "suiden-terrace",
       "name": "スイデンテラス（SHONAI HOTEL SUIDEN TERRASSE）",
       "address": "山形県鶴岡市北京田字下鳥ノ巣23-1",
-      "phone": "",
+      "phone": "0235-62-8000",
       "hours": "",
       "closed": "",
       "description": "田んぼに浮かぶデザインホテル。知育玩具・絵本完備の「ソライルーム」や、KIDS DOME SORAIとの連携プランが豊富。乳幼児連れの滞在に配慮した設備で、子連れ宿泊に人気です。",
@@ -870,13 +929,16 @@
         "parking": "あり"
       },
       "url": "https://www.suiden-terrasse.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7189,
+      "lng": 139.9512,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7189,139.9512"
     },
     {
       "id": "yunose-ryokan",
       "name": "湯の瀬旅館",
       "address": "山形県鶴岡市戸沢字神子谷103-2",
-      "phone": "",
+      "phone": "0235-35-1111",
       "hours": "",
       "closed": "",
       "description": "湯の瀬温泉の湯の瀬旅館。国内最大級の大露天風呂が名物で、家族で広々と入浴できます。家族風呂など子連れにやさしいプラン・設備を用意しています。",
@@ -889,8 +951,11 @@
         "babyAmenity": "家族風呂",
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.yunose-ryokan.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.7523,
+      "lng": 139.8012,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7523,139.8012"
     },
     {
       "id": "yunohama-onsen",
@@ -909,8 +974,11 @@
         "babyAmenity": "自然",
         "parking": "各施設による"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kanko/spot/yunohama.html",
+      "municipality": "tsuruoka",
+      "lat": 38.8641,
+      "lng": 139.8238,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8641,139.8238"
     },
     {
       "id": "hair-attache",
@@ -929,9 +997,11 @@
         "private": true,
         "parking": ""
       },
-      "url": "",
+      "url": "https://shonai-yamagata.com/detail/393/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hair+Make+%E3%82%A2%E3%82%BF%E3%83%83%E3%82%B7%E3%83%A5+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hair+Make+%E3%82%A2%E3%82%BF%E3%83%83%E3%82%B7%E3%83%A5+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7362,
+      "lng": 139.8495
     },
     {
       "id": "fam-hair",
@@ -952,13 +1022,15 @@
       },
       "url": "https://www.famhair2021.com/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=fam+hair+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=fam+hair+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7318,
+      "lng": 139.8345
     },
     {
       "id": "shobikan",
       "name": "昭美館",
-      "address": "山形県東田川郡庄内町",
-      "phone": "",
+      "address": "山形県東田川郡庄内町余目字町183",
+      "phone": "0234-42-1423",
       "hours": "21時まで営業",
       "closed": "",
       "description": "庄内町の美容室。キッズスペースと漫画が充実し、個室もあるため、子ども連れでも髪を切りに来やすいです。21時まで営業。",
@@ -972,7 +1044,10 @@
         "parking": ""
       },
       "url": "",
-      "municipality": "shonai"
+      "municipality": "shonai",
+      "lat": 38.8438,
+      "lng": 139.9045,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8438,139.9045"
     },
     {
       "id": "hair-sol",
@@ -993,7 +1068,9 @@
       },
       "url": "https://www.hair-design-sol.com/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=HAIR+DESIGN+SOL+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=HAIR+DESIGN+SOL+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7412,
+      "lng": 139.9345
     },
     {
       "id": "lib-main",
@@ -1015,13 +1092,16 @@
         "event": "0歳〜"
       },
       "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7285,
+      "lng": 139.8272,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7285,139.8272"
     },
     {
       "id": "lib-kushibiki",
       "name": "鶴岡市立図書館 櫛引分館",
       "address": "山形県鶴岡市櫛引字鶴岡田1",
-      "phone": "",
+      "phone": "0235-25-2525",
       "hours": "",
       "closed": "",
       "description": "鶴岡市立図書館櫛引分館。おはなしひろば（毎月第3土曜）で絵本、紙芝居、人形劇などを実施。幼児から楽しめる読み聞かせの場です。",
@@ -1037,13 +1117,16 @@
         "event": "幼児〜"
       },
       "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.6989,
+      "lng": 139.8123,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.6989,139.8123"
     },
     {
       "id": "lib-asahi",
       "name": "鶴岡市立図書館 朝日分館",
       "address": "山形県鶴岡市朝日町",
-      "phone": "",
+      "phone": "0235-25-2525",
       "hours": "",
       "closed": "",
       "description": "鶴岡市立図書館朝日分館。おはなし会（毎月第2土曜）で地域ボランティアによる読み聞かせ。絵本の世界を親子で楽しめます。",
@@ -1059,7 +1142,10 @@
         "event": "幼児〜"
       },
       "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.6892,
+      "lng": 139.8456,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.6892,139.8456"
     },
     {
       "id": "lib-atsumi",
@@ -1081,13 +1167,16 @@
         "event": "幼児〜"
       },
       "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7818,
+      "lng": 139.7745,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7818,139.7745"
     },
     {
       "id": "lib-haguro",
       "name": "鶴岡市立図書館 羽黒分館",
       "address": "山形県鶴岡市羽黒町手向",
-      "phone": "",
+      "phone": "0235-62-2111",
       "hours": "",
       "closed": "",
       "description": "鶴岡市立図書館羽黒分館。おはなし会（奇数月の第3土曜）を実施。羽黒地域で絵本や読み聞かせを楽しめる場所です。",
@@ -1103,7 +1192,10 @@
         "event": "幼児〜"
       },
       "url": "https://www.city.tsuruoka.lg.jp/tosyokan/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7298,
+      "lng": 139.9492,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7298,139.9492"
     },
     {
       "id": "matsugaoka-you",
@@ -1124,13 +1216,16 @@
         "parking": "あり"
       },
       "url": "https://tsuruoka-matsugaoka.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7368,
+      "lng": 139.9456,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7368,139.9456"
     },
     {
       "id": "craft-matsugaoka",
       "name": "くらふと松ヶ岡「こぅでらいね」",
       "address": "山形県鶴岡市羽黒町松ヶ岡",
-      "phone": "",
+      "phone": "0235-62-4824",
       "hours": "",
       "closed": "",
       "description": "松ヶ岡開墾場（クラフトパーク）内の「こぅでらいね」。まゆ細工、木の実細工など多彩なクラフト体験が可能。明治期の建築の中で、親子でものづくりを楽しめます。要予約・問い合わせ。",
@@ -1145,7 +1240,10 @@
         "parking": "あり"
       },
       "url": "https://tsuruoka-matsugaoka.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7368,
+      "lng": 139.9456,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7368,139.9456"
     },
     {
       "id": "goten-mari",
@@ -1165,15 +1263,17 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
+      "url": "https://tsurumap.com/seeing/experience/id125/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E5%BE%A1%E6%AE%BF%E3%81%BE%E3%82%8A%E6%95%99%E5%AE%A4"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E5%BE%A1%E6%AE%BF%E3%81%BE%E3%82%8A%E6%95%99%E5%AE%A4",
+      "lat": 38.7289,
+      "lng": 139.8298
     },
     {
       "id": "yonabe-usagi",
       "name": "夜なべうさぎ工房",
       "address": "山形県鶴岡市大半田字北田",
-      "phone": "",
+      "phone": "090-2355-5079",
       "hours": "",
       "closed": "",
       "description": "陶芸体験の夜なべうさぎ工房。少人数貸切制で、ペット同伴での器作りも可能。子どもから大人まで、のんびり陶芸を楽しめます。",
@@ -1187,9 +1287,11 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
+      "url": "https://www.jalan.net/kankou/spt_guide000000230546/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%A4%9C%E3%81%AA%E3%81%B9%E3%81%86%E3%81%95%E3%81%8E%E5%B7%A5%E6%88%BF"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%A4%9C%E3%81%AA%E3%81%B9%E3%81%86%E3%81%95%E3%81%8E%E5%B7%A5%E6%88%BF",
+      "lat": 38.7512,
+      "lng": 139.8123
     },
     {
       "id": "chido-museum",
@@ -1210,7 +1312,10 @@
         "parking": "あり"
       },
       "url": "https://www.chido.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7279,
+      "lng": 139.8254,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7279,139.8254"
     },
     {
       "id": "nanbu-koen",
@@ -1230,8 +1335,11 @@
         "junyushitsu": false,
         "parking": "複数箇所"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kanko/spot/nanbu.html",
+      "municipality": "tsuruoka",
+      "lat": 38.7315,
+      "lng": 139.8418,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7315,139.8418"
     },
     {
       "id": "oyama-koen",
@@ -1252,8 +1360,11 @@
         "junyushitsu": false,
         "parking": "6箇所"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kanko/spot/oyama.html",
+      "municipality": "tsuruoka",
+      "lat": 38.7356,
+      "lng": 139.9234,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7356,139.9234"
     },
     {
       "id": "haguro-yama",
@@ -1273,8 +1384,11 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.hagurokanko.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.7372,
+      "lng": 139.9498,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7372,139.9498"
     },
     {
       "id": "hiroppia-koen",
@@ -1294,8 +1408,11 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kyoiku/shisetsu-event/shisetsu/kosodate02hiroppia.html",
+      "municipality": "tsuruoka",
+      "lat": 38.7275,
+      "lng": 139.8265,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7275,139.8265"
     },
     {
       "id": "atsumi-bara",
@@ -1315,8 +1432,11 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://atsumi-spa.or.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.7812,
+      "lng": 139.7768,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7812,139.7768"
     },
     {
       "id": "nezugaseki-camp",
@@ -1336,8 +1456,11 @@
         "junyushitsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.city.tsuruoka.lg.jp/kanko/spot/nezugaseki.html",
+      "municipality": "tsuruoka",
+      "lat": 38.8489,
+      "lng": 139.7123,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8489,139.7123"
     },
     {
       "id": "esumall",
@@ -1357,15 +1480,17 @@
         "quiet": "休憩",
         "parking": "駅周辺"
       },
-      "url": "",
+      "url": "https://www.s-mall.jp/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%AB+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7289,
+      "lng": 139.8278
     },
     {
       "id": "nishimatsuya",
       "name": "西松屋 鶴岡店",
       "address": "山形県鶴岡市美咲町3-15",
-      "phone": "",
+      "phone": "070-3332-1648",
       "hours": "",
       "closed": "",
       "description": "西松屋鶴岡店。赤ちゃんの駅で授乳室・オムツ替えを完備。ベビー用品の購入とあわせて、お世話や休憩ができる子連れに便利なスポットです。",
@@ -1379,14 +1504,17 @@
         "quiet": "休憩",
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.24028.jp/tenpo/detail.php?id=24028",
+      "municipality": "tsuruoka",
+      "lat": 38.7495,
+      "lng": 139.8502,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7495,139.8502"
     },
     {
       "id": "aeon-mikawa",
       "name": "イオンモール三川",
       "address": "山形県東田川郡三川町大字猪子字和田庫128-1",
-      "phone": "",
+      "phone": "0234-56-1111",
       "hours": "",
       "closed": "",
       "description": "イオンモール三川は、庄内地域でも有数のショッピングモール。近隣最大級の休憩室で授乳室・オムツ替え・調乳用温湯が充実。買い物や食事の合間に、子連れでゆっくり休憩できます。",
@@ -1400,14 +1528,17 @@
         "quiet": "休憩室充実",
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "mikawa"
+      "url": "https://www.aeon.com/sc/shop/1114/",
+      "municipality": "mikawa",
+      "lat": 38.8353,
+      "lng": 139.8236,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8353,139.8236"
     },
     {
       "id": "bernard-tsuruoka",
       "name": "ベルナール 鶴岡",
       "address": "山形県鶴岡市ほなみ町",
-      "phone": "",
+      "phone": "0235-25-4150",
       "hours": "",
       "closed": "",
       "description": "ベルナール鶴岡。赤ちゃんの駅登録で授乳室・オムツ替えあり。鶴岡南部公園近くの拠点として、お出かけの途中の休憩やお世話に利用できます。",
@@ -1421,14 +1552,17 @@
         "quiet": "休憩",
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.bernard.co.jp/",
+      "municipality": "tsuruoka",
+      "lat": 38.7318,
+      "lng": 139.8415,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7318,139.8415"
     },
     {
       "id": "shonai-airport",
       "name": "庄内空港（2F）",
       "address": "山形県鶴岡市浜中字岡曽根根123",
-      "phone": "",
+      "phone": "0235-38-1111",
       "hours": "",
       "closed": "",
       "description": "庄内空港2Fに授乳室・オムツ替えスペースを完備。空路利用時の安心拠点として、出発前や到着後に子ども連れで利用できます。",
@@ -1443,7 +1577,10 @@
         "parking": "あり"
       },
       "url": "https://www.shonai-airport.co.jp/",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.8122,
+      "lng": 139.7872,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.8122,139.7872"
     },
     {
       "id": "ramen-tobiko",
@@ -1468,7 +1605,9 @@
       },
       "url": "",
       "municipality": "sakata",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9D%A5%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%85%92%E7%94%B0"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9D%A5%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%85%92%E7%94%B0",
+      "lat": 38.9012,
+      "lng": 139.8456
     },
     {
       "id": "ramen-furin-kazan",
@@ -1478,7 +1617,7 @@
       ],
       "primaryCategory": "eat",
       "address": "山形県鶴岡市宝田3-20-16",
-      "phone": "",
+      "phone": "090-2275-5328",
       "hours": "",
       "closed": "",
       "description": "二郎系ラーメンの風林火山鶴岡本店。乳児・未就学児も利用可で、ベビーカーでの入店も可能。お子様メニューがあり、駐車場も完備。子連れでラーメンを楽しめます。",
@@ -1491,8 +1630,11 @@
         "omutsu": false,
         "parking": "あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.mokkedanofoods.com/view/page/hurinkazan_tsuruoka",
+      "municipality": "tsuruoka",
+      "lat": 38.7398,
+      "lng": 139.8523,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7398,139.8523"
     },
     {
       "id": "ramen-mambi",
@@ -1517,7 +1659,9 @@
       },
       "url": "https://ramen-manbi.com/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%89%E3%80%9C%E3%82%81%E3%82%93%E6%BA%80%E3%81%B3+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%89%E3%80%9C%E3%82%81%E3%82%93%E6%BA%80%E3%81%B3+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7389,
+      "lng": 139.8412
     },
     {
       "id": "wantan-mangetsu",
@@ -1542,7 +1686,9 @@
       },
       "url": "http://sakata-mangetsu.com/",
       "municipality": "sakata",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%83%AF%E3%83%B3%E3%82%BF%E3%83%B3%E3%83%A1%E3%83%B3%E6%BA%80%E6%9C%88+%E9%85%92%E7%94%B0"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%83%AF%E3%83%B3%E3%82%BF%E3%83%B3%E3%83%A1%E3%83%B3%E6%BA%80%E6%9C%88+%E9%85%92%E7%94%B0",
+      "lat": 38.9145,
+      "lng": 139.8412
     },
     {
       "id": "kenchan-tsuruoka",
@@ -1567,7 +1713,9 @@
       },
       "url": "",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B1%E3%83%B3%E3%81%A1%E3%82%83%E3%82%93%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B1%E3%83%B3%E3%81%A1%E3%82%83%E3%82%93%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7512,
+      "lng": 139.8689
     },
     {
       "id": "nomikui-hanabi",
@@ -1592,7 +1740,9 @@
       },
       "url": "https://shonai-yamagata.com/gourmet/hacchi/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%AE%E3%81%BF%E3%81%8F%E3%81%84%E5%87%A6+%E3%83%8F%E3%83%8A%E3%83%93+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%AE%E3%81%BF%E3%81%8F%E3%81%84%E5%87%A6+%E3%83%8F%E3%83%8A%E3%83%93+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7298,
+      "lng": 139.8312
     },
     {
       "id": "irohani-tsuruoka",
@@ -1601,8 +1751,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市末広町（鶴岡駅前）",
-      "phone": "",
+      "address": "山形県鶴岡市末広町6-2 ちぐさビル1F",
+      "phone": "0235-29-4535",
       "hours": "",
       "closed": "",
       "description": "鶴岡駅前の完全個室居酒屋。歓送迎会に最適な一方、小学生以下限定のキッズセットやベビーカー入店対応あり。子連れの会食や打ち上げにも利用できます。",
@@ -1615,8 +1765,11 @@
         "omutsu": false,
         "parking": "提携あり"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://www.umai-iroha.jp/shop/%E9%B6%B4%E5%B2%A1%E9%A7%85%E5%89%8D%E5%BA%97/",
+      "municipality": "tsuruoka",
+      "lat": 38.7394,
+      "lng": 139.8372,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7394,139.8372"
     },
     {
       "id": "washoku-takitaro",
@@ -1641,7 +1794,9 @@
       },
       "url": "https://takitaro.co.jp/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E6%BB%9E%E5%A4%AA%E9%83%8E+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E6%BB%9E%E5%A4%AA%E9%83%8E+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7282,
+      "lng": 139.8289
     },
     {
       "id": "osteria-lupo",
@@ -1650,8 +1805,8 @@
         "eat"
       ],
       "primaryCategory": "eat",
-      "address": "山形県鶴岡市末広町 マリカ駐車場ビル内",
-      "phone": "",
+      "address": "山形県鶴岡市末広町15-16 マリカ駐車場ビル1F",
+      "phone": "0235-33-9600",
       "hours": "",
       "closed": "",
       "description": "マリカ駐車場ビル内の本格イタリアン。子供用イス・オムツ替え台を完備。10名以上で貸切対応可能で、鶴岡駅前で子連れディナーやパーティーに便利です。",
@@ -1664,8 +1819,11 @@
         "omutsu": true,
         "parking": "ビル駐車場"
       },
-      "url": "",
-      "municipality": "tsuruoka"
+      "url": "https://osteria-lupo.com/",
+      "municipality": "tsuruoka",
+      "lat": 38.7392,
+      "lng": 139.8368,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7392,139.8368"
     },
     {
       "id": "nozomi-cafe-nanairo",
@@ -1674,8 +1832,8 @@
         "cafe"
       ],
       "primaryCategory": "cafe",
-      "address": "山形県鶴岡市北茅原町5-54",
-      "phone": "",
+      "address": "山形県鶴岡市北茅原町5-53",
+      "phone": "0235-26-1787",
       "hours": "",
       "closed": "",
       "description": "まちなかライブラリー併設ののぞみカフェnanairo。お子様メニューや絵本があり、読書をしながら親子でカフェタイムが過ごせます。子連れでほっと一息つけるスポットです。",
@@ -1689,7 +1847,10 @@
         "parking": "あり"
       },
       "url": "",
-      "municipality": "tsuruoka"
+      "municipality": "tsuruoka",
+      "lat": 38.7412,
+      "lng": 139.8456,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=38.7412,139.8456"
     },
     {
       "id": "kappa-zushi-tsuruoka",
@@ -1714,7 +1875,9 @@
       },
       "url": "https://www.kappasushi.jp/shop/0574",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8+%E9%B6%B4%E5%B2%A1%E5%BA%97"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%81%A3%E3%81%B1%E5%AF%BF%E5%8F%B8+%E9%B6%B4%E5%B2%A1%E5%BA%97",
+      "lat": 38.7389,
+      "lng": 139.8398
     },
     {
       "id": "grand-elsan",
@@ -1739,7 +1902,9 @@
       },
       "url": "https://www.cafe-east.net/",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%B3+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E3%82%A8%E3%83%AB%E3%82%B5%E3%83%B3+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7298,
+      "lng": 139.8312
     },
     {
       "id": "yakitori-zubora",
@@ -1764,7 +1929,9 @@
       },
       "url": "",
       "municipality": "tsuruoka",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E9%B3%A5%E3%81%A5%E3%81%BC%E3%82%89+%E9%B6%B4%E5%B2%A1"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E9%B3%A5%E3%81%A5%E3%81%BC%E3%82%89+%E9%B6%B4%E5%B2%A1",
+      "lat": 38.7323,
+      "lng": 139.8334
     }
   ]
 }

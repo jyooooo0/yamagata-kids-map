@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { PageHeader, PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -20,21 +21,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-      <header className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-          ABOUT
-        </p>
-        <h1 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-          山形・庄内の子育てを、
-          <br />
-          地域でアップデートしていく地図。
-        </h1>
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-          「ここは小上がりがあって助かった」「夜間の小児科がやっと見つかった」
-          ── 子育て中の親が体験して知った情報を、地域でシェアして使いまわせる場所を目指しています。
-        </p>
-      </header>
+    <PageShell width="md">
+      <PageHeader
+        eyebrow="ABOUT"
+        title="山形・庄内の子育てを、地域でアップデートしていく地図。"
+        description="「ここは小上がりがあって助かった」「夜間の小児科がやっと見つかった」── 子育て中の親が体験して知った情報を、地域でシェアして使いまわせる場所を目指しています。"
+      />
 
       <section className="mt-14 space-y-6">
         <SectionTitle eyebrow="MISSION" title="このサイトが解決したいこと" />
@@ -145,13 +137,17 @@ export default function AboutPage() {
           </p>
         </div>
         <Button asChild>
-          <Link href="/feedback">
-            ご意見を送る
+          <Link
+            href="https://github.com/jyooooo0/yamagata-kids-map/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub で意見を送る
             <ArrowRight />
           </Link>
         </Button>
       </div>
-    </div>
+    </PageShell>
   );
 }
 
@@ -164,12 +160,8 @@ function SectionTitle({
 }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-        {eyebrow}
-      </p>
-      <h2 className="font-display mt-2 text-2xl font-bold tracking-tight">
-        {title}
-      </h2>
+      <p className="page-eyebrow">{eyebrow}</p>
+      <h2 className="page-title mt-2 text-2xl">{title}</h2>
     </div>
   );
 }

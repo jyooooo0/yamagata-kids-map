@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PageHeader, PageShell } from "@/components/layout/page-shell";
 import { MUNICIPALITIES } from "@/lib/categories";
 import type { MunicipalityCode } from "@/types/spot";
 
@@ -105,19 +106,12 @@ const MUNICIPALITY_LINKS: Partial<Record<MunicipalityCode, MunicipalityLink[]>> 
 
 export default function SubsidiesPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-      <header className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-          SUPPORT
-        </p>
-        <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          補助制度・支援
-        </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          庄内5市町の子育てに関する制度ページへの入口です。
-          詳しい対象月齢・金額・申請方法は各市町の公式情報をご確認ください。
-        </p>
-      </header>
+    <PageShell width="xl">
+      <PageHeader
+        eyebrow="SUPPORT"
+        title="補助制度・支援"
+        description="庄内5市町の子育てに関する制度ページへの入口です。詳しい対象月齢・金額・申請方法は各市町の公式情報をご確認ください。"
+      />
 
       <div className="mt-6 flex items-start gap-3 rounded-xl border border-accent/40 bg-accent/5 p-4 text-sm">
         <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
@@ -200,13 +194,13 @@ export default function SubsidiesPage() {
         </p>
         <p className="mt-2">
           <Link
-            href="/contact"
+            href="/contribute"
             className="font-medium text-primary hover:underline"
           >
-            修正依頼フォームから教えてください →
+            投稿フォームから教えてください →
           </Link>
         </p>
       </div>
-    </div>
+    </PageShell>
   );
 }

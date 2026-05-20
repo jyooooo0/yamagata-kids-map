@@ -3,12 +3,17 @@
 import { Suspense, useMemo } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Filter, X } from "lucide-react";
+import { Filter, MapPin, PenLine, X } from "lucide-react";
 
+import {
+  FilterChip,
+  FilterGroup,
+  FilterScrollRow,
+} from "@/components/layout/filter-chip";
+import { PageHeader, PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SpotCard } from "@/components/spots/spot-card";
-import { CategoryIcon } from "@/components/spots/category-icon";
 import {
   CATEGORIES,
   CATEGORY_MAP,
@@ -17,6 +22,7 @@ import {
   YAMAGATA_AREA_LABELS,
 } from "@/lib/categories";
 import { getMunicipalitiesByArea } from "@/lib/municipality";
+import { SITE_NAV_CTA } from "@/lib/site-nav";
 import {
   getAllSpots,
   getAreaCounts,
@@ -91,90 +97,108 @@ function SpotsPageContent() {
   const totalSpotCount = allSpots.length;
   const legacyCount = allSpots.filter((s) => !s.id.startsWith("kanko-")).length;
   const officialCount = totalSpotCount - legacyCount;
+  const hasFilters = Boolean(
+    activeCategory || activeMunicipality || activeArea,
+  );
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-      <header className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-          SPOTS
-        </p>
-        <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          スポットを探す
-        </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          山形県内の子ども向け・家族向けスポットを、地域・カテゴリで絞り込めます。
-          庄内の飲食・施設（{legacyCount}件）に加え、県公式観光サイト「子どもが喜ぶ！」テーマ由来の情報（
-          {officialCount}件）を整理して掲載しています。地図は無料の Google マイマップ／外部リンクを利用しています。
-        </p>
-      </header>
+    <PageShell width="xl">
+      <PageHeader
+        eyebrow="SPOTS"
+        title="スポットを探す"
+        description={`山形県内の子ども向け・家族向けスポットを地域・カテゴリで絞り込めます。庄内の飲食・施設（${legacyCount}件）と県公式観光情報（${officialCount}件）を掲載。地図は無料の Google マイマップを利用しています。`}
+        actions={
+          <>
+            <Button asChild variant="outline" size="sm" className="rounded-full">
+              <Link href={SITE_NAV_CTA.href}>
+                <MapPin />
+                地図で見る
+              </Link>
+            </Button>
+            <Button asChild size="sm" className="rounded-full">
+              <Link href="/contribute">
+                <PenLine />
+                情報を投稿
+              </Link>
+            </Button>
+          </>
+        }
+      />
 
-      <div className="mt-8 space-y-5">
-        <FilterRow
-          label="地域"
-          activeKey={activeArea ?? "all"}
-          totalCount={totalSpotCount}
-          items={[
-            {
-              key: "all",
-              label: "県内すべて",
-              href: buildHref(activeCategory, null, null),
-            },
-            ...AREA_IDS.map((id) => ({
-              key: id,
-              label: YAMAGATA_AREA_LABELS[id].short,
-              href: buildHref(activeCategory, null, id),
-              count: areaCounts[id],
-            })),
-          ]}
-        />
+      <div className="spots-filters-panel mt-8 space-y-4">
+        <FilterGroup label="地域">
+          <FilterScrollRow>
+            <FilterChip
+              href={buildHref(activeCategory, null, null)}
+              label="県内すべて"
+              isActive={!activeArea}
+              count={totalSpotCount}
+            />
+            {AREA_IDS.map((id) => (
+              <FilterChip
+                key={id}
+                href={buildHref(activeCategory, null, id)}
+                label={YAMAGATA_AREA_LABELS[id].short}
+                isActive={activeArea === id}
+                count={areaCounts[id]}
+              />
+            ))}
+          </FilterScrollRow>
+        </FilterGroup>
 
-        <FilterRow
-          label="カテゴリ"
-          activeKey={activeCategory ?? "all"}
-          items={[
-            {
-              key: "all",
-              label: "すべて",
-              href: buildHref(null, activeMunicipality, activeArea),
-            },
-            ...CATEGORIES.map((c) => ({
-              key: c.id,
-              label: c.name,
-              href: buildHref(c.id, activeMunicipality, activeArea),
-              count: counts[c.id] ?? 0,
-              icon: c.id,
-            })),
-          ]}
-        />
+        <FilterGroup label="カテゴリ">
+          <FilterScrollRow>
+            <FilterChip
+              href={buildHref(null, activeMunicipality, activeArea)}
+              label="すべて"
+              isActive={!activeCategory}
+            />
+            {CATEGORIES.map((c) => (
+              <FilterChip
+                key={c.id}
+                href={buildHref(c.id, activeMunicipality, activeArea)}
+                label={c.name}
+                isActive={activeCategory === c.id}
+                count={counts[c.id] ?? 0}
+                icon={c.id}
+              />
+            ))}
+          </FilterScrollRow>
+        </FilterGroup>
 
-        <FilterRow
+        <FilterGroup
           label={activeArea ? `${YAMAGATA_AREA_LABELS[activeArea].short}の市町` : "市町"}
-          activeKey={activeMunicipality ?? "all"}
-          items={[
-            {
-              key: "all",
-              label: activeArea ? "地域内すべて" : "市町で絞る（地域を選択）",
-              href: buildHref(activeCategory, null, activeArea),
-            },
-            ...(activeArea
-              ? municipalityOptions.map((m) => ({
-                  key: m.code,
-                  label: m.name,
-                  href: buildHref(activeCategory, m.code, activeArea),
-                }))
-              : []),
-          ]}
-        />
+          hint={activeArea ? undefined : "先に地域を選ぶと市町で絞れます"}
+        >
+          <FilterScrollRow>
+            <FilterChip
+              href={buildHref(activeCategory, null, activeArea)}
+              label={activeArea ? "地域内すべて" : "市町（地域未選択）"}
+              isActive={!activeMunicipality}
+            />
+            {activeArea &&
+              municipalityOptions.map((m) => (
+                <FilterChip
+                  key={m.code}
+                  href={buildHref(activeCategory, m.code, activeArea)}
+                  label={m.name}
+                  isActive={activeMunicipality === m.code}
+                />
+              ))}
+          </FilterScrollRow>
+        </FilterGroup>
 
-        {(activeCategory || activeMunicipality || activeArea) && (
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-muted-foreground">適用中：</span>
+        {hasFilters && (
+          <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2.5">
+            <span className="text-xs font-medium text-muted-foreground">
+              適用中
+            </span>
             {activeArea && (
-              <Badge variant="outline" className="gap-1.5">
+              <Badge variant="outline" className="gap-1.5 pr-1">
                 {YAMAGATA_AREA_LABELS[activeArea].label}
                 <Link
                   href={buildHref(activeCategory, activeMunicipality, null)}
-                  className="inline-flex items-center hover:opacity-80"
+                  className="inline-flex rounded-full p-0.5 hover:bg-muted"
                   aria-label="地域絞り込みを解除"
                 >
                   <X className="h-3 w-3" />
@@ -182,11 +206,11 @@ function SpotsPageContent() {
               </Badge>
             )}
             {activeCategory && (
-              <Badge variant="default" className="gap-1.5">
+              <Badge variant="default" className="gap-1.5 pr-1">
                 {CATEGORY_MAP[activeCategory]?.name}
                 <Link
                   href={buildHref(null, activeMunicipality, activeArea)}
-                  className="inline-flex items-center hover:opacity-80"
+                  className="inline-flex rounded-full p-0.5 hover:bg-primary-foreground/20"
                   aria-label="カテゴリ絞り込みを解除"
                 >
                   <X className="h-3 w-3" />
@@ -194,25 +218,25 @@ function SpotsPageContent() {
               </Badge>
             )}
             {activeMunicipality && (
-              <Badge variant="secondary" className="gap-1.5">
+              <Badge variant="secondary" className="gap-1.5 pr-1">
                 {MUNICIPALITY_MAP[activeMunicipality]?.name}
                 <Link
                   href={buildHref(activeCategory, null, activeArea)}
-                  className="inline-flex items-center hover:opacity-80"
+                  className="inline-flex rounded-full p-0.5 hover:bg-muted"
                   aria-label="市町絞り込みを解除"
                 >
                   <X className="h-3 w-3" />
                 </Link>
               </Badge>
             )}
-            <Button asChild variant="ghost" size="sm" className="h-7 text-xs">
+            <Button asChild variant="ghost" size="sm" className="ml-auto h-7 text-xs">
               <Link href="/spots">すべて解除</Link>
             </Button>
           </div>
         )}
       </div>
 
-      <p className="mt-8 text-sm text-muted-foreground">
+      <p className="mt-6 text-sm text-muted-foreground">
         <span className="font-semibold text-foreground">{spots.length}</span> 件
         {totalSpotCount !== spots.length && (
           <span>（全{totalSpotCount}件中）</span>
@@ -220,113 +244,46 @@ function SpotsPageContent() {
       </p>
 
       {spots.length === 0 ? (
-        <div className="mt-8 rounded-xl border border-dashed border-border bg-card p-10 text-center">
+        <div className="mt-8 rounded-2xl border border-dashed border-border bg-card p-10 text-center">
           <Filter className="mx-auto h-8 w-8 text-muted-foreground" />
           <p className="mt-3 font-display text-base font-semibold">
             条件に合うスポットがありません
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            地域やカテゴリを変えてみてください。
+            地域やカテゴリを変えるか、フィルタを解除してみてください。
           </p>
+          <Button asChild variant="outline" className="mt-5 rounded-full">
+            <Link href="/spots">フィルタをすべて解除</Link>
+          </Button>
         </div>
       ) : (
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {spots.map((spot) => (
             <SpotCard key={spot.id} spot={spot} />
           ))}
         </div>
       )}
-    </div>
-  );
-}
-
-interface FilterItem {
-  key: string;
-  label: string;
-  href: string;
-  count?: number;
-  icon?: CategoryId;
-}
-
-function FilterRow({
-  label,
-  activeKey,
-  items,
-  totalCount,
-}: {
-  label: string;
-  activeKey: string;
-  items: FilterItem[];
-  totalCount?: number;
-}) {
-  return (
-    <div>
-      <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-        {label}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {items.map((item) => {
-          const isActive = activeKey === item.key;
-          const count =
-            item.key === "all" && totalCount !== undefined
-              ? totalCount
-              : item.count;
-          return (
-            <Link
-              key={item.key}
-              href={item.href}
-              className={[
-                "inline-flex items-center gap-1.5 rounded-[1rem] px-3.5 py-2 text-xs font-semibold transition-all",
-                isActive
-                  ? "border-[0.0625rem] border-primary bg-primary text-primary-foreground shadow-md app-card-shadow"
-                  : "border-[0.0625rem] border-border bg-card text-foreground/85 shadow-sm hover:border-primary/30 hover:bg-secondary/65 hover:text-foreground hover:shadow-[var(--app-shadow)]",
-              ].join(" ")}
-            >
-              {item.icon && (
-                <CategoryIcon
-                  category={item.icon}
-                  className="h-3.5 w-3.5"
-                  strokeWidth={2}
-                />
-              )}
-              <span>{item.label}</span>
-              {typeof count === "number" && (
-                <span
-                  className={[
-                    "rounded-full px-1.5 py-0.5 text-[10px] font-semibold",
-                    isActive
-                      ? "bg-primary-foreground/20 text-primary-foreground"
-                      : "bg-muted text-muted-foreground",
-                  ].join(" ")}
-                >
-                  {count}
-                </span>
-              )}
-            </Link>
-          );
-        })}
-      </div>
-    </div>
+    </PageShell>
   );
 }
 
 function SpotsPageSkeleton() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+    <PageShell width="xl">
       <div className="space-y-3">
-        <div className="h-3 w-16 rounded bg-muted" />
-        <div className="h-9 w-48 rounded bg-muted" />
-        <div className="h-4 w-full max-w-md rounded bg-muted" />
+        <div className="h-3 w-16 rounded-lg bg-muted" />
+        <div className="h-9 w-48 rounded-lg bg-muted" />
+        <div className="h-4 w-full max-w-md rounded-lg bg-muted" />
       </div>
-      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className="h-64 animate-pulse rounded-xl border border-border bg-card"
+            className="h-64 animate-pulse rounded-2xl border border-border bg-card"
           />
         ))}
       </div>
-    </div>
+    </PageShell>
   );
 }
 
