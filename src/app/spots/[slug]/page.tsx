@@ -26,6 +26,7 @@ import {
   getSpotsByCategory,
 } from "@/lib/places";
 import { getGoogleMapsUrl } from "@/lib/maps";
+import { sortTagsByPriority } from "@/lib/tag-filters";
 import type { Tag } from "@/types/spot";
 
 interface PageProps {
@@ -69,6 +70,12 @@ export default async function SpotDetailPage({ params }: PageProps) {
     const list = tagsByGroup.get(tag.group) ?? [];
     list.push(tag);
     tagsByGroup.set(tag.group, list);
+  }
+  for (const [group, list] of tagsByGroup) {
+    const sorted = sortTagsByPriority(list.map((t) => t.id))
+      .map((id) => TAG_MAP[id])
+      .filter(Boolean);
+    tagsByGroup.set(group, sorted);
   }
   const orderedGroups: Tag["group"][] = [
     "facility",

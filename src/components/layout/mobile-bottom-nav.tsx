@@ -46,10 +46,6 @@ export function MobileBottomNav() {
 
   const cur = current();
 
-  if (pathname === "/") {
-    return null;
-  }
-
   return (
     <nav
       className="pb-safe fixed inset-x-0 bottom-0 z-50 border-t border-border/80 bg-card/95 shadow-[0_-4px_24px_rgb(120_90_40/0.08)] backdrop-blur-md md:hidden"

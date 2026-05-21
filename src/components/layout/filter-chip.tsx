@@ -4,6 +4,14 @@ import { CategoryIcon } from "@/components/spots/category-icon";
 import { cn } from "@/lib/utils";
 import type { CategoryId } from "@/types/spot";
 
+function filterChipClassName(isActive: boolean, className?: string) {
+  return cn(
+    "filter-chip",
+    isActive ? "filter-chip-active" : "filter-chip-inactive",
+    className,
+  );
+}
+
 export function FilterChip({
   href,
   label,
@@ -22,11 +30,7 @@ export function FilterChip({
   return (
     <Link
       href={href}
-      className={cn(
-        "filter-chip",
-        isActive ? "filter-chip-active" : "filter-chip-inactive",
-        className,
-      )}
+      className={filterChipClassName(isActive, className)}
     >
       {icon && (
         <CategoryIcon
@@ -47,6 +51,52 @@ export function FilterChip({
         </span>
       )}
     </Link>
+  );
+}
+
+/** クライアント側の絞り込み用（見た目は FilterChip と同一） */
+export function FilterChipButton({
+  label,
+  isActive,
+  count,
+  icon,
+  className,
+  onClick,
+  type = "button",
+}: {
+  label: string;
+  isActive: boolean;
+  count?: number;
+  icon?: CategoryId;
+  className?: string;
+  onClick: () => void;
+  type?: "button" | "submit";
+}) {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={filterChipClassName(isActive, className)}
+    >
+      {icon && (
+        <CategoryIcon
+          category={icon}
+          className="h-3.5 w-3.5 shrink-0"
+          strokeWidth={2}
+        />
+      )}
+      <span>{label}</span>
+      {typeof count === "number" && (
+        <span
+          className={cn(
+            "filter-chip-count",
+            isActive && "filter-chip-count-active",
+          )}
+        >
+          {count}
+        </span>
+      )}
+    </button>
   );
 }
 

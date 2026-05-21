@@ -295,3 +295,14 @@ export function getCategoryCounts(): Record<CategoryId, number> {
   }
   return counts;
 }
+
+/** 設備・条件タグ別の件数（フィルタチップのバッジ用） */
+export function getTagCounts(): Partial<Record<TagId, number>> {
+  const counts: Partial<Record<TagId, number>> = {};
+  for (const spot of getAllSpots()) {
+    for (const tag of spot.tags) {
+      counts[tag] = (counts[tag] ?? 0) + 1;
+    }
+  }
+  return counts;
+}

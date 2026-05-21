@@ -14,21 +14,25 @@ import { PageHeader, PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SpotCard } from "@/components/spots/spot-card";
+import { TagFilterPanel } from "@/components/spots/tag-filter-panel";
 import {
   CATEGORIES,
   CATEGORY_MAP,
   MUNICIPALITIES,
   MUNICIPALITY_MAP,
+  TAG_MAP,
   YAMAGATA_AREA_LABELS,
 } from "@/lib/categories";
 import { getMunicipalitiesByArea } from "@/lib/municipality";
 import { SITE_NAV_CTA } from "@/lib/site-nav";
+import { getTagFilterShortLabel } from "@/lib/tag-filters";
 import {
   getAllSpots,
   getAreaCounts,
   getCategoryCounts,
+  getTagCounts,
 } from "@/lib/places";
-import type { CategoryId, MunicipalityCode } from "@/types/spot";
+import type { CategoryId, MunicipalityCode, TagId } from "@/types/spot";
 import type { YamagataAreaId } from "@/lib/yamagata-municipalities";
 import { getAreaForMunicipality } from "@/lib/yamagata-municipalities";
 
@@ -47,6 +51,7 @@ function SpotsPageContent() {
   const rawCategory = searchParams.get("category");
   const rawMunicipality = searchParams.get("municipality");
   const rawArea = searchParams.get("area");
+  const rawTag = searchParams.get("tag");
 
   const activeCategory = isValidCategory(rawCategory)
     ? (rawCategory as CategoryId)
@@ -55,8 +60,10 @@ function SpotsPageContent() {
     ? (rawMunicipality as MunicipalityCode)
     : null;
   const activeArea = isValidArea(rawArea) ? (rawArea as YamagataAreaId) : null;
+  const activeTag = isValidTag(rawTag) ? (rawTag as TagId) : null;
 
   const counts = useMemo(() => getCategoryCounts(), []);
+  const tagCounts = useMemo(() => getTagCounts(), []);
   const areaCounts = useMemo(() => getAreaCounts(), []);
   const allSpots = useMemo(() => getAllSpots(), []);
 
@@ -78,18 +85,23 @@ function SpotsPageContent() {
     if (activeMunicipality) {
       list = list.filter((s) => s.municipality === activeMunicipality);
     }
+    if (activeTag) {
+      list = list.filter((s) => s.tags.includes(activeTag));
+    }
     return list;
-  }, [allSpots, activeCategory, activeArea, activeMunicipality]);
+  }, [allSpots, activeCategory, activeArea, activeMunicipality, activeTag]);
 
   const buildHref = (
     category?: CategoryId | null,
     municipality?: MunicipalityCode | null,
     area?: YamagataAreaId | null,
+    tag?: TagId | null,
   ) => {
     const sp = new URLSearchParams();
     if (category) sp.set("category", category);
     if (area) sp.set("area", area);
     if (municipality) sp.set("municipality", municipality);
+    if (tag) sp.set("tag", tag);
     const q = sp.toString();
     return q ? `/spots?${q}` : "/spots";
   };
@@ -98,8 +110,11 @@ function SpotsPageContent() {
   const legacyCount = allSpots.filter((s) => !s.id.startsWith("kanko-")).length;
   const officialCount = totalSpotCount - legacyCount;
   const hasFilters = Boolean(
-    activeCategory || activeMunicipality || activeArea,
+    activeCategory || activeMunicipality || activeArea || activeTag,
   );
+
+  const buildTagHref = (tag: TagId | null) =>
+    buildHref(activeCategory, activeMunicipality, activeArea, tag);
 
   return (
     <PageShell width="xl">
@@ -129,7 +144,7 @@ function SpotsPageContent() {
         <FilterGroup label="地域">
           <FilterScrollRow>
             <FilterChip
-              href={buildHref(activeCategory, null, null)}
+              href={buildHref(activeCategory, null, null, activeTag)}
               label="県内すべて"
               isActive={!activeArea}
               count={totalSpotCount}
@@ -137,7 +152,7 @@ function SpotsPageContent() {
             {AREA_IDS.map((id) => (
               <FilterChip
                 key={id}
-                href={buildHref(activeCategory, null, id)}
+                href={buildHref(activeCategory, null, id, activeTag)}
                 label={YAMAGATA_AREA_LABELS[id].short}
                 isActive={activeArea === id}
                 count={areaCounts[id]}
@@ -149,14 +164,14 @@ function SpotsPageContent() {
         <FilterGroup label="カテゴリ">
           <FilterScrollRow>
             <FilterChip
-              href={buildHref(null, activeMunicipality, activeArea)}
+              href={buildHref(null, activeMunicipality, activeArea, activeTag)}
               label="すべて"
               isActive={!activeCategory}
             />
             {CATEGORIES.map((c) => (
               <FilterChip
                 key={c.id}
-                href={buildHref(c.id, activeMunicipality, activeArea)}
+                href={buildHref(c.id, activeMunicipality, activeArea, activeTag)}
                 label={c.name}
                 isActive={activeCategory === c.id}
                 count={counts[c.id] ?? 0}
@@ -166,13 +181,20 @@ function SpotsPageContent() {
           </FilterScrollRow>
         </FilterGroup>
 
+        <TagFilterPanel
+          id="tag-filters"
+          activeTag={activeTag}
+          buildHref={buildTagHref}
+          counts={tagCounts}
+        />
+
         <FilterGroup
           label={activeArea ? `${YAMAGATA_AREA_LABELS[activeArea].short}の市町` : "市町"}
           hint={activeArea ? undefined : "先に地域を選ぶと市町で絞れます"}
         >
           <FilterScrollRow>
             <FilterChip
-              href={buildHref(activeCategory, null, activeArea)}
+              href={buildHref(activeCategory, null, activeArea, activeTag)}
               label={activeArea ? "地域内すべて" : "市町（地域未選択）"}
               isActive={!activeMunicipality}
             />
@@ -180,7 +202,7 @@ function SpotsPageContent() {
               municipalityOptions.map((m) => (
                 <FilterChip
                   key={m.code}
-                  href={buildHref(activeCategory, m.code, activeArea)}
+                  href={buildHref(activeCategory, m.code, activeArea, activeTag)}
                   label={m.name}
                   isActive={activeMunicipality === m.code}
                 />
@@ -197,7 +219,12 @@ function SpotsPageContent() {
               <Badge variant="outline" className="gap-1.5 pr-1">
                 {YAMAGATA_AREA_LABELS[activeArea].label}
                 <Link
-                  href={buildHref(activeCategory, activeMunicipality, null)}
+                  href={buildHref(
+                    activeCategory,
+                    activeMunicipality,
+                    null,
+                    activeTag,
+                  )}
                   className="inline-flex rounded-full p-0.5 hover:bg-muted"
                   aria-label="地域絞り込みを解除"
                 >
@@ -209,9 +236,26 @@ function SpotsPageContent() {
               <Badge variant="default" className="gap-1.5 pr-1">
                 {CATEGORY_MAP[activeCategory]?.name}
                 <Link
-                  href={buildHref(null, activeMunicipality, activeArea)}
+                  href={buildHref(null, activeMunicipality, activeArea, activeTag)}
                   className="inline-flex rounded-full p-0.5 hover:bg-primary-foreground/20"
                   aria-label="カテゴリ絞り込みを解除"
+                >
+                  <X className="h-3 w-3" />
+                </Link>
+              </Badge>
+            )}
+            {activeTag && (
+              <Badge variant="secondary" className="gap-1.5 pr-1">
+                {getTagFilterShortLabel(activeTag)}
+                <Link
+                  href={buildHref(
+                    activeCategory,
+                    activeMunicipality,
+                    activeArea,
+                    null,
+                  )}
+                  className="inline-flex rounded-full p-0.5 hover:bg-muted"
+                  aria-label="設備・条件の絞り込みを解除"
                 >
                   <X className="h-3 w-3" />
                 </Link>
@@ -221,7 +265,7 @@ function SpotsPageContent() {
               <Badge variant="secondary" className="gap-1.5 pr-1">
                 {MUNICIPALITY_MAP[activeMunicipality]?.name}
                 <Link
-                  href={buildHref(activeCategory, null, activeArea)}
+                  href={buildHref(activeCategory, null, activeArea, activeTag)}
                   className="inline-flex rounded-full p-0.5 hover:bg-muted"
                   aria-label="市町絞り込みを解除"
                 >
@@ -300,4 +344,9 @@ function isValidMunicipality(value: string | null): boolean {
 function isValidArea(value: string | null): value is YamagataAreaId {
   if (!value) return false;
   return AREA_IDS.includes(value as YamagataAreaId);
+}
+
+function isValidTag(value: string | null): boolean {
+  if (!value) return false;
+  return Boolean(TAG_MAP[value as TagId]);
 }

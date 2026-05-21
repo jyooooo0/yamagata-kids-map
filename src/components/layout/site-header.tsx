@@ -15,9 +15,6 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  if (pathname === "/") {
-    return null;
-  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/55 bg-card/80 backdrop-blur-xl supports-[backdrop-filter]:bg-card/60">

@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { CategoryIcon } from "@/components/spots/category-icon";
 import { CATEGORY_MAP, MUNICIPALITY_MAP, TAG_MAP } from "@/lib/categories";
 import { getGoogleMapsUrl } from "@/lib/maps";
+import { sortTagsByPriority } from "@/lib/tag-filters";
 import { cn } from "@/lib/utils";
 import type { Spot } from "@/types/spot";
 
@@ -42,8 +43,15 @@ export function SpotCard({
     .filter(Boolean);
   const municipality = MUNICIPALITY_MAP[spot.municipality];
 
-  const displayedTags = spot.tags.slice(0, variant === "carousel" ? 4 : 6);
-  const remainingTagCount = Math.max(0, spot.tags.length - displayedTags.length);
+  const sortedTagIds = sortTagsByPriority(spot.tags);
+  const displayedTags = sortedTagIds.slice(
+    0,
+    variant === "carousel" ? 4 : 6,
+  );
+  const remainingTagCount = Math.max(
+    0,
+    sortedTagIds.length - displayedTags.length,
+  );
   const googleMapsUrl = getGoogleMapsUrl(spot);
 
   return (

@@ -1,15 +1,12 @@
-import "@/styles/yamagata-zip-scoped.css";
-import "@/styles/yamagata-zip-desktop.css";
-import "@/styles/yamagata-zip-wide-layout.css";
-
 import { YamagataZipHome } from "@/components/home/yamagata-zip-home";
-import { getAllSpots, getFeaturedSpots } from "@/lib/places";
+import { getAllSpots, getFeaturedSpots, getTagCounts } from "@/lib/places";
 
 export default function HomePage() {
   return (
     <YamagataZipHome
       spots={getAllSpots()}
       featured={getFeaturedSpots(12)}
+      tagCounts={getTagCounts()}
     />
   );
 }
